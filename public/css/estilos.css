@@ -1,0 +1,16 @@
+.card-img-top {
+    height: 200px;
+    object-fit: contain;
+    padding: 10px;
+}
+
+.card {
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+.card:hover {
+    background-color: #f0f8ff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(1.03);
+}
