@@ -1,21 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Contacto</title>
-    <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
-</head>
-<body>
+@extends('layouts.app')
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="#">Mi Sitio</a>
-        <div class="navbar-nav">
-            <a class="nav-link" href="/">Inicio</a>
-            <a class="nav-link" href="/sobre-mi">Sobre mí</a>
-            <a class="nav-link active" href="/contacto">Contacto</a>
-        </div>
-    </div>
-</nav>
+@section('titulo', 'Contacto')
+
+@section('contenido')
 
 <div class="container mt-4">
     <div class="card">
@@ -41,6 +28,4 @@
     </div>
 </div>
 
-<script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-</body>
-</html>
+@endsection

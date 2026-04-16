@@ -12,8 +12,6 @@ Route::get('/contacto', function () {
     return view('contacto');
 });
 
-Route::post('/contacto', [ContactoController::class, 'procesar']);
-
 Route::get('/inicio', function () {
     return view('inicio');
 });
@@ -21,3 +19,8 @@ Route::get('/inicio', function () {
 Route::get('/quienes-somos', function () {
     return view('quienes-somos');
 });
+
+Route::get('/producto/{id}', function ($id) {
+    return view('producto', ['id' => $id]);
+});
+
