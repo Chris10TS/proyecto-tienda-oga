@@ -52,15 +52,15 @@
                 @csrf
                 <div class="mb-3">
                     <label class="form-label">Nombre</label>
-                    <input type="text" name="nombre" class="form-control" placeholder="Tu nombre">
+                    <input type="text" name="nombre" class="form-control" placeholder="Tu nombre" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Email</label>
-                    <input type="email" name="email" class="form-control" placeholder="Tu email">
+                    <input type="email" name="email" class="form-control" placeholder="Tu email" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Teléfono</label>
-                    <input type="text" name="telefono" class="form-control" placeholder="Tu teléfono">
+                    <input type="text" name="telefono" class="form-control" placeholder="Tu teléfono" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Mensaje</label>

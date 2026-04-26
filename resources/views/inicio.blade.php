@@ -39,7 +39,7 @@
 
 <div class="row">
     <div class="col-md-4 mb-3">
-        <a href="/catalogo" class="text-decoration-none text-dark">
+        <a href="/catalogo-invierno" class="text-decoration-none text-dark">
         <div class="card h-100">
             <img src="{{ asset('images/img-products/estufa-bionica.png') }}" class="card-img-top" alt="tecnología">
             <div class="card-body">
@@ -51,7 +51,7 @@
 
 
     <div class="col-md-4 mb-3">
-        <a href="/catalogo" class="text-decoration-none text-dark">
+        <a href="/catalogo-seguridad" class="text-decoration-none text-dark">
         <div class="card h-100">
             <img src="{{ asset('images/img-products/seguridad.png') }}" class="card-img-top" alt="seguridad">
             <div class="card-body">
@@ -63,11 +63,11 @@
 
 
     <div class="col-md-4 mb-3">
-        <a href="/catalogo" class="text-decoration-none text-dark">
+        <a href="/catalogo-televisores" class="text-decoration-none text-dark">
         <div class="card h-100">
-            <img src="{{ asset('images/img-products/hogar.png') }}" class="card-img-top" alt="hogar">
+            <img src="{{ asset('images/img-products/televisores.png') }}" class="card-img-top" alt="hogar">
             <div class="card-body">
-                <h5 class="card-title">Hogar</h5>
+                <h5 class="card-title">Televisores</h5>
             </div>
         </div>
         </a>
@@ -82,6 +82,7 @@
 
     <div class="d-flex overflow-auto pb-3 gap-3" style="scrollbar-width: thin;">
         
+        <a href="/productos/estufa-bionica" class="text-decoration-none text-dark">
         <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
             <img src="{{ asset('images/img-products/estufa-bionica.png') }}" class="card-img-top p-3" alt="Estufa">
             <div class="card-body border-top">
@@ -95,7 +96,9 @@
                 <p class="text-success fw-bold small mb-0">Envío gratis</p>
             </div>
         </div>
+        </a>
 
+        <a href="/productos/estufa-infrarroja" class="text-decoration-none text-dark">
         <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
             <img src="{{ asset('images/img-products/estufa-infrarroja-lilliana.png') }}" class="card-img-top p-3" alt="Estufa">
             <div class="card-body border-top">
@@ -108,8 +111,10 @@
                 <p class="text-primary small mb-1">6 cuotas de $10.509</p>
                 <p class="text-success fw-bold small mb-0">Envío gratis</p>
             </div>
+        </a>
         </div>
 
+        <a href="/productos/manta-river" class="text-decoration-none text-dark">
         <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
             <img src="{{ asset('images/img-products/manta-riverplate.png') }}" class="card-img-top p-3" alt="Estufa">
             <div class="card-body border-top">
@@ -122,7 +127,9 @@
                 <p class="text-success fw-bold small mb-0">Envío gratis</p>
             </div>
         </div>
+        </a>
 
+        <a href="/productos/manta-magica" class="text-decoration-none text-dark">
         <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
             <img src="{{ asset('images/img-products/manta-infantil.png') }}" class="card-img-top p-3" alt="Estufa">
             <div class="card-body border-top">
@@ -135,6 +142,7 @@
                 <p class="text-success fw-bold small mb-0">Envío gratis</p>
             </div>
         </div>
+        </a>
 
     </div>
 </div>
@@ -179,6 +187,7 @@
         </div>
         </a>
 
+        <a href="/productos/camara-e121" class="text-decoration-none text-dark">
         <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
             <img src="{{ asset('images/img-products/kit-camaras-e121.png') }}" class="card-img-top p-3" alt="Estufa">
             <div class="card-body border-top">
@@ -192,7 +201,9 @@
                 <p class="text-success fw-bold small mb-0">Envío gratis</p>
             </div>
         </div>
+        </a>
 
+        <a href="/productos/camara-e122" class="text-decoration-none text-dark">
         <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
             <img src="{{ asset('images/img-products/kit-camaras-e122.png') }}" class="card-img-top p-3" alt="Estufa">
             <div class="card-body border-top">
@@ -206,6 +217,7 @@
                 <p class="text-success fw-bold small mb-0">Envío gratis</p>
             </div>
         </div>
+    </a>
 
     </div>
 </div>
@@ -220,7 +232,7 @@
         <div class="d-flex justify-content-center pb-3 gap-3 flex-wrap">
             
             <div class="card border-0 shadow" style="min-width: 240px; max-width: 240px;">
-                <img src="{{ asset('images/img-products/televisor-43.png') }}" class="card-img-top p-3" alt="TV">
+                <img src="{{ asset('images/img-products/television-43.png') }}" class="card-img-top p-3" alt="TV">
                 <div class="card-body border-top">
                     <p class="text-truncate mb-1" style="font-size: 0.9rem;">Smart TV 50" 4K UHD Ultra Slim</p>
                     <span class="text-muted text-decoration-line-through small">$450.000</span>
@@ -250,7 +262,7 @@
             <div class="card border-0 shadow" style="min-width: 240px; max-width: 240px;">
                 <img src="{{ asset('images/img-products/tv-55.png') }}" class="card-img-top p-3" alt="TV">
                 <div class="card-body border-top">
-                    <p class="text-truncate mb-1" style="font-size: 0.9rem;">Smart TV 32" 4K UHD Ultra Slim</p>
+                    <p class="text-truncate mb-1" style="font-size: 0.9rem;">Smart TV " 4K UHD Ultra Slim</p>
                     <span class="text-muted text-decoration-line-through small">$650.000</span>
                     <div class="d-flex align-items-center gap-2">
                         <h4 class="mb-0">$550.000</h4>

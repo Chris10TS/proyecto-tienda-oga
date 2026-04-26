@@ -2,11 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ContactoOgaController;
+
 Route::get('/sobre-mi', function () {
 return view('sobre-mi');
 });
-
-use App\Http\Controllers\ContactoController;
 
 Route::get('/contacto', function () {
     return view('contacto');
@@ -32,8 +32,17 @@ Route::get('/terminos', function () {
     return view('terminos');
 });
 
-Route::get('/catalogo', function () {
-    return view('catalogo');
+Route::get('/catalogo-invierno', function () {
+    return view('catalogo-invierno');
+});
+
+Route::get('/catalogo-seguridad', function () {
+    return view('catalogo-seguridad');
+});
+
+
+Route::get('/catalogo-televisores', function () {
+    return view('catalogo-televisores');
 });
 
 Route::get('/productos/camara-seguridade107', function () {
@@ -43,3 +52,41 @@ Route::get('/productos/camara-seguridade107', function () {
 Route::get('/productos/camara-seguridade126', function () {
     return view('productos.camara-seguridade126');
 });
+
+Route::get('/productos/camara-e121', function () {
+    return view('productos.camara-e121');
+});
+
+Route::get('/productos/camara-e122', function () {
+    return view('productos.camara-e122');
+});
+
+Route::get('/productos/televisor-32', function () {
+    return view('productos.televisor-32');
+});
+
+Route::get('/productos/televisor-43', function () {
+    return view('productos.televisor-43');
+});
+
+Route::get('/productos/televisor-55', function () {
+    return view('productos.televisor-55');
+});
+
+Route::get('/productos/estufa-bionica', function () {
+    return view('productos.estufa-bionica');
+});
+
+Route::get('/productos/estufa-infrarroja', function () {
+    return view('productos.estufa-infrarroja');
+});
+
+Route::get('/productos/manta-river', function () {
+    return view('productos.manta-river');
+});
+
+Route::get('/productos/manta-magica', function () {
+    return view('productos.manta-magica');
+});
+
+Route::post('/contacto-oga', [ContactoOgaController::class, 'procesar']);
