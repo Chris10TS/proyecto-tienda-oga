@@ -29,7 +29,9 @@
     <div class="container">
 
         
-        <a class="navbar-brand fw-bold fs-3" href="/inicio">Tienda OGA</a>
+        <a class="navbar-brand" href="/inicio">
+        <img src="{{ asset('images/logo.png') }}" alt="Logo Oga" height="40">
+        </a>
 
        
         <form class="d-flex flex-grow-1 mx-4">
