@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda OGA - @yield('titulo')</title>
+    <title>Tienda OGA - Inicio</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/img-products/logo.png') }}">
     <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">    
     <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
@@ -30,7 +31,7 @@
 
         
         <a class="navbar-brand" href="/inicio">
-        <img src="{{ asset('images/logo.png') }}" alt="Logo Oga" height="40">
+        <img src="{{ asset('images/img-products/logo.png') }}" alt="Logo Oga" height="40">
         </a>
 
        
