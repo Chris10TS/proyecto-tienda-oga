@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda OGA - Inicio</title>
-    <link rel="icon" type="image/png" href="{{ asset('images/img-products/logo.png') }}">
-    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">    
+    <link rel="icon" type="image/png" href="{{ asset('images/img-products/logos.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/img-products/logos.png') }}">    
     <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
     <link rel="stylesheet" href="/css/estilos.css">
@@ -26,12 +26,12 @@
 </div>
 
 
-<nav class="navbar navbar-light bg-white border-bottom shadow-sm">
+<nav class="navbar navbar-light border-bottom shadow-sm" style="background-color: #F5793A;">
     <div class="container">
 
         
         <a class="navbar-brand" href="/inicio">
-        <img src="{{ asset('images/img-products/logo.png') }}" alt="Logo Oga" height="40">
+        <img src="{{ asset('images/img-products/logos.png') }}" alt="Logo Oga" height="70">
         </a>
 
        

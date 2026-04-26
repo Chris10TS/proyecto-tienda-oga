@@ -13,7 +13,7 @@
             <li class="breadcrumb-item"><a href="/inicio">Inicio</a></li>
             <li class="breadcrumb-item"><a href="/catalogo">Catálogo</a></li>
             <li class="breadcrumb-item"><a href="/catalogo-invierno">Invierno</a></li>
-            <li class="breadcrumb-item active">Estufa Bionica</li>
+            <li class="breadcrumb-item active">Manta Luminosa River Plate</li>
         </ol>
     </nav>
 
@@ -29,27 +29,29 @@
         {{-- Columna central: info del producto --}}
         <div class="col-md-4">
             <span class="badge bg-success mb-2">MÁS VENDIDO</span>
-            <h1 class="fs-4 fw-bold">Estufa Infrarroja Lilliana</h1>
+            <h1 class="fs-4 fw-bold">Manta Luminosa Flannel River Plate 1 1/2 Plaza</h1>
 
             {{-- Estrellas --}}
             <div class="d-flex align-items-center gap-2 mb-3">
                 <span class="text-warning fs-5">★★★★☆</span>
-                <span class="text-muted">(148 opiniones)</span>
+                <span class="text-muted">(16 opiniones)</span>
             </div>
 
             {{-- Precio --}}
-            <p class="text-muted text-decoration-line-through mb-0">$39.999</p>
+            <p class="text-muted text-decoration-line-through mb-0">$15.000</p>
             <div class="d-flex align-items-center gap-2 mb-1">
-                <span class="fs-2 fw-bold">$46.059</span>
-                <span class="badge bg-success fs-6">22% OFF</span>
+                <span class="fs-2 fw-bold">$9.121,8</span>
+                <span class="badge bg-success fs-6">60% OFF</span>
             </div>
-            <p class="text-muted mb-3">6 cuotas de $7.696 sin interés</p>
 
             {{-- Características rápidas --}}
             <ul class="list-unstyled mb-3">
-                <li><i class="ti ti-check"></i>Voltaje: 220V.</li>
-                <li><i class="ti ti-check"></i>Marca: Lilliana.</li>
-                <li><i class="ti ti-check"></i>Potencia máxima de 2000 W</li>
+                <li><i class="ti ti-check"></i>Ancho: 160 cm</li>
+                <li><i class="ti ti-check"></i>Largo: 220 cm</li>
+                <li><i class="ti ti-check"></i>Unidades por pack: 1</li>
+                <li><i class="ti ti-check"></i>Tamaño del colchón: 1 1/2 plazas</li>
+                <li><i class="ti ti-check"></i>Confeccionada en microfibra.</li>
+                <li><i class="ti ti-check"></i>Diseño de la tela: River Plate.</li>
             </ul>
 
             {{-- Stock --}}
@@ -76,7 +78,7 @@
 
                 <div class="border-top pt-3">
                     <p class="small mb-1"> Devoluciones hasta 30 días</p>
-                    <p class="small mb-1"> Garantía 6 meses</p>
+                    <p class="small mb-1"> Garantía 10 dias</p>
                     <p class="small mb-0"> Compra segura</p>
                 </div>
             </div>
@@ -89,18 +91,18 @@
         <div class="col-12">
             <div class="cardP p-4">
                 <h3 class="fw-bold mb-3">Descripción del producto</h3>
-                <p>La <strong>Cámara de Seguridad WiFi LUO E107</strong> es la solución ideal para proteger tu hogar o negocio. Con resolución Full HD 1080p y visión nocturna de hasta 20 metros, podés monitorear todo desde tu celular en tiempo real.</p>
+                <p>Frazada Flannel Magica Luminosa River Plate Oficial! Brilla por la noche y en la oscuridad. Debe tomar luz durante el dia. Medida 150x220 / Licencia Oficial</p>
                 <h5 class="mt-3">Especificaciones técnicas</h5>
                 <table class="table table-bordered">
                     <tbody>
-                        <tr><td><strong>Marca</strong></td><td>LUO</td></tr>
-                        <tr><td><strong>Modelo</strong></td><td>E107</td></tr>
-                        <tr><td><strong>Resolución</strong></td><td>1080p Full HD</td></tr>
-                        <tr><td><strong>Conectividad</strong></td><td>WiFi 2.4GHz</td></tr>
-                        <tr><td><strong>Visión nocturna</strong></td><td>Hasta 20 metros</td></tr>
-                        <tr><td><strong>Resistencia</strong></td><td>IP66 (resistente al agua)</td></tr>
-                        <tr><td><strong>Alimentación</strong></td><td>12V DC</td></tr>
-                        <tr><td><strong>Garantía</strong></td><td>6 meses</td></tr>
+                        <tr><td><strong>Modelo</strong></td><td>Manta Luminosa</td></tr>
+                        <tr><td><strong>Diseño de la tela</strong></td><td>River Plate</td></tr>
+                        <tr><td><strong>Tamaño del colchón</strong></td><td>1 1/2 plazas</td></tr>
+                        <tr><td><strong>Linea</strong></td><td>Invierno</td></tr>
+                        <tr><td><strong>Largo</strong></td><td>220 cm</td></tr>
+                        <tr><td><strong>Ancho</strong></td><td>160 cm</td></tr>
+                        <tr><td><strong>Composición</strong></td><td>100% poliéster</td></tr>
+                        <tr><td><strong>Garantía</strong></td><td>10 días</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -117,7 +119,7 @@
                     <span class="display-4 fw-bold">4.0</span>
                     <div>
                         <span class="text-warning fs-4">★★★★☆</span>
-                        <p class="text-muted mb-0">128 opiniones</p>
+                        <p class="text-muted mb-0">16 opiniones</p>
                     </div>
                 </div>
 
@@ -142,11 +144,11 @@
 
                 <div class="border-bottom pb-3 mb-3">
                     <div class="d-flex justify-content-between">
-                        <strong>Laura M.</strong>
+                        <strong>Jose F.</strong>
                         <span class="text-muted small">Marzo 2026</span>
                     </div>
                     <span class="text-warning">★★★☆☆</span>
-                    <p class="mt-1 mb-0">Buena Estufa, me mantiene caliente.</p>
+                    <p class="mt-1 mb-0">La manta perfecta para los dias de calor jajaja.</p>
                 </div>
 
             </div>

@@ -13,7 +13,7 @@
             <li class="breadcrumb-item"><a href="/inicio">Inicio</a></li>
             <li class="breadcrumb-item"><a href="/catalogo">Catálogo</a></li>
             <li class="breadcrumb-item"><a href="/catalogo-invierno">Invierno</a></li>
-            <li class="breadcrumb-item active">Estufa Bionica</li>
+            <li class="breadcrumb-item active">Estufa Infrarroja</li>
         </ol>
     </nav>
 
@@ -34,16 +34,16 @@
             {{-- Estrellas --}}
             <div class="d-flex align-items-center gap-2 mb-3">
                 <span class="text-warning fs-5">★★★★☆</span>
-                <span class="text-muted">(148 opiniones)</span>
+                <span class="text-muted">(118 opiniones)</span>
             </div>
 
             {{-- Precio --}}
-            <p class="text-muted text-decoration-line-through mb-0">$39.999</p>
+            <p class="text-muted text-decoration-line-through mb-0">$20.977</p>
             <div class="d-flex align-items-center gap-2 mb-1">
-                <span class="fs-2 fw-bold">$46.059</span>
-                <span class="badge bg-success fs-6">22% OFF</span>
+                <span class="fs-2 fw-bold">$44.799</span>
+                <span class="badge bg-success fs-6">53% OFF</span>
             </div>
-            <p class="text-muted mb-3">6 cuotas de $7.696 sin interés</p>
+            <p class="text-muted mb-3">6 cuotas de $3.497 sin interés</p>
 
             {{-- Características rápidas --}}
             <ul class="list-unstyled mb-3">
@@ -89,18 +89,20 @@
         <div class="col-12">
             <div class="cardP p-4">
                 <h3 class="fw-bold mb-3">Descripción del producto</h3>
-                <p>La <strong>Cámara de Seguridad WiFi LUO E107</strong> es la solución ideal para proteger tu hogar o negocio. Con resolución Full HD 1080p y visión nocturna de hasta 20 metros, podés monitorear todo desde tu celular en tiempo real.</p>
+                <p>LILIANA VERTICALEFACTOR INFRAROJO.
+                   Este calefactor vertical de la marca Liliana es ideal para mantener el ambiente cálido y confortable. 
+                </p>
                 <h5 class="mt-3">Especificaciones técnicas</h5>
                 <table class="table table-bordered">
                     <tbody>
-                        <tr><td><strong>Marca</strong></td><td>LUO</td></tr>
-                        <tr><td><strong>Modelo</strong></td><td>E107</td></tr>
-                        <tr><td><strong>Resolución</strong></td><td>1080p Full HD</td></tr>
-                        <tr><td><strong>Conectividad</strong></td><td>WiFi 2.4GHz</td></tr>
-                        <tr><td><strong>Visión nocturna</strong></td><td>Hasta 20 metros</td></tr>
-                        <tr><td><strong>Resistencia</strong></td><td>IP66 (resistente al agua)</td></tr>
-                        <tr><td><strong>Alimentación</strong></td><td>12V DC</td></tr>
-                        <tr><td><strong>Garantía</strong></td><td>6 meses</td></tr>
+                        <tr><td><strong>Marca</strong></td><td>Liliana</td></tr>
+                        <tr><td><strong>Modelo</strong></td><td>CV027</td></tr>
+                        <tr><td><strong>Linea</strong></td><td>Verticalefactor</td></tr>
+                        <tr><td><strong>Color</strong></td><td>Negro</td></tr>
+                        <tr><td><strong>Voltaje</strong></td><td>220V</td></tr>
+                        <tr><td><strong>Altura</strong></td><td>67,5 cm</td></tr>
+                        <tr><td><strong>Largo</strong></td><td>25 cm</td></tr>
+                        <tr><td><strong>Ancho</strong></td><td>23 cm</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -117,7 +119,7 @@
                     <span class="display-4 fw-bold">4.0</span>
                     <div>
                         <span class="text-warning fs-4">★★★★☆</span>
-                        <p class="text-muted mb-0">128 opiniones</p>
+                        <p class="text-muted mb-0">118 opiniones</p>
                     </div>
                 </div>
 
@@ -142,11 +144,11 @@
 
                 <div class="border-bottom pb-3 mb-3">
                     <div class="d-flex justify-content-between">
-                        <strong>Laura M.</strong>
+                        <strong>Pedro M.</strong>
                         <span class="text-muted small">Marzo 2026</span>
                     </div>
                     <span class="text-warning">★★★☆☆</span>
-                    <p class="mt-1 mb-0">Buena Estufa, me mantiene caliente.</p>
+                    <p class="mt-1 mb-0">Supongo que funciona, se la quedó mi ex. Que opine ella.</p>
                 </div>
 
             </div>

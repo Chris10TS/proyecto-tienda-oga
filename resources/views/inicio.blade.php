@@ -140,7 +140,7 @@
 
         <a href="/productos/manta-magica" class="text-decoration-none text-dark">
         <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
-            <img src="{{ asset('images/img-products/manta-infantil.png') }}" class="card-img-top p-3" alt="Estufa">
+            <img src="{{ asset('images/img-products/manta.png') }}" class="card-img-top p-3" alt="Estufa">
             <div class="card-body border-top">
                 <p class="text-truncate mb-1" style="font-size: 0.9rem;">Manta Magica Brillante Infantil Estampado</p>
                 <span class="text-muted text-decoration-line-through small">$15.898</span>

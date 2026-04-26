@@ -89,17 +89,17 @@
         <div class="col-12">
             <div class="cardP p-4">
                 <h3 class="fw-bold mb-3">Descripción del producto</h3>
-                <p>La <strong>Cámara de Seguridad WiFi LUO E107</strong> es la solución ideal para proteger tu hogar o negocio. Con resolución Full HD 1080p y visión nocturna de hasta 20 metros, podés monitorear todo desde tu celular en tiempo real.</p>
+                <p>Con la <strong>Estufa De Cuarzo Bionica Infrarroja</strong> que cuenta con una potencia máxima de 2000 W y eficiencia energética clase A, disfrutarás de un calor acogedor sin preocupaciones por el consumo eléctrico.</p>
                 <h5 class="mt-3">Especificaciones técnicas</h5>
                 <table class="table table-bordered">
                     <tbody>
-                        <tr><td><strong>Marca</strong></td><td>LUO</td></tr>
-                        <tr><td><strong>Modelo</strong></td><td>E107</td></tr>
-                        <tr><td><strong>Resolución</strong></td><td>1080p Full HD</td></tr>
-                        <tr><td><strong>Conectividad</strong></td><td>WiFi 2.4GHz</td></tr>
-                        <tr><td><strong>Visión nocturna</strong></td><td>Hasta 20 metros</td></tr>
-                        <tr><td><strong>Resistencia</strong></td><td>IP66 (resistente al agua)</td></tr>
-                        <tr><td><strong>Alimentación</strong></td><td>12V DC</td></tr>
+                        <tr><td><strong>Marca</strong></td><td>Bionica</td></tr>
+                        <tr><td><strong>Modelo</strong></td><td>RL15</td></tr>
+                        <tr><td><strong>Color</strong></td><td>Blanco</td></tr>
+                        <tr><td><strong>Voltaje</strong></td><td>220V</td></tr>
+                        <tr><td><strong>Altura</strong></td><td>36 cm</td></tr>
+                        <tr><td><strong>Largo</strong></td><td>16 cm</td></tr>
+                        <tr><td><strong>Ancho</strong></td><td>18 cm</td></tr>
                         <tr><td><strong>Garantía</strong></td><td>6 meses</td></tr>
                     </tbody>
                 </table>
@@ -136,7 +136,9 @@
                         <span class="text-muted small">Febrero 2026</span>
                     </div>
                     <span class="text-warning">★★★★☆</span>
-                    <p class="mt-1 mb-0">Muy buena relación precio-calidad.</p>
+                    <p class="mt-1 mb-0">Muy bien como esperaba.
+                       Por el precio calidad.
+                       Fácil trasladar.</p>
                 </div>
 
 
@@ -146,7 +148,7 @@
                         <span class="text-muted small">Marzo 2026</span>
                     </div>
                     <span class="text-warning">★★★☆☆</span>
-                    <p class="mt-1 mb-0">Buena Estufa, me mantiene caliente.</p>
+                    <p class="mt-1 mb-0">Muy practico,agradable para calrefaccion rapida y de un ambiente pequeño!,solo el cable es corto a tener en cuenta.</p>
                 </div>
 
             </div>

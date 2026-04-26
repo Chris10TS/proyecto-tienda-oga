@@ -55,7 +55,7 @@
     <div class="col-md-4 col-sm-6 mb-3">
         <a href="/productos/manta-magica" class="text-decoration-none text-dark">
             <div class="card h-100">
-                <img src="{{ asset('images/img-products/manta-infantil.png') }}" class="card-img-top" alt="Manta">
+                <img src="{{ asset('images/img-products/manta.png') }}" class="card-img-top" alt="Manta">
                 <div class="card-body">
                     <h5 class="card-title">Manta Magica Luminosa Infantil</h5>
                     <p class="card-text text-muted"> Manta de River ideal para el frío.</p>
