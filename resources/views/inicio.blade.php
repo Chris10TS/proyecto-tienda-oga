@@ -4,7 +4,7 @@
 
 @section('contenido')
 
-<div id="carouselPromociones" class="carousel slide mb-5 shadow carousel-fullwidth" data-bs-ride="carousel">
+<div id="carouselPromociones" class="carousel slide mb-5 shadow rounded" data-bs-ride="carousel">
     
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselPromociones" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -12,7 +12,7 @@
         <button type="button" data-bs-target="#carouselPromociones" data-bs-slide-to="2"></button>
     </div>
 
-    <div class="carousel-inner">
+    <div class="carousel-inner rounded">
         <div class="carousel-item active" data-bs-interval="3000">
             <img src="{{ asset('images/img-descounts/img-descuento-mundial.png') }}" class="d-block w-100" alt="Promoción Zapatillas">
         </div>
@@ -35,16 +35,15 @@
         <span class="visually-hidden">Siguiente</span>
     </button>
 </div>
-
 <h2 class="mb-4">Nuestras Categorías</h2>
 
 <div class="row">
     <div class="col-md-4 mb-3">
         <a href="/catalogo" class="text-decoration-none text-dark">
         <div class="card h-100">
-            <img src="{{ asset('images/img-products/tecnologia.png') }}" class="card-img-top" alt="tecnología">
+            <img src="{{ asset('images/img-products/estufa-bionica.png') }}" class="card-img-top" alt="tecnología">
             <div class="card-body">
-                <h5 class="card-title">Tecnología</h5>
+                <h5 class="card-title">Invierno</h5>
             </div>
         </div>
         </a>
@@ -164,7 +163,7 @@
         </div>
         </a>
 
-        <a href="/productos/camara-seguridade107" class="text-decoration-none text-dark">
+        <a href="/productos/camara-seguridade126" class="text-decoration-none text-dark">
         <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
             <img src="{{ asset('images/img-products/camara-luo-e126.png') }}" class="card-img-top p-3" alt="Estufa">
             <div class="card-body border-top">
@@ -218,7 +217,7 @@
             <a href="/catalogo" class="text-white text-decoration-none fw-bold">Ver todas las ofertas</a>
         </div>
 
-        <div class="d-flex overflow-auto pb-3 gap-3" style="scrollbar-width: thin;">
+        <div class="d-flex justify-content-center pb-3 gap-3 flex-wrap">
             
             <div class="card border-0 shadow" style="min-width: 240px; max-width: 240px;">
                 <img src="{{ asset('images/img-products/televisor-43.png') }}" class="card-img-top p-3" alt="TV">
@@ -235,12 +234,26 @@
             </div>
 
             <div class="card border-0 shadow" style="min-width: 240px; max-width: 240px;">
-                <img src="{{ asset('images/img-products/televisor-43.png') }}" class="card-img-top p-3" alt="TV">
+                <img src="{{ asset('images/img-products/tv-32.png') }}" class="card-img-top p-3" alt="TV">
                 <div class="card-body border-top">
-                    <p class="text-truncate mb-1" style="font-size: 0.9rem;">Smart TV 43" 4K UHD Ultra Slim</p>
+                    <p class="text-truncate mb-1" style="font-size: 0.9rem;">Smart TV 32" 4K UHD Ultra Slim</p>
                     <span class="text-muted text-decoration-line-through small">$450.000</span>
                     <div class="d-flex align-items-center gap-2">
                         <h4 class="mb-0">$380.000</h4>
+                        <span class="text-success small fw-bold">15% OFF</span>
+                    </div>
+                    <p class="text-primary small mb-1">12 cuotas <span class="fw-bold">sin interés</span></p>
+                    <p class="text-success fw-bold small mb-0">Envío gratis <i class="ti ti-truck-delivery"></i></p>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow" style="min-width: 240px; max-width: 240px;">
+                <img src="{{ asset('images/img-products/tv-55.png') }}" class="card-img-top p-3" alt="TV">
+                <div class="card-body border-top">
+                    <p class="text-truncate mb-1" style="font-size: 0.9rem;">Smart TV 32" 4K UHD Ultra Slim</p>
+                    <span class="text-muted text-decoration-line-through small">$650.000</span>
+                    <div class="d-flex align-items-center gap-2">
+                        <h4 class="mb-0">$550.000</h4>
                         <span class="text-success small fw-bold">15% OFF</span>
                     </div>
                     <p class="text-primary small mb-1">12 cuotas <span class="fw-bold">sin interés</span></p>

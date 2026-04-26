@@ -13,7 +13,7 @@
             <li class="breadcrumb-item"><a href="/inicio">Inicio</a></li>
             <li class="breadcrumb-item"><a href="/catalogo">Catálogo</a></li>
             <li class="breadcrumb-item"><a href="/catalogo#seguridad">Seguridad</a></li>
-            <li class="breadcrumb-item active">Cámara LUO E107</li>
+            <li class="breadcrumb-item active">Cámara LUO E126</li>
         </ol>
     </nav>
 
@@ -22,7 +22,7 @@
         {{-- Columna izquierda: imágenes --}}
         <div class="col-md-5">
             <div class="card p-3 text-center">
-                <img src="{{ asset('images/img-products/camaraseguridade107.png') }}" class="img-fluid rounded" alt="Cámara LUO E107" style="max-height: 350px; object-fit: contain;">
+                <img src="{{ asset('images/img-products/camara-luo-e126.png') }}" class="img-fluid rounded" alt="Cámara LUO E107" style="max-height: 350px; object-fit: contain;">
             </div>
             <div class="d-flex gap-2 mt-2">
                 <img src="{{ asset('images/productos/camara.png') }}" class="border rounded p-1" style="width:70px; height:70px; object-fit:contain; cursor:pointer;">
@@ -43,9 +43,9 @@
             </div>
 
             {{-- Precio --}}
-            <p class="text-muted text-decoration-line-through mb-0">$45.000</p>
+            <p class="text-muted text-decoration-line-through mb-0">$89.999</p>
             <div class="d-flex align-items-center gap-2 mb-1">
-                <span class="fs-2 fw-bold">$35.000</span>
+                <span class="fs-2 fw-bold">$60.000</span>
                 <span class="badge bg-success fs-6">22% OFF</span>
             </div>
             <p class="text-muted mb-3">6 cuotas de $5.833 sin interés</p>
