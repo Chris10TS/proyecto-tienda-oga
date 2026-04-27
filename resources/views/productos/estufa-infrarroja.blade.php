@@ -38,9 +38,9 @@
             </div>
 
             {{-- Precio --}}
-            <p class="text-muted text-decoration-line-through mb-0">$20.977</p>
+            <p class="text-muted text-decoration-line-through mb-0">$44.799</p>
             <div class="d-flex align-items-center gap-2 mb-1">
-                <span class="fs-2 fw-bold">$44.799</span>
+                <span class="fs-2 fw-bold">$20.977</span>
                 <span class="badge bg-success fs-6">53% OFF</span>
             </div>
             <p class="text-muted mb-3">6 cuotas de $3.497 sin interés</p>
