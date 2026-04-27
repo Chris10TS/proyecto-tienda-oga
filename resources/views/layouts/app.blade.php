@@ -16,22 +16,20 @@
     <div class="container">
         
         {{-- Logo --}}
-        <a class="navbar-brand me-2 me-lg-4" href="/inicio">
+        <a class="navbar-brand me-auto" href="/inicio">
             <img src="{{ asset('images/img-products/logos.png') }}" alt="Logo Oga" height="40">
         </a>
 
-        {{-- Carrito para CELULARES (Se ve solo en pantallas chicas) --}}
-        <div class="d-lg-none ms-auto me-3">
-            <a href="/carrito" class="position-relative">
-                <img src="/images/carrito.png" alt="carrito" style="height: 30px;">
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">2</span>
-            </a>
-        </div>
-
-        {{-- Botón Hamburguesa --}}
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContenido">
-            <span class="navbar-toggler-icon"></span>
+        {{-- Botón Lupa (para abrir el buscador en móvil) --}}
+        <button class="navbar-toggler border-0 p-0 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContenido">
+            <i class="ti ti-search text-white fs-1"></i>
         </button>
+
+        {{-- CARRITO MÓVIL: Se oculta en pantallas grandes (d-lg-none) --}}
+        <a href="/carrito" class="btn btn-link p-0 position-relative text-white d-lg-none">
+            <img src="/images/carrito.png" alt="carrito" style="height: 30px;">
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">2</span>
+        </a>
 
         <div class="collapse navbar-collapse" id="navbarContenido">
             {{-- Buscador --}}
@@ -44,7 +42,7 @@
                 </div>
             </form>
 
-            {{-- Carrito para PC (Se ve solo en pantallas grandes) --}}
+            {{-- CARRITO PC: Solo se ve en pantallas grandes (d-none d-lg-block) --}}
             <div class="ms-lg-3 d-none d-lg-block">
                 <a href="/carrito" class="position-relative">
                     <img src="/images/carrito.png" class="icono-carrito" alt="carrito" style="height: 35px;">
@@ -58,19 +56,36 @@
 {{-- BARRA DE CATEGORÍAS (Ahora visible en móviles también) --}}
 <div class="bg-white border-bottom">
     <div class="container">
-        <div class="d-flex align-items-center py-2 overflow-auto" style="white-space: nowrap;">
+        <div class="d-flex align-items-center py-2">
             
-            <button class="btn btn-link text-dark text-decoration-none fw-bold d-flex align-items-center gap-2 p-0 me-4" 
-                    type="button" data-bs-toggle="offcanvas" data-bs-target="#menuCategorias">
-                <i class="ti ti-menu-2 fs-4"></i>
-                <span class="small fw-bold">CATEGORÍAS</span>
-            </button>
+            <div class="dropdown position-static position-lg-relative">
+                <button class="btn btn-link text-dark text-decoration-none fw-bold d-flex align-items-center gap-2 p-0 dropdown-toggle shadow-none" 
+                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="ti ti-menu-2 fs-4"></i>
+                    <span class="small fw-bold">CATEGORÍAS</span>
+                </button>
 
-            <div class="d-flex gap-3 gap-lg-4">
-                <a href="/ofertas" class="text-decoration-none text-secondary small fw-bold">Ofertas</a>
-                <a href="/consultas" class="text-decoration-none text-secondary small fw-bold">Consultas</a>
-                <a href="/contacto-oga" class="text-decoration-none text-secondary small fw-bold">Contactos</a>
-                <a href="/comercializacion" class="text-decoration-none text-secondary small fw-bold">Comercializacion</a>
+                <ul class="dropdown-menu shadow border-0 py-3 w-100-mobile">
+                    <li><h6 class="dropdown-header d-lg-none">CATEGORÍAS</h6></li>
+                    <li><a class="dropdown-item py-2" href="/catalogo-seguridad">Seguridad</a></li>
+                    <li><a class="dropdown-item py-2" href="/catalogo-televisores">Televisores</a></li>
+                    <li><a class="dropdown-item py-2" href="/catalogo-invierno">Calefacción</a></li>
+                    <li><a class="dropdown-item py-2" href="/catalogo-hogar">Hogar</a></li>
+                    
+                    <li><hr class="dropdown-divider d-lg-none"></li>
+                    <li><h6 class="dropdown-header d-lg-none">MENÚ</h6></li>
+                    <li><a class="dropdown-item py-2 d-lg-none" href="/ofertas">Ofertas</a></li>
+                    <li><a class="dropdown-item py-2 d-lg-none" href="/consultas">Consultas</a></li>
+                    <li><a class="dropdown-item py-2 d-lg-none" href="/contacto-oga">Contactos</a></li>
+                    <li><a class="dropdown-item py-2 d-lg-none" href="/comercializacion">Comercialización</a></li>
+                </ul>
+            </div>
+
+            <div class="d-none d-lg-flex gap-4 ms-4">
+                <a href="/ofertas" class="text-decoration-none text-secondary small fw-bold">OFERTAS</a>
+                <a href="/consultas" class="text-decoration-none text-secondary small fw-bold">CONSULTAS</a>
+                <a href="/contacto-oga" class="text-decoration-none text-secondary small fw-bold">CONTACTOS</a>
+                <a href="/comercializacion" class="text-decoration-none text-secondary small fw-bold">COMERCIALIZACIÓN</a>
             </div>
 
         </div>
@@ -142,17 +157,24 @@
 
 <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
-<div class="offcanvas offcanvas-start" tabindex="-1" id="menuCategorias" aria-labelledby="menuCategoriasLabel">
+<div class="offcanvas offcanvas-start" tabindex="-1" id="menuGlobal" aria-labelledby="menuGlobalLabel" style="width: 100vw;">
   <div class="offcanvas-header border-bottom">
-    <h5 class="offcanvas-title fw-bold" id="menuCategoriasLabel">CATEGORÍAS</h5>
+    <h5 class="offcanvas-title fw-bold" id="menuGlobalLabel">TIENDA OGA</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body p-0">
     <ul class="list-group list-group-flush">
+      <li class="list-group-item bg-light small fw-bold text-muted">CATEGORÍAS</li>
       <a href="/catalogo-seguridad" class="list-group-item list-group-item-action py-3">Seguridad</a>
       <a href="/catalogo-televisores" class="list-group-item list-group-item-action py-3">Televisores</a>
-      <a href="/catalogo-invierno" class="list-group-item list-group-item-action py-3">Calefaccion</a>
+      <a href="/catalogo-invierno" class="list-group-item list-group-item-action py-3">Calefacción</a>
       <a href="/catalogo-hogar" class="list-group-item list-group-item-action py-3">Hogar</a>
+
+      <li class="list-group-item bg-light small fw-bold text-muted d-lg-none">MENÚ</li>
+      <a href="/ofertas" class="list-group-item list-group-item-action py-3 d-lg-none">Ofertas</a>
+      <a href="/consultas" class="list-group-item list-group-item-action py-3 d-lg-none">Consultas</a>
+      <a href="/contacto-oga" class="list-group-item list-group-item-action py-3 d-lg-none">Contactos</a>
+      <a href="/comercializacion" class="list-group-item list-group-item-action py-3 d-lg-none">Comercialización</a>
     </ul>
   </div>
 </div>

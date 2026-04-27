@@ -79,3 +79,31 @@ body{
     background-color: rgb(245, 245, 245);
 }
 
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+    color: #F5793A; /* El naranja de OGA */
+}
+
+/* Quita la flechita del botón */
+.dropdown-toggle::after {
+    display: none !important;
+}
+
+/* Estilos para Celular */
+@media (max-width: 991px) {
+    .w-100-mobile {
+        width: 100vw !important; /* Ocupa todo el ancho */
+        position: absolute !important;
+        left: 0 !important;
+        margin-top: 10px !important;
+        border-radius: 0 !important;
+    }
+}
+
+/* Estilos para PC (Aquí es donde no tapa nada) */
+@media (min-width: 992px) {
+    .dropdown-menu {
+        min-width: 250px; /* Solo el ancho necesario */
+        border-radius: 8px;
+    }
+}

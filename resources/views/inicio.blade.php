@@ -16,7 +16,7 @@
         {{-- Imagen Mundial --}}
         <div class="carousel-item active" data-bs-interval="3000">
             <a href="/catalogo-televisores">
-                <img src="{{ asset('images/img-descounts/img-mundial.png') }}" class="d-block w-100 img-carousel-responsive" alt="Mundial">
+                <img src="{{ asset('images/img-descounts/img-descuento-mundial.png') }}" class="d-block w-100 img-carousel-responsive" alt="Mundial">
             </a>
         </div>
 
