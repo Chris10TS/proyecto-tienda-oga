@@ -4,31 +4,34 @@
 
 @section('contenido')
 
-<div id="carouselPromociones" class="carousel slide mb-5" data-bs-ride="carousel">
+<div id="carouselPromociones" class="carousel slide mb-5 shadow-sm" data-bs-ride="carousel">
     
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselPromociones" data-bs-slide-to="0" class="active" aria-current="true"></button>
-        <button type="button" data-bs-target="#carouselPromociones" data-bs-slide-to="1"></button>
-        <button type="button" data-bs-target="#carouselPromociones" data-bs-slide-to="2"></button>
-    </div>
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselPromociones" data-bs-slide-to="0" class="active" aria-current="true"></button>
+            <button type="button" data-bs-target="#carouselPromociones" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#carouselPromociones" data-bs-slide-to="2"></button>
+        </div>
 
-    <div class="carousel-inner">
+        <div class="carousel-inner">
+        {{-- Imagen Mundial --}}
         <div class="carousel-item active" data-bs-interval="3000">
-            <img src="{{ asset('images/img-descounts/img-mundial.png') }}" class="d-block w-100 object-fit-cover" 
-     style="height: 310px;" 
-     alt="Promoción">
+            <a href="/catalogo-televisores">
+                <img src="{{ asset('images/img-descounts/img-mundial.png') }}" class="d-block w-100 img-carousel-responsive" alt="Mundial">
+            </a>
         </div>
 
+        {{-- Imagen Seguridad --}}
         <div class="carousel-item" data-bs-interval="3000">
-            <img src="{{ asset('images/img-descounts/img-descuento-seguridad.png') }}" class="d-block w-100 object-fit-cover" 
-     style="height: 310px;" 
-     alt="Promoción Tecnología">
+            <a href="/catalogo-seguridad">
+                <img src="{{ asset('images/img-descounts/img-descuento-seguridad.png') }}" class="d-block w-100 img-carousel-responsive" alt="Seguridad">
+            </a>
         </div>
 
+        {{-- Imagen Invierno --}}
         <div class="carousel-item" data-bs-interval="3000">
-            <img src="{{ asset('images/img-descounts/img-descuento-invierno.png') }}" class="d-block w-100 object-fit-cover" 
-     style="height: 310px;" 
-     alt="Promoción Hogar">
+            <a href="/catalogo-invierno">
+                <img src="{{ asset('images/img-descounts/img-descuento-invierno.png') }}" class="d-block w-100 img-carousel-responsive" alt="Invierno">
+            </a>
         </div>
     </div>
 
@@ -44,115 +47,129 @@
 
 <div class="container">
 
-<h2 class="mb-4"><span class="fw-bold">Mas Vendidos</span></h2>
+<h2 class="mb-4"><span class="fw-bold">Más Vendidos</span></h2>
 
 <div class="row">
+    {{-- Producto 1: Smart TV 32" --}}
     <div class="col-md-4 mb-3">
-        <a href="/catalogo-invierno" class="text-decoration-none text-dark">
-        <div class="card h-100">
-            <img src="{{ asset('images/img-products/estufa-bionica.png') }}" class="card-img-top" alt="tecnología">
-            <div class="card-body">
-                <h5 class="card-title">Invierno</h5>
+        <a href="/productos/televisor-32" class="text-decoration-none text-dark">
+            <div class="card h-100 shadow-sm border-0">
+                <img src="{{ asset('images/img-products/tv-32.png') }}" class="card-img-top p-3" alt="Smart TV 32">
+                <div class="card-body">
+                    <p class="text-muted small mb-1 text-uppercase">Televisores</p>
+                    <h5 class="card-title fw-bold">Smart TV 32" HD Slim</h5>
+                    <div class="d-flex align-items-center gap-2">
+                        <h4 class="mb-0 fw-bold">$380.000</h4>
+                        <span class="text-success small fw-bold">15% OFF</span>
+                    </div>
+                    <p class="text-primary small mb-0 fw-bold">12 cuotas sin interés</p>
+                </div>
             </div>
-        </div>
         </a>
     </div>
 
-
+    {{-- Producto 2: Manta River --}}
     <div class="col-md-4 mb-3">
-        <a href="/catalogo-seguridad" class="text-decoration-none text-dark">
-        <div class="card h-100">
-            <img src="{{ asset('images/img-products/seguridad.png') }}" class="card-img-top" alt="seguridad">
-            <div class="card-body">
-                <h5 class="card-title">Seguridad</h5>
+        <a href="/productos/manta-river" class="text-decoration-none text-dark">
+            <div class="card h-100 shadow-sm border-0">
+                <img src="{{ asset('images/img-products/manta-riverplate.png') }}" class="card-img-top p-3" alt="Manta River">
+                <div class="card-body">
+                    <p class="text-muted small mb-1 text-uppercase">Invierno</p>
+                    <h5 class="card-title fw-bold">Manta Mágica River Plate</h5>
+                    <div class="d-flex align-items-center gap-2">
+                        <h4 class="mb-0 fw-bold">$14.999</h4>
+                        <span class="text-success small fw-bold">6% OFF</span>
+                    </div>
+                    <p class="text-success small fw-bold mb-0">Envío gratis</p>
+                </div>
             </div>
-        </div>
         </a>
     </div>
 
-
+    {{-- Producto 3: Cámara de Seguridad --}}
     <div class="col-md-4 mb-3">
-        <a href="/catalogo-televisores" class="text-decoration-none text-dark">
-        <div class="card h-100">
-            <img src="{{ asset('images/img-products/televisores.png') }}" class="card-img-top" alt="hogar">
-            <div class="card-body">
-                <h5 class="card-title">Televisores</h5>
+        <a href="/productos/camara-seguridade107" class="text-decoration-none text-dark">
+            <div class="card h-100 shadow-sm border-0">
+                <img src="{{ asset('images/img-products/camaraseguridade107.png') }}" class="card-img-top p-3" alt="Cámara Seguridad">
+                <div class="card-body">
+                    <p class="text-muted small mb-1 text-uppercase">Seguridad</p>
+                    <h5 class="card-title fw-bold">Cámara Exterior Wifi LUO e107</h5>
+                    <div class="d-flex align-items-center gap-2">
+                        <h4 class="mb-0 fw-bold">$50.000</h4>
+                        <span class="text-success small fw-bold">30% OFF</span>
+                    </div>
+                    <p class="text-primary small mb-0">Hasta 6 cuotas</p>
+                </div>
             </div>
-        </div>
         </a>
     </div>
 </div>
 
+{{-- SECCIÓN INVIERNO (SOLO ESTUFAS) --}}
 <div class="container my-5">
     <div class="d-flex justify-content-between align-items-baseline mb-3">
-        <h3 class="fw-light">Ofertas de Invierno en <span class="fw-bold">Estufas y Mantas</span></h3>
-        <a href="/catalogo" class="text-decoration-none">Ver todas</a>
+        <h3 class="fw-light text-dark">Climatización: <span class="fw-bold">Estufas y Calefactores</span></h3>
+        <a href="/catalogo-invierno" class="text-decoration-none">Ver todas</a>
     </div>
 
     <div class="d-flex overflow-auto pb-3 gap-3" style="scrollbar-width: thin;">
-        
+        {{-- Estufa 1 --}}
         <a href="/productos/estufa-bionica" class="text-decoration-none text-dark">
-        <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
-            <img src="{{ asset('images/img-products/estufa-bionica.png') }}" class="card-img-top p-3" alt="Estufa">
-            <div class="card-body border-top">
-                <p class="text-truncate mb-1" style="font-size: 0.9rem;">Calefactor Eléctrico Convector 1500w</p>
-                <span class="text-muted text-decoration-line-through small">$33.538</span>
-                <div class="d-flex align-items-center gap-2">
-                    <h4 class="mb-0">$25.799</h4>
+            <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
+                <img src="{{ asset('images/img-products/estufa-bionica.png') }}" class="card-img-top p-3" alt="Estufa">
+                <div class="card-body border-top">
+                    <p class="text-truncate mb-1 small">Calefactor Eléctrico Convector 1500w</p>
+                    <h4 class="mb-0 fw-bold">$25.799</h4>
                     <span class="text-success small fw-bold">30% OFF</span>
                 </div>
-                <p class="text-primary small mb-1">6 cuotas de $4.799</p>
-                <p class="text-success fw-bold small mb-0">Envío gratis</p>
             </div>
-        </div>
         </a>
 
+        {{-- Estufa 2 --}}
         <a href="/productos/estufa-infrarroja" class="text-decoration-none text-dark">
-        <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
-            <img src="{{ asset('images/img-products/estufa-infrarroja-lilliana.png') }}" class="card-img-top p-3" alt="Estufa">
-            <div class="card-body border-top">
-                <p class="text-truncate mb-1" style="font-size: 0.9rem;">Estufa Halógena Vitta 1200w</p>
-                <span class="text-muted text-decoration-line-through small">$48.999</span>
-                <div class="d-flex align-items-center gap-2">
-                    <h4 class="mb-0">$46.059</h4>
-                    <span class="text-success small fw-bold">6% OFF</span>
+            <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
+                <img src="{{ asset('images/img-products/estufa-infrarroja-lilliana.png') }}" class="card-img-top p-3" alt="Estufa">
+                <div class="card-body border-top">
+                    <p class="text-truncate mb-1 small">Estufa Halógena Vitta 1200w</p>
+                    <h4 class="mb-0 fw-bold">$46.059</h4>
+                    <p class="text-success small fw-bold">Envío gratis</p>
                 </div>
-                <p class="text-primary small mb-1">6 cuotas de $10.509</p>
-                <p class="text-success fw-bold small mb-0">Envío gratis</p>
             </div>
         </a>
-        </div>
+    </div>
+</div>
 
+{{-- SECCIÓN HOGAR (SOLO MANTAS) --}}
+<div class="container my-5">
+    <div class="d-flex justify-content-between align-items-baseline mb-3">
+        <h3 class="fw-light text-dark">Hogar: <span class="fw-bold">Mantas Mágicas</span></h3>
+        <a href="/catalogo-hogar" class="text-decoration-none">Ver todas</a>
+    </div>
+
+    <div class="d-flex overflow-auto pb-3 gap-3" style="scrollbar-width: thin;">
+        {{-- Manta 1 --}}
         <a href="/productos/manta-river" class="text-decoration-none text-dark">
-        <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
-            <img src="{{ asset('images/img-products/manta-riverplate.png') }}" class="card-img-top p-3" alt="Estufa">
-            <div class="card-body border-top">
-                <p class="text-truncate mb-1" style="font-size: 0.9rem;">Manta Magica River Plate Estampado</p>
-                <span class="text-muted text-decoration-line-through small">$15.898</span>
-                <div class="d-flex align-items-center gap-2">
-                    <h4 class="mb-0">$14.999</h4>
-                    <span class="text-success small fw-bold">6% OFF</span>
+            <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
+                <img src="{{ asset('images/img-products/manta-riverplate.png') }}" class="card-img-top p-3" alt="Manta">
+                <div class="card-body border-top">
+                    <p class="text-truncate mb-1 small">Manta River Plate Estampado</p>
+                    <h4 class="mb-0 fw-bold">$14.999</h4>
+                    <p class="text-success small fw-bold">Envío gratis</p>
                 </div>
-                <p class="text-success fw-bold small mb-0">Envío gratis</p>
             </div>
-        </div>
         </a>
 
+        {{-- Manta 2 --}}
         <a href="/productos/manta-magica" class="text-decoration-none text-dark">
-        <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
-            <img src="{{ asset('images/img-products/manta.png') }}" class="card-img-top p-3" alt="Estufa">
-            <div class="card-body border-top">
-                <p class="text-truncate mb-1" style="font-size: 0.9rem;">Manta Magica Brillante Infantil Estampado</p>
-                <span class="text-muted text-decoration-line-through small">$15.898</span>
-                <div class="d-flex align-items-center gap-2">
-                    <h4 class="mb-0">$14.999</h4>
-                    <span class="text-success small fw-bold">6% OFF</span>
+            <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
+                <img src="{{ asset('images/img-products/manta.png') }}" class="card-img-top p-3" alt="Manta">
+                <div class="card-body border-top">
+                    <p class="text-truncate mb-1 small">Manta Brillante Infantil</p>
+                    <h4 class="mb-0 fw-bold">$14.999</h4>
+                    <p class="text-success small fw-bold">Envío gratis</p>
                 </div>
-                <p class="text-success fw-bold small mb-0">Envío gratis</p>
             </div>
-        </div>
         </a>
-
     </div>
 </div>
 

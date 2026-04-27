@@ -16,11 +16,19 @@
     <div class="container">
         
         {{-- Logo --}}
-        <a class="navbar-brand me-4" href="/inicio">
+        <a class="navbar-brand me-2 me-lg-4" href="/inicio">
             <img src="{{ asset('images/img-products/logos.png') }}" alt="Logo Oga" height="40">
         </a>
 
-        {{-- Botón para celulares --}}
+        {{-- Carrito para CELULARES (Se ve solo en pantallas chicas) --}}
+        <div class="d-lg-none ms-auto me-3">
+            <a href="/carrito" class="position-relative">
+                <img src="/images/carrito.png" alt="carrito" style="height: 30px;">
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">2</span>
+            </a>
+        </div>
+
+        {{-- Botón Hamburguesa --}}
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContenido">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -29,49 +37,40 @@
             {{-- Buscador --}}
             <form class="d-flex flex-grow-1 mx-lg-4 my-3 my-lg-0">
                 <div class="input-group buscador w-100">
-                    <input class="form-control" type="search" placeholder="Buscar productos, marcas y más..." aria-label="Buscar">
+                    <input class="form-control" type="search" placeholder="Buscar productos..." aria-label="Buscar">
                     <button class="btn btn-white bg-white border-start-0" type="submit" style="border: 1px solid #ced4da;">
                         <i class="ti ti-search text-muted"></i>
                     </button>
                 </div>
             </form>
 
-            {{-- Links de Navegación --}}
-            <ul class="navbar-nav mb-2 mb-lg-0 gap-lg-2">
-                <li class="nav-item"><a class="nav-link text-white fw-semibold" href="/inicio">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link text-white fw-semibold" href="/catalogo">Catálogo</a></li>
-                <li class="nav-item"><a class="nav-link text-white fw-semibold" href="/comercializacion">Comercialización</a></li>
-                <li class="nav-item"><a class="nav-link text-white fw-semibold" href="/contacto-oga">Contacto</a></li>
-            </ul>
-
-            {{-- Carrito --}}
+            {{-- Carrito para PC (Se ve solo en pantallas grandes) --}}
             <div class="ms-lg-3 d-none d-lg-block">
-                <a href="#" class="position-relative">
+                <a href="/carrito" class="position-relative">
                     <img src="/images/carrito.png" class="icono-carrito" alt="carrito" style="height: 35px;">
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                        0
-                    </span>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">2</span>
                 </a>
             </div>
         </div>
     </div>
 </nav>
 
-<div class="bg-white border-bottom d-none d-lg-block">
+{{-- BARRA DE CATEGORÍAS (Ahora visible en móviles también) --}}
+<div class="bg-white border-bottom">
     <div class="container">
-        <div class="d-flex align-items-center py-2">
+        <div class="d-flex align-items-center py-2 overflow-auto" style="white-space: nowrap;">
             
             <button class="btn btn-link text-dark text-decoration-none fw-bold d-flex align-items-center gap-2 p-0 me-4" 
                     type="button" data-bs-toggle="offcanvas" data-bs-target="#menuCategorias">
                 <i class="ti ti-menu-2 fs-4"></i>
-                CATEGORÍAS
+                <span class="small fw-bold">CATEGORÍAS</span>
             </button>
 
-            <div class="d-flex gap-4">
-                <a href="/categorias/tecnologia" class="text-decoration-none text-secondary small fw-bold">Ofertas</a>
-                <a href="/categorias/electrodomesticos" class="text-decoration-none text-secondary small fw-bold">Consultas</a>
-                <a href="/categorias/hogar" class="text-decoration-none text-secondary small fw-bold">Contactos</a>
-                <a href="/categorias/hogar" class="text-decoration-none text-secondary small fw-bold">Comercialización</a>
+            <div class="d-flex gap-3 gap-lg-4">
+                <a href="/ofertas" class="text-decoration-none text-secondary small fw-bold">Ofertas</a>
+                <a href="/consultas" class="text-decoration-none text-secondary small fw-bold">Consultas</a>
+                <a href="/contacto-oga" class="text-decoration-none text-secondary small fw-bold">Contactos</a>
+                <a href="/comercializacion" class="text-decoration-none text-secondary small fw-bold">Comercializacion</a>
             </div>
 
         </div>
@@ -128,11 +127,10 @@
         <div class="row align-items-center small">
             <div class="col-md-8">
                 <ul class="list-inline mb-1">
-                    <li class="list-inline-item"><a href="/inicio" class="text-muted text-decoration-none">Trabajá con nosotros</a></li>
                     <li class="list-inline-item pe-2 ps-2 border-start border-end"><a href="/terminos" class="text-muted text-decoration-none">Términos y condiciones</a></li>
                     <li class="list-inline-item"><a href="/consultas" class="text-muted text-decoration-none">Ayuda</a></li>
                 </ul>
-                <p class="mb-0">Copyright © 1999-2026 Tienda OGA S.R.L.</p>
+                <p class="mb-0">Copyright © 2020-2026 Tienda OGA S.R.L.</p>
                 <p class="text-black-50" style="font-size: 0.75rem;">Pasaje Los Ángeles 4431, Piso 2, CP 3400, Corrientes, Arg.</p>
             </div>
             <div class="col-md-4 text-md-end text-center mt-3 mt-md-0">
@@ -151,10 +149,10 @@
   </div>
   <div class="offcanvas-body p-0">
     <ul class="list-group list-group-flush">
-      <a href="#" class="list-group-item list-group-item-action py-3">Seguridad</a>
-      <a href="#" class="list-group-item list-group-item-action py-3">Televisores</a>
-      <a href="#" class="list-group-item list-group-item-action py-3">Calefaccion</a>
-      <a href="#" class="list-group-item list-group-item-action py-3">Hogar</a>
+      <a href="/catalogo-seguridad" class="list-group-item list-group-item-action py-3">Seguridad</a>
+      <a href="/catalogo-televisores" class="list-group-item list-group-item-action py-3">Televisores</a>
+      <a href="/catalogo-invierno" class="list-group-item list-group-item-action py-3">Calefaccion</a>
+      <a href="/catalogo-hogar" class="list-group-item list-group-item-action py-3">Hogar</a>
     </ul>
   </div>
 </div>

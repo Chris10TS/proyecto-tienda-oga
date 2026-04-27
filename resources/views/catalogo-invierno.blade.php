@@ -39,32 +39,6 @@
         </a>
     </div>
 
-    <div class="col-md-4 col-sm-6 mb-3">
-        <a href="/productos/manta-river" class="text-decoration-none text-dark">
-            <div class="card h-100">
-                <img src="{{ asset('images/img-products/manta-riverplate.png') }}" class="card-img-top" alt="Manta">
-                <div class="card-body">
-                    <h5 class="card-title">Manta Luminosa Flannel River Plate 1 1/2 Plaza</h5>
-                    <p class="card-text text-muted"> Frazada Flannel Magica Luminosa River Plate Oficial! Brilla por la noche y en la oscuridad.</p>
-                    <p class="fw-bold text-dark">$9.121,8</p>
-                </div>
-            </div>
-        </a>
-    </div>
-
-    <div class="col-md-4 col-sm-6 mb-3">
-        <a href="/productos/manta-magica" class="text-decoration-none text-dark">
-            <div class="card h-100">
-                <img src="{{ asset('images/img-products/manta.png') }}" class="card-img-top" alt="Manta">
-                <div class="card-body">
-                    <h5 class="card-title">Manta Infantil 2 plazas Astronauta Efecto Luminoso Polar Soft</h5>
-                    <p class="card-text text-muted">FRAZADA MÁGICA LUMINOSA GIGANTE - 2 PLAZAS SOFT  </p>
-                    <p class="fw-bold text-dark">$22.590</p>
-                </div>
-            </div>
-        </a>
-    </div>
-
 </div>
 
 @endsection

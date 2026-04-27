@@ -97,3 +97,11 @@ use App\Http\Controllers\CarritoController;
 
 Route::get('/carrito', [CarritoController::class, 'ver'])->name('carrito');
 Route::post('/compra-exitosa', [CarritoController::class, 'confirmar'])->name('carrito.confirmar');
+
+Route::get('/ofertas', function () {
+    return view('ofertas');
+});
+
+Route::get('/catalogo-hogar', function () {
+    return view('catalogo-hogar');
+});

@@ -73,11 +73,11 @@
         <div class="card p-4">
             <h5 class="fw-bold">Resumen</h5>
             <ul class="list-unstyled">
-                <li>✅ Garantía en todos los productos</li>
-                <li>✅ Devoluciones hasta 30 días</li>
-                <li>✅ Envíos a todo el país</li>
-                <li>✅ Datos protegidos</li>
-                <li>✅ Atención 24/7</li>
+                <li><i class="ti ti-check"></i>Garantía en todos los productos</li>
+                <li><i class="ti ti-check"></i>Devoluciones hasta 30 días</li>
+                <li><i class="ti ti-check"></i>Envíos a todo el país</li>
+                <li><i class="ti ti-check"></i>Datos protegidos</li>
+                <li><i class="ti ti-check"></i>Atención 24/7</li>
             </ul>
         </div>
     </div>
