@@ -17,7 +17,7 @@
         
         {{-- Logo --}}
         <a class="navbar-brand me-4" href="/inicio">
-            <img src="{{ asset('images/img-products/logos.png') }}" alt="Logo Oga" height="60">
+            <img src="{{ asset('images/img-products/logos.png') }}" alt="Logo Oga" height="40">
         </a>
 
         {{-- Botón para celulares --}}
@@ -56,6 +56,27 @@
         </div>
     </div>
 </nav>
+
+<div class="bg-white border-bottom d-none d-lg-block">
+    <div class="container">
+        <div class="d-flex align-items-center py-2">
+            
+            <button class="btn btn-link text-dark text-decoration-none fw-bold d-flex align-items-center gap-2 p-0 me-4" 
+                    type="button" data-bs-toggle="offcanvas" data-bs-target="#menuCategorias">
+                <i class="ti ti-menu-2 fs-4"></i>
+                CATEGORÍAS
+            </button>
+
+            <div class="d-flex gap-4">
+                <a href="/categorias/tecnologia" class="text-decoration-none text-secondary small fw-bold">Ofertas</a>
+                <a href="/categorias/electrodomesticos" class="text-decoration-none text-secondary small fw-bold">Consultas</a>
+                <a href="/categorias/hogar" class="text-decoration-none text-secondary small fw-bold">Contactos</a>
+                <a href="/categorias/hogar" class="text-decoration-none text-secondary small fw-bold">Comercialización</a>
+            </div>
+
+        </div>
+    </div>
+</div>
 
 <main class="py-0">
     @yield('contenido')
@@ -122,5 +143,21 @@
 </footer>
 
 <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="menuCategorias" aria-labelledby="menuCategoriasLabel">
+  <div class="offcanvas-header border-bottom">
+    <h5 class="offcanvas-title fw-bold" id="menuCategoriasLabel">CATEGORÍAS</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body p-0">
+    <ul class="list-group list-group-flush">
+      <a href="#" class="list-group-item list-group-item-action py-3">Seguridad</a>
+      <a href="#" class="list-group-item list-group-item-action py-3">Televisores</a>
+      <a href="#" class="list-group-item list-group-item-action py-3">Calefaccion</a>
+      <a href="#" class="list-group-item list-group-item-action py-3">Hogar</a>
+    </ul>
+  </div>
+</div>
+
 </body>
 </html>

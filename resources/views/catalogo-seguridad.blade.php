@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('titulo', 'Catálogo')
+@section('titulo', 'Productos de Seguridad')
 
 @section('contenido')
 
 <div class="row mb-4">
     <div class="col-12">
-        <h1 class="fw-bold">Catálogo de Productos</h1>
+        <h1 class="fw-bold">Productos de seguridad</h1>
         <hr>
     </div>
 </div>
