@@ -34,7 +34,7 @@
 
                     <div class="mb-3">
                         <label class="form-label fw-bold small">Teléfono / WhatsApp</label>
-                        <input type="text" name="telefono" class="form-control bg-light" placeholder="Ej: 3794123456" required>
+                        <input type="number" name="telefono" class="form-control bg-light" placeholder="Ej: 3794123456" required>
                     </div>
 
                     <div class="mb-3">

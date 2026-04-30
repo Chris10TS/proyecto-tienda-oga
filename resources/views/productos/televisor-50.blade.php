@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('titulo', 'Cámara de Seguridad LUO E107')
+@section('titulo', 'Smart TV 50" 4K UHD Ultra Slim')
 
 @section('contenido')
 
@@ -19,7 +19,7 @@
 
         <div class="col-md-5">
             <div class="card4 p-3 text-center">
-                <img src="{{ asset('images/img-products/television-43.png') }}" class="img-fluid rounded" alt="Cámara LUO E107" style="max-height: 350px; object-fit: contain;">
+                <img src="{{ asset('images/img-products/television-43.png') }}" class="img-fluid rounded" alt="Smart TV 50" 4K UHD Ultra Slim" style="max-height: 350px; object-fit: contain;">
             </div>
         </div>
 

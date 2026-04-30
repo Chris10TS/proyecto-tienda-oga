@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('titulo', 'Cámara de Seguridad LUO E107')
+@section('titulo', 'Cámara de Seguridad LUO E126')
 
 @section('contenido')
 

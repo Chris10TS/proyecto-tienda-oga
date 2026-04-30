@@ -19,6 +19,10 @@
     color: #ffc107 !important;
 }
 
+.barra-navegacion {
+    background-color: #F5793A !important;
+}
+
 .buscador {
     background-color: #ededed;
     border-radius: 4px;
@@ -44,6 +48,10 @@
     color: #000;
 }
 
+.tarjeta-carrito{
+    width: 70px;
+}
+
 .icono-carrito {
     width: 26px;
     height: 26px;
@@ -62,6 +70,10 @@
 .buscador .btn {
     border-left: none !important;
     border-radius: 0 4px 4px 0 !important;
+}
+
+.texto-recortado {
+    font-size: 0.9rem;
 }
 
 .buscador .form-control {
@@ -165,4 +177,9 @@ body{
         max-width: unset;
         width: 100%;
     }
+}
+
+.tarjeta-producto {
+    min-width: 220px;
+    max-width: 220px;
 }

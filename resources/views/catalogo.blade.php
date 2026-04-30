@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('titulo', 'Televisores')
+@section('titulo', 'Catalogo-completo')
 
 @section('contenido')
 
@@ -14,7 +14,7 @@
 <div class="row mb-5">
     
     <div class="col-md-4 col-sm-6 mb-3">
-        <a href="/productos/televisor-55" class="text-decoration-none text-dark">
+        <a href="/productos/televisor-50" class="text-decoration-none text-dark">
             <div class="card h-100">
                 <img src="{{ asset('images/img-products/television-43.png') }}" class="card-img-top imagen-producto" alt="Estufa">
                 <div class="card-body">
@@ -27,7 +27,7 @@
     </div>
 
     <div class="col-md-4 col-sm-6 mb-3">
-        <a href="/productos/televisor-43" class="text-decoration-none text-dark">
+        <a href="/productos/televisor-32" class="text-decoration-none text-dark">
             <div class="card h-100">
                 <img src="{{ asset('images/img-products/tv-32.png') }}" class="card-img-top imagen-producto" alt="Estufa">
                 <div class="card-body">
@@ -148,7 +148,7 @@
                     <div class="card-body">
                         <h5 class="card-title fw-bold">Manta Mágica River Plate</h5>
                         <p class="card-text text-muted small">Ideal para los fanáticos del Millonario.</p>
-                        <h4 class="fw-bold">$14.999</h4>
+                        <h4 class="fw-bold">$9.121,8</h4>
                         <p class="text-success small fw-bold">Envío gratis</p>
                     </div>
                 </div>
@@ -162,7 +162,7 @@
                     <div class="card-body">
                         <h5 class="card-title fw-bold">Manta Mágica Infantil</h5>
                         <p class="card-text text-muted small">Brilla en la oscuridad, ideal para niños.</p>
-                        <h4 class="fw-bold">$14.999</h4>
+                        <h4 class="fw-bold">$22.590</h4>
                         <p class="text-success small fw-bold">Envío gratis</p>
                     </div>
                 </div>

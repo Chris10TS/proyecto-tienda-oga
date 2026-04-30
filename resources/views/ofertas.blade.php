@@ -77,7 +77,7 @@
                         <div class="card-body border-top">
                             <p class="text-truncate mb-1 small">Manta Mágica River Plate</p>
                             <span class="text-muted text-decoration-line-through small">$15.898</span>
-                            <h4 class="fw-bold mb-1">$14.999</h4>
+                            <h4 class="fw-bold mb-1">$9.121,8</h4>
                             <p class="text-success small fw-bold mb-0">Envío gratis</p>
                         </div>
                     </div>

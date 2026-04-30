@@ -53,10 +53,10 @@
     <div class="d-flex overflow-auto pb-3 gap-3" style="scrollbar-width: thin;">
         
         <a href="/productos/camara-e121" class="text-decoration-none text-dark">
-        <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
+        <div class="card border-0 shadow-sm tarjeta-producto">
             <img src="{{ asset('images/img-products/kit-camaras-e121.png') }}" class="card-img-top imagen-producto p-3" alt="Estufa">
             <div class="card-body border-top">
-                <p class="text-truncate mb-1" style="font-size: 0.9rem;">Kit 4 camaras + DVR + Cables LUO e121</p>
+                <p class="text-truncate mb-1 texto-recortado">Kit 4 camaras + DVR + Cables LUO e121</p>
                 <span class="text-muted text-decoration-line-through small">$200.000</span>
                 <div class="d-flex align-items-center gap-2">
                     <h4 class="mb-0">$154.000</h4>
@@ -69,10 +69,10 @@
         </a>
 
         <a href="/productos/camara-seguridade107" class="text-decoration-none text-dark">
-        <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
+        <div class="card border-0 shadow-sm tarjeta-producto">
             <img src="{{ asset('images/img-products/camaraseguridade107.png') }}" class="card-img-top imagen-producto p-3" alt="Estufa">
             <div class="card-body border-top">
-                <p class="text-truncate mb-1" style="font-size: 0.9rem;">Camara Seguridad Exterior Wifi Doble Visor LUO e107</p>
+                <p class="text-truncate mb-1 texto-recortado">Camara Seguridad Exterior Wifi Doble Visor LUO e107</p>
                 <span class="text-muted text-decoration-line-through small">$65.000</span>
                 <div class="d-flex align-items-center gap-2">
                     <h4 class="mb-0">$50.000</h4>
@@ -88,7 +88,7 @@
                     <div class="card border-0 shadow h-100">
                         <img src="{{ asset('images/img-products/television-43.png') }}" class="card-img-top imagen-producto p-3" alt="TV">
                         <div class="card-body border-top">
-                            <p class="text-truncate mb-1" style="font-size: 0.9rem;">Smart TV 50" 4K UHD Ultra Slim</p>
+                            <p class="text-truncate mb-1 texto-recortado">Smart TV 50" 4K UHD Ultra Slim</p>
                             <span class="text-muted text-decoration-line-through small">$575.000</span>
                             <div class="d-flex align-items-center gap-2">
                                 <h4 class="mb-0">$500.000</h4>
@@ -111,7 +111,7 @@
 
     <div class="d-flex overflow-auto pb-3 gap-3" style="scrollbar-width: thin;">
         <a href="/productos/estufa-bionica" class="text-decoration-none text-dark">
-            <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
+            <div class="card border-0 shadow-sm tarjeta-producto">
                 <img src="{{ asset('images/img-products/estufa-bionica.png') }}" class="card-img-top imagen-producto p-3" alt="Estufa">
                 <div class="card-body border-top">
                     <p class="text-truncate mb-1 small">Estufa De Cuarzo Bionica Infrarroja</p>
@@ -122,7 +122,7 @@
         </a>
 
         <a href="/productos/estufa-infrarroja" class="text-decoration-none text-dark">
-            <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
+            <div class="card border-0 shadow-sm tarjeta-producto">
                 <img src="{{ asset('images/img-products/estufa-infrarroja-lilliana.png') }}" class="card-img-top imagen-producto p-3" alt="Estufa">
                 <div class="card-body border-top">
                     <p class="text-truncate mb-1 small">Estufa Infrarroja Lilliana</p>
@@ -143,7 +143,7 @@
     <div class="d-flex overflow-auto pb-3 gap-3" style="scrollbar-width: thin;">
         
         <a href="/productos/manta-river" class="text-decoration-none text-dark">
-            <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
+            <div class="card border-0 shadow-sm tarjeta-producto">
                 <img src="{{ asset('images/img-products/manta-riverplate.png') }}" class="card-img-top imagen-producto p-3" alt="Manta">
                 <div class="card-body border-top">
                     <p class="text-truncate mb-1 small">Manta River Plate Estampado</p>
@@ -154,7 +154,7 @@
         </a>
 
         <a href="/productos/manta-magica" class="text-decoration-none text-dark">
-            <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
+            <div class="card border-0 shadow-sm tarjeta-producto">
                 <img src="{{ asset('images/img-products/manta.png') }}" class="card-img-top imagen-producto p-3" alt="Manta">
                 <div class="card-body border-top">
                     <p class="text-truncate mb-1 small">Manta Brillante Infantil</p>
@@ -175,10 +175,10 @@
     <div class="d-flex overflow-auto pb-3 gap-3" style="scrollbar-width: thin;">
         
         <a href="/productos/camara-seguridade107" class="text-decoration-none text-dark">
-        <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
+        <div class="card border-0 shadow-sm tarjeta-producto">
             <img src="{{ asset('images/img-products/camaraseguridade107.png') }}" class="card-img-top imagen-producto p-3" alt="Estufa">
             <div class="card-body border-top">
-                <p class="text-truncate mb-1" style="font-size: 0.9rem;">Camara Seguridad Exterior Wifi Doble Visor LUO e107</p>
+                <p class="text-truncate mb-1 texto-recortado">Camara Seguridad Exterior Wifi Doble Visor LUO e107</p>
                 <span class="text-muted text-decoration-line-through small">$65.000</span>
                 <div class="d-flex align-items-center gap-2">
                     <h4 class="mb-0">$50.000</h4>
@@ -191,10 +191,10 @@
         </a>
 
         <a href="/productos/camara-seguridade126" class="text-decoration-none text-dark">
-        <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
+        <div class="card border-0 shadow-sm tarjeta-producto">
             <img src="{{ asset('images/img-products/camara-luo-e126.png') }}" class="card-img-top imagen-producto p-3" alt="Estufa">
             <div class="card-body border-top">
-                <p class="text-truncate mb-1" style="font-size: 0.9rem;">Camara Seguridad Exterior Wifi Triple Visor LUO</p>
+                <p class="text-truncate mb-1 texto-recortado">Camara Seguridad Exterior Wifi Triple Visor LUO</p>
                 <span class="text-muted text-decoration-line-through small">$89.999</span>
                 <div class="d-flex align-items-center gap-2">
                     <h4 class="mb-0">$60.000</h4>
@@ -207,10 +207,10 @@
         </a>
 
         <a href="/productos/camara-e121" class="text-decoration-none text-dark">
-        <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
+        <div class="card border-0 shadow-sm tarjeta-producto">
             <img src="{{ asset('images/img-products/kit-camaras-e121.png') }}" class="card-img-top imagen-producto p-3" alt="Estufa">
             <div class="card-body border-top">
-                <p class="text-truncate mb-1" style="font-size: 0.9rem;">Kit 4 camaras + DVR + Cables LUO e121</p>
+                <p class="text-truncate mb-1 texto-recortado">Kit 4 camaras + DVR + Cables LUO e121</p>
                 <span class="text-muted text-decoration-line-through small">$200.000</span>
                 <div class="d-flex align-items-center gap-2">
                     <h4 class="mb-0">$154.000</h4>
@@ -223,10 +223,10 @@
         </a>
 
         <a href="/productos/camara-e122" class="text-decoration-none text-dark">
-        <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
+        <div class="card border-0 shadow-sm tarjeta-producto">
             <img src="{{ asset('images/img-products/kit-camaras-e122.png') }}" class="card-img-top imagen-producto p-3" alt="Estufa">
             <div class="card-body border-top">
-                <p class="text-truncate mb-1" style="font-size: 0.9rem;">Kit 8 camaras + DVR + Cables LUO e121</p>
+                <p class="text-truncate mb-1 texto-recortado">Kit 8 camaras + DVR + Cables LUO e121</p>
                 <span class="text-muted text-decoration-line-through small">$300.000</span>
                 <div class="d-flex align-items-center gap-2">
                     <h4 class="mb-0">$231.000</h4>
@@ -255,7 +255,7 @@
                     <div class="card border-0 shadow h-100">
                         <img src="{{ asset('images/img-products/television-43.png') }}" class="card-img-top imagen-producto p-3" alt="TV">
                         <div class="card-body border-top">
-                            <p class="text-truncate mb-1" style="font-size: 0.9rem;">Smart TV 50" 4K UHD Ultra Slim</p>
+                            <p class="text-truncate mb-1 texto-recortado">Smart TV 50" 4K UHD Ultra Slim</p>
                             <span class="text-muted text-decoration-line-through small">$575.000</span>
                             <div class="d-flex align-items-center gap-2">
                                 <h4 class="mb-0">$500.000</h4>
@@ -273,7 +273,7 @@
                     <div class="card border-0 shadow h-100">
                         <img src="{{ asset('images/img-products/tv-32.png') }}" class="card-img-top imagen-producto p-3" alt="TV">
                         <div class="card-body border-top">
-                            <p class="text-truncate mb-1" style="font-size: 0.9rem;">Smart TV 32" 4K UHD Ultra Slim</p>
+                            <p class="text-truncate mb-1 texto-recortado">Smart TV 32" 4K UHD Ultra Slim</p>
                             <span class="text-muted text-decoration-line-through small">$450.000</span>
                             <div class="d-flex align-items-center gap-2">
                                 <h4 class="mb-0">$380.000</h4>
@@ -291,7 +291,7 @@
                     <div class="card border-0 shadow h-100">
                         <img src="{{ asset('images/img-products/tv-55.png') }}" class="card-img-top imagen-producto p-3" alt="TV">
                         <div class="card-body border-top">
-                            <p class="text-truncate mb-1" style="font-size: 0.9rem;">Smart TV 55" 4K UHD Ultra Slim</p>
+                            <p class="text-truncate mb-1 texto-recortado">Smart TV 55" 4K UHD Ultra Slim</p>
                             <span class="text-muted text-decoration-line-through small">$650.000</span>
                             <div class="d-flex align-items-center gap-2">
                                 <h4 class="mb-0">$550.000</h4>

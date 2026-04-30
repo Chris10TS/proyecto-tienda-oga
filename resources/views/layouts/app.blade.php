@@ -12,20 +12,17 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top" style="background-color: #F5793A;">
+<nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top barra-navegacion">
     <div class="container">
-        
         
         <a class="navbar-brand me-auto" href="/inicio">
             <img src="{{ asset('images/img-products/logos.png') }}" alt="Logo Oga" height="40">
         </a>
 
-        
         <button class="navbar-toggler border-0 p-0 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContenido">
             <i class="ti ti-search text-black fs-1"></i>
         </button>
 
-       
         <a href="/carrito" class="btn btn-link p-0 position-relative text-white d-lg-none">
             <img src="/images/carrito.png" alt="carrito" style="height: 30px;">
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">2</span>
@@ -42,7 +39,6 @@
                 </div>
             </form>
 
-          
             <div class="ms-lg-3 d-none d-lg-block">
                 <a href="/carrito" class="position-relative">
                     <img src="/images/carrito.png" class="icono-carrito" alt="carrito" style="height: 35px;">
@@ -52,7 +48,6 @@
         </div>
     </div>
 </nav>
-
 
 <div class="bg-white border-bottom">
     <div class="container">
@@ -118,7 +113,7 @@
                     <h6 class="text-dark fw-bold">Ayuda</h6>
                     <ul class="list-unstyled small">
                         <li><a href="/comercializacion" class="text-muted text-decoration-none">Cómo comprar</a></li>
-                        <li><a href="/contacto-oga" class="text-muted text-decoration-none">Centro de seguridad</a></li>
+                        <li><a href="/contacto-oga" class="text-muted text-decoration-none">Contactos</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">

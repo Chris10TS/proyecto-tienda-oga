@@ -10,9 +10,9 @@
                 <h4 class="fw-bold mb-4">Tu carrito</h4>
                 
                 <div class="d-flex align-items-center gap-3 border-bottom pb-3 mb-3">
-                    <img src="{{ asset('images/img-products/television-43.png') }}" alt="TV" style="width: 70px;">
+                    <img src="{{ asset('images/img-products/television-43.png') }}" class="tarjeta-carrito" alt="TV" >
                     <div class="flex-grow-1">
-                        <h6 class="mb-0 fw-bold">Smart TV 50" 4K UHD</h6>
+                        <h6 class="mb-0 fw-bold">Smart TV 50" 4K UHD Ultra Slim</h6>
                         <small class="text-muted">Cantidad: 1</small>
                     </div>
                     <div class="text-end">
@@ -21,9 +21,9 @@
                 </div>
 
                 <div class="d-flex align-items-center gap-3">
-                    <img src="{{ asset('images/img-products/estufa-bionica.png') }}" alt="Estufa" style="width: 70px;">
+                    <img src="{{ asset('images/img-products/estufa-bionica.png') }}" class="tarjeta-carrito" alt="Estufa">
                     <div class="flex-grow-1">
-                        <h6 class="mb-0 fw-bold">Calefactor Convector 1500w</h6>
+                        <h6 class="mb-0 fw-bold">Estufa De Cuarzo Bionica Infrarroja</h6>
                         <small class="text-muted">Cantidad: 1</small>
                     </div>
                     <div class="text-end">
