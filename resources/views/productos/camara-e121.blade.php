@@ -19,7 +19,7 @@
 
         <div class="col-md-5">
             <div class="card4 p-3 text-center">
-                <img src="{{ asset('images/img-products/kit-camaras-e121.png') }}" class="img-fluid rounded" alt="Cámara LUO E107" style="max-height: 350px; object-fit: contain;">
+                <img src="{{ asset('images/img-products/kit-camaras-e121.png') }}" class="img-fluid rounded imagen-contenida" alt="Cámara LUO E107">
             </div>
         </div>
 

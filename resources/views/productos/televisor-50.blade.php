@@ -19,7 +19,7 @@
 
         <div class="col-md-5">
             <div class="card4 p-3 text-center">
-                <img src="{{ asset('images/img-products/television-43.png') }}" class="img-fluid rounded" alt="Smart TV 50" 4K UHD Ultra Slim" style="max-height: 350px; object-fit: contain;">
+                <img src="{{ asset('images/img-products/television-43.png') }}" class="img-fluid rounded imagen-contenida" alt="Smart TV 50 4K UHD Ultra Slim">
             </div>
         </div>
 

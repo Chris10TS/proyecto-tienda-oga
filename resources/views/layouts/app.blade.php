@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top barra-navegacion">
+<nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top barra-navegacion">    
     <div class="container">
         
         <a class="navbar-brand me-auto" href="/inicio">

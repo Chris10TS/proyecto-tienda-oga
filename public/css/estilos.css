@@ -183,3 +183,9 @@ body{
     min-width: 220px;
     max-width: 220px;
 }
+
+.imagen-contenida {
+    max-height: 350px;
+    object-fit: contain;
+    width: 100%;
+}

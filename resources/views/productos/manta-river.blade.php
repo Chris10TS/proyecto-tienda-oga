@@ -19,8 +19,7 @@
 
         <div class="col-md-5">
             <div class="card4 p-3 text-center">
-                <img src="{{ asset('images/img-products/manta-riverplate.png') }}" class="img-fluid rounded" alt="Cámara LUO E107" style="max-height: 350px; object-fit: contain;">
-            </div>
+<img src="{{ asset('images/img-products/manta-riverplate.png') }}" class="img-fluid rounded imagen-contenida" alt="Manta River Plate">            </div>
         </div>
 
         <div class="col-md-4">
