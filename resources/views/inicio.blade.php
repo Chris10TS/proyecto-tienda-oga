@@ -53,7 +53,7 @@
     <div class="d-flex overflow-auto pb-3 gap-3" style="scrollbar-width: thin;">
         
         <a href="/productos/camara-e121" class="text-decoration-none text-dark">
-        <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
+        <div class="card border-0 shadow-sm tarjeta-producto">
             <img src="{{ asset('images/img-products/kit-camaras-e121.png') }}" class="card-img-top imagen-producto p-3" alt="Estufa">
             <div class="card-body border-top">
                 <p class="text-truncate mb-1" style="font-size: 0.9rem;">Kit 4 camaras + DVR + Cables LUO e121</p>
@@ -69,7 +69,7 @@
         </a>
 
         <a href="/productos/camara-seguridade107" class="text-decoration-none text-dark">
-        <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
+        <div class="card border-0 shadow-sm tarjeta-producto">
             <img src="{{ asset('images/img-products/camaraseguridade107.png') }}" class="card-img-top imagen-producto p-3" alt="Estufa">
             <div class="card-body border-top">
                 <p class="text-truncate mb-1" style="font-size: 0.9rem;">Camara Seguridad Exterior Wifi Doble Visor LUO e107</p>
@@ -111,7 +111,7 @@
 
     <div class="d-flex overflow-auto pb-3 gap-3" style="scrollbar-width: thin;">
         <a href="/productos/estufa-bionica" class="text-decoration-none text-dark">
-            <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
+            <div class="card border-0 shadow-sm tarjeta-producto">
                 <img src="{{ asset('images/img-products/estufa-bionica.png') }}" class="card-img-top imagen-producto p-3" alt="Estufa">
                 <div class="card-body border-top">
                     <p class="text-truncate mb-1 small">Estufa De Cuarzo Bionica Infrarroja</p>
@@ -122,7 +122,7 @@
         </a>
 
         <a href="/productos/estufa-infrarroja" class="text-decoration-none text-dark">
-            <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
+            <div class="card border-0 shadow-sm tarjeta-producto">
                 <img src="{{ asset('images/img-products/estufa-infrarroja-lilliana.png') }}" class="card-img-top imagen-producto p-3" alt="Estufa">
                 <div class="card-body border-top">
                     <p class="text-truncate mb-1 small">Estufa Infrarroja Lilliana</p>
@@ -143,7 +143,7 @@
     <div class="d-flex overflow-auto pb-3 gap-3" style="scrollbar-width: thin;">
         
         <a href="/productos/manta-river" class="text-decoration-none text-dark">
-            <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
+            <div class="card border-0 shadow-sm tarjeta-producto">
                 <img src="{{ asset('images/img-products/manta-riverplate.png') }}" class="card-img-top imagen-producto p-3" alt="Manta">
                 <div class="card-body border-top">
                     <p class="text-truncate mb-1 small">Manta River Plate Estampado</p>
@@ -154,7 +154,7 @@
         </a>
 
         <a href="/productos/manta-magica" class="text-decoration-none text-dark">
-            <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
+            <div class="card border-0 shadow-sm tarjeta-producto">
                 <img src="{{ asset('images/img-products/manta.png') }}" class="card-img-top imagen-producto p-3" alt="Manta">
                 <div class="card-body border-top">
                     <p class="text-truncate mb-1 small">Manta Brillante Infantil</p>
@@ -175,7 +175,7 @@
     <div class="d-flex overflow-auto pb-3 gap-3" style="scrollbar-width: thin;">
         
         <a href="/productos/camara-seguridade107" class="text-decoration-none text-dark">
-        <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
+        <div class="card border-0 shadow-sm tarjeta-producto">
             <img src="{{ asset('images/img-products/camaraseguridade107.png') }}" class="card-img-top imagen-producto p-3" alt="Estufa">
             <div class="card-body border-top">
                 <p class="text-truncate mb-1" style="font-size: 0.9rem;">Camara Seguridad Exterior Wifi Doble Visor LUO e107</p>
@@ -191,7 +191,7 @@
         </a>
 
         <a href="/productos/camara-seguridade126" class="text-decoration-none text-dark">
-        <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
+        <div class="card border-0 shadow-sm tarjeta-producto">
             <img src="{{ asset('images/img-products/camara-luo-e126.png') }}" class="card-img-top imagen-producto p-3" alt="Estufa">
             <div class="card-body border-top">
                 <p class="text-truncate mb-1" style="font-size: 0.9rem;">Camara Seguridad Exterior Wifi Triple Visor LUO</p>
@@ -207,7 +207,7 @@
         </a>
 
         <a href="/productos/camara-e121" class="text-decoration-none text-dark">
-        <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
+        <div class="card border-0 shadow-sm tarjeta-producto">
             <img src="{{ asset('images/img-products/kit-camaras-e121.png') }}" class="card-img-top imagen-producto p-3" alt="Estufa">
             <div class="card-body border-top">
                 <p class="text-truncate mb-1" style="font-size: 0.9rem;">Kit 4 camaras + DVR + Cables LUO e121</p>
@@ -223,7 +223,7 @@
         </a>
 
         <a href="/productos/camara-e122" class="text-decoration-none text-dark">
-        <div class="card border-0 shadow-sm" style="min-width: 220px; max-width: 220px;">
+        <div class="card border-0 shadow-sm tarjeta-producto">
             <img src="{{ asset('images/img-products/kit-camaras-e122.png') }}" class="card-img-top imagen-producto p-3" alt="Estufa">
             <div class="card-body border-top">
                 <p class="text-truncate mb-1" style="font-size: 0.9rem;">Kit 8 camaras + DVR + Cables LUO e121</p>

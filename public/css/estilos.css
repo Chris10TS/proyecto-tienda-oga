@@ -166,3 +166,9 @@ body{
         width: 100%;
     }
 }
+
+.tarjeta-producto {
+    min-width: 220px;
+    max-width: 220px;
+}
+

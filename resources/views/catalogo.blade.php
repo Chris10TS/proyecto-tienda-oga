@@ -27,7 +27,7 @@
     </div>
 
     <div class="col-md-4 col-sm-6 mb-3">
-        <a href="/productos/televisor-43" class="text-decoration-none text-dark">
+        <a href="/productos/televisor-32" class="text-decoration-none text-dark">
             <div class="card h-100">
                 <img src="{{ asset('images/img-products/tv-32.png') }}" class="card-img-top imagen-producto" alt="Estufa">
                 <div class="card-body">

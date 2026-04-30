@@ -15,7 +15,7 @@
     <div class="row">
         
         <div class="col-md-4 mb-4">
-            <a href="/productos/manta-river" class="text-decoration-none text-dark">
+            <a href="/productos/estufa-bionica" class="text-decoration-none text-dark">
                 <div class="card h-100 shadow-sm border-0">
                     <img src="{{ asset('images/img-products/estufa-bionica.png') }}" class="card-img-top imagen-producto p-3" alt="Manta River">
                     <div class="card-body">
