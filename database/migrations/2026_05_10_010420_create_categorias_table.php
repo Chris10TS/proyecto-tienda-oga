@@ -13,14 +13,11 @@ return new class extends Migration
 {
     Schema::create('categorias', function (Blueprint $table) {
         $table->id();
-        $table->string('nombre'); // Acá se guardará "Seguridad", "Hogar", etc.
+        $table->string('nombre'); 
         $table->timestamps();
     });
 }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('categorias');

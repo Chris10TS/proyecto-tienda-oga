@@ -17,7 +17,7 @@ public function up(): void
         $table->text('descripcion')->nullable();
         $table->decimal('precio', 10, 2);
         $table->integer('stock')->default(0);
-        $table->string('imagen')->nullable(); // Guardará el nombre del archivo (ej: camara.png)
+        $table->string('imagen')->nullable();
         
         // El cable relacional:
         $table->foreignId('categoria_id')->constrained()->onDelete('cascade');

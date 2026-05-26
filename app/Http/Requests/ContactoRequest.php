@@ -30,6 +30,7 @@ class ContactoRequest extends FormRequest
             'email.email'       => 'Formato de email inválido.',
             'mensaje.min'       => 'La consulta debe tener al menos 10 caracteres.',
             'telefono.required' => 'El teléfono es necesario para contactarte.'
+            'email.unique'     => 'Este email ya ha sido utilizado para una consulta. Por favor, utiliza otro email o espera una respuesta.',
         ];
     }
 }
