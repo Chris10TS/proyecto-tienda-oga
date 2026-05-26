@@ -91,6 +91,9 @@
                 <a href="{{ route('admin.consultas') }}" class="text-decoration-none text-danger small fw-bold">
                     <i class="ti ti-shield-check me-1"></i>PANEL ADMIN
                 </a>
+                <a class="btn btn-sm btn-outline-dark fw-bold ms-2" href="{{ route('admin.productos.create') }}">
+                    + Subir Producto
+                </a>
             @endif
 
             {{-- Nombre del usuario y Cerrar Sesión --}}

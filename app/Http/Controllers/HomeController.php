@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Producto; 
 
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
      *
      * @return void
      */
@@ -23,6 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $productos = Producto::all(); 
+
+        return view('home', compact('productos'));
     }
 }

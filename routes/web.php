@@ -6,9 +6,11 @@ use App\Http\Controllers\ContactoOgaController;
 
 use App\Http\Controllers\ConsultaController;
 
-Route::get('/inicio', function () {
-    return view('inicio');
-});
+use App\Http\Controllers\ProductoController;
+
+Route::get('/inicio', [ProductoController::class, 'index'])->name('inicio');
+
+Route::get('/producto/{id}', [ProductoController::class, 'show'])->name('productos.detalle');
 
 Route::get('/quienes-somos', function () {
     return view('quienes-somos');
@@ -111,3 +113,9 @@ Route::post('/enviar-consulta', [ConsultaController::class, 'store_contact'])->n
 Auth::routes();
 
 Route::get('/admin/consultas', [ConsultaController::class, 'index'])->name('admin.consultas');
+
+use App\Http\Controllers\Admin\AdminProductoController;
+
+Route::get('/admin/productos/crear', [AdminProductoController::class, 'create'])->name('admin.productos.create');
+
+Route::post('/admin/productos', [AdminProductoController::class, 'store'])->name('admin.productos.store');
