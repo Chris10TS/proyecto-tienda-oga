@@ -12,7 +12,7 @@
                 </div>
                 <div class="card-body p-4 bg-white">
                     
-                    <form action="{{ route('admin.productos.store') }}" method="POST">
+                    <form action="{{ route('admin.productos.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="mb-3">
@@ -42,11 +42,9 @@
                                 </select>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold small">Nombre exacto de la imagen</label>
-                                <input type="text" name="imagen" class="form-control border-dark-subtle" placeholder="Ej: kit-camaras-e121.png" required>
+                                    <label class="form-label fw-bold small">Imagen del Producto</label>
+                                    <input type="file" name="imagen" class="form-control border-dark-subtle" accept="image/*" required>
                             </div>
-                        </div>
-
                         <div class="mb-4">
                             <label class="form-label fw-bold small">Descripción del Producto</label>
                             <textarea name="descripcion" class="form-control border-dark-subtle" rows="4" placeholder="Especificaciones técnicas, cuotas, garantías..." required></textarea>

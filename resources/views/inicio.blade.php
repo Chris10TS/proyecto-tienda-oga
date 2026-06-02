@@ -47,21 +47,34 @@
         <div class="d-flex justify-content-center overflow-auto pb-3 gap-3" style="scrollbar-width: thin;">
             
             @forelse($masVendidos as $prod)
-                <a href="{{ route('productos.detalle', $prod->id) }}" class="text-decoration-none text-dark">
-                    <div class="card border-0 shadow-sm tarjeta-producto">
-                        <img src="{{ asset('images/img-products/' . $prod->imagen) }}" class="card-img-top imagen-producto p-3" alt="{{ $prod->nombre }}">
-                        <div class="card-body border-top">
-                            <p class="text-truncate mb-1 texto-recortado" title="{{ $prod->nombre }}">{{ $prod->nombre }}</p>
-                            <span class="text-muted text-decoration-line-through small">${{ number_format($prod->precio * 1.3, 0, ',', '.') }}</span>
-                            <div class="d-flex align-items-center gap-2">
-                                <h4 class="mb-0">${{ number_format($prod->precio, 0, ',', '.') }}</h4>
-                                <span class="text-success small fw-bold">23% OFF</span>
-                            </div>
-                            <p class="text-primary small mb-1">6 cuotas <span class="fw-bold">sin interes</span> de ${{ number_format($prod->precio / 6, 0, ',', '.') }}</p>
-                            <p class="text-success fw-bold small mb-0">Envío gratis</p>
+                <div class="position-relative">
+                    @if(Auth::check() && Auth::user()->rol === 'admin')
+                        <div class="d-flex justify-content-end gap-1 p-2 bg-light border-bottom rounded-top">
+                            <a href="{{ route('admin.productos.edit', $prod->id) }}" class="btn btn-xs btn-outline-primary py-0 px-2 small">Editar</a>
+                            <form action="{{ route('admin.productos.destroy', $prod->id) }}" method="POST" onsubmit="return confirm('¿Seguro querés dar de baja este artículo?');" class="m-0">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-xs btn-outline-danger py-0 px-2 small">Baja</button>
+                            </form>
                         </div>
-                    </div>
-                </a>
+                    @endif
+
+                    <a href="{{ route('productos.detalle', $prod->id) }}" class="text-decoration-none text-dark">
+                        <div class="card border-0 shadow-sm tarjeta-producto" style="@if(Auth::check() && Auth::user()->rol === 'admin') border-top-left-radius: 0px !important; border-top-right-radius: 0px !important; @endif">
+                            <img src="{{ asset('images/img-products/' . $prod->imagen) }}" class="card-img-top imagen-producto p-3" alt="{{ $prod->nombre }}">
+                            <div class="card-body border-top">
+                                <p class="text-truncate mb-1 texto-recortado" title="{{ $prod->nombre }}">{{ $prod->nombre }}</p>
+                                <span class="text-muted text-decoration-line-through small">${{ number_format($prod->precio * 1.3, 0, ',', '.') }}</span>
+                                <div class="d-flex align-items-center gap-2">
+                                    <h4 class="mb-0">${{ number_format($prod->precio, 0, ',', '.') }}</h4>
+                                    <span class="text-success small fw-bold">23% OFF</span>
+                                </div>
+                                <p class="text-primary small mb-1">6 cuotas <span class="fw-bold">sin interes</span> de ${{ number_format($prod->precio / 6, 0, ',', '.') }}</p>
+                                <p class="text-success fw-bold small mb-0">Envío gratis</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             @empty
                 <p class="text-muted small">No hay productos cargados en Más Vendidos.</p>
             @endforelse
@@ -78,16 +91,29 @@
         <div class="d-flex overflow-auto pb-3 gap-3" style="scrollbar-width: thin;">
             
             @forelse($climatizacion as $prod)
-                <a href="{{ route('productos.detalle', $prod->id) }}" class="text-decoration-none text-dark">
-                    <div class="card border-0 shadow-sm tarjeta-producto">
-                        <img src="{{ asset('images/img-products/' . $prod->imagen) }}" class="card-img-top imagen-producto p-3" alt="{{ $prod->nombre }}">
-                        <div class="card-body border-top">
-                            <p class="text-truncate mb-1 small" title="{{ $prod->nombre }}">{{ $prod->nombre }}</p>
-                            <h4 class="mb-0 fw-bold">${{ number_format($prod->precio, 0, ',', '.') }}</h4>
-                            <span class="text-success small fw-bold">Envio gratis</span>
+                <div class="position-relative">
+                    @if(Auth::check() && Auth::user()->rol === 'admin')
+                        <div class="d-flex justify-content-end gap-1 p-2 bg-light border-bottom rounded-top">
+                            <a href="{{ route('admin.productos.edit', $prod->id) }}" class="btn btn-xs btn-outline-primary py-0 px-2 small">Editar</a>
+                            <form action="{{ route('admin.productos.destroy', $prod->id) }}" method="POST" onsubmit="return confirm('¿Seguro querés dar de baja este artículo?');" class="m-0">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-xs btn-outline-danger py-0 px-2 small">Baja</button>
+                            </form>
                         </div>
-                    </div>
-                </a>
+                    @endif
+
+                    <a href="{{ route('productos.detalle', $prod->id) }}" class="text-decoration-none text-dark">
+                        <div class="card border-0 shadow-sm tarjeta-producto" style="@if(Auth::check() && Auth::user()->rol === 'admin') border-top-left-radius: 0px !important; border-top-right-radius: 0px !important; @endif">
+                            <img src="{{ asset('images/img-products/' . $prod->imagen) }}" class="card-img-top imagen-producto p-3" alt="{{ $prod->nombre }}">
+                            <div class="card-body border-top">
+                                <p class="text-truncate mb-1 small" title="{{ $prod->nombre }}">{{ $prod->nombre }}</p>
+                                <h4 class="mb-0 fw-bold">${{ number_format($prod->precio, 0, ',', '.') }}</h4>
+                                <span class="text-success small fw-bold">Envio gratis</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             @empty
                 <p class="text-muted small">Próximamente más productos de Climatización.</p>
             @endforelse
@@ -104,16 +130,29 @@
         <div class="d-flex overflow-auto pb-3 gap-3" style="scrollbar-width: thin;">
             
             @forelse($hogar as $prod)
-                <a href="{{ route('productos.detalle', $prod->id) }}" class="text-decoration-none text-dark">
-                    <div class="card border-0 shadow-sm tarjeta-producto">
-                        <img src="{{ asset('images/img-products/' . $prod->imagen) }}" class="card-img-top imagen-producto p-3" alt="{{ $prod->nombre }}">
-                        <div class="card-body border-top">
-                            <p class="text-truncate mb-1 small" title="{{ $prod->nombre }}">{{ $prod->nombre }}</p>
-                            <h4 class="mb-0 fw-bold">${{ number_format($prod->precio, 0, ',', '.') }}</h4>
-                            <p class="text-success small fw-bold">Envío gratis</p>
+                <div class="position-relative">
+                    @if(Auth::check() && Auth::user()->rol === 'admin')
+                        <div class="d-flex justify-content-end gap-1 p-2 bg-light border-bottom rounded-top">
+                            <a href="{{ route('admin.productos.edit', $prod->id) }}" class="btn btn-xs btn-outline-primary py-0 px-2 small">Editar</a>
+                            <form action="{{ route('admin.productos.destroy', $prod->id) }}" method="POST" onsubmit="return confirm('¿Seguro querés dar de baja este artículo?');" class="m-0">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-xs btn-outline-danger py-0 px-2 small">Baja</button>
+                            </form>
                         </div>
-                    </div>
-                </a>
+                    @endif
+
+                    <a href="{{ route('productos.detalle', $prod->id) }}" class="text-decoration-none text-dark">
+                        <div class="card border-0 shadow-sm tarjeta-producto" style="@if(Auth::check() && Auth::user()->rol === 'admin') border-top-left-radius: 0px !important; border-top-right-radius: 0px !important; @endif">
+                            <img src="{{ asset('images/img-products/' . $prod->imagen) }}" class="card-img-top imagen-producto p-3" alt="{{ $prod->nombre }}">
+                            <div class="card-body border-top">
+                                <p class="text-truncate mb-1 small" title="{{ $prod->nombre }}">{{ $prod->nombre }}</p>
+                                <h4 class="mb-0 fw-bold">${{ number_format($prod->precio, 0, ',', '.') }}</h4>
+                                <p class="text-success small fw-bold">Envío gratis</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             @empty
                 <p class="text-muted small">Próximamente más productos de Hogar.</p>
             @endforelse
@@ -123,28 +162,41 @@
 
     <div class="container my-5">
         <div class="d-flex gap-2 align-items-baseline mb-3">
-            <h3 class="fw-light"><span class="fw-bold">Seguridad</span></h3>
+            <h3 class="fw-light"><span class="fw-bold">Security</span></h3>
             <a href="/catalogo-seguridad" class="text-decoration-none">Ver todas</a>
         </div>
 
         <div class="d-flex overflow-auto pb-3 gap-3" style="scrollbar-width: thin;">
             
             @forelse($seguridad as $prod)
-                <a href="{{ route('productos.detalle', $prod->id) }}" class="text-decoration-none text-dark">
-                    <div class="card border-0 shadow-sm tarjeta-producto">
-                        <img src="{{ asset('images/img-products/' . $prod->imagen) }}" class="card-img-top imagen-producto p-3" alt="{{ $prod->nombre }}">
-                        <div class="card-body border-top">
-                            <p class="text-truncate mb-1 texto-recortado" title="{{ $prod->nombre }}">{{ $prod->nombre }}</p>
-                            <span class="text-muted text-decoration-line-through small">${{ number_format($prod->precio * 1.3, 0, ',', '.') }}</span>
-                            <div class="d-flex align-items-center gap-2">
-                                <h4 class="mb-0">${{ number_format($prod->precio, 0, ',', '.') }}</h4>
-                                <span class="text-success small fw-bold">30% OFF</span>
-                            </div>
-                            <p class="text-primary small mb-1">6 cuotas <span class="fw-bold">sin interes</span> de ${{ number_format($prod->precio / 6, 0, ',', '.') }}</p>
-                            <p class="text-success fw-bold small mb-0">Envío gratis</p>
+                <div class="position-relative">
+                    @if(Auth::check() && Auth::user()->rol === 'admin')
+                        <div class="d-flex justify-content-end gap-1 p-2 bg-light border-bottom rounded-top">
+                            <a href="{{ route('admin.productos.edit', $prod->id) }}" class="btn btn-xs btn-outline-primary py-0 px-2 small">Editar</a>
+                            <form action="{{ route('admin.productos.destroy', $prod->id) }}" method="POST" onsubmit="return confirm('¿Seguro querés dar de baja este artículo?');" class="m-0">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-xs btn-outline-danger py-0 px-2 small">Baja</button>
+                            </form>
                         </div>
-                    </div>
-                </a>
+                    @endif
+
+                    <a href="{{ route('productos.detalle', $prod->id) }}" class="text-decoration-none text-dark">
+                        <div class="card border-0 shadow-sm tarjeta-producto" style="@if(Auth::check() && Auth::user()->rol === 'admin') border-top-left-radius: 0px !important; border-top-right-radius: 0px !important; @endif">
+                            <img src="{{ asset('images/img-products/' . $prod->imagen) }}" class="card-img-top imagen-producto p-3" alt="{{ $prod->nombre }}">
+                            <div class="card-body border-top">
+                                <p class="text-truncate mb-1 texto-recortado" title="{{ $prod->nombre }}">{{ $prod->nombre }}</p>
+                                <span class="text-muted text-decoration-line-through small">${{ number_format($prod->precio * 1.3, 0, ',', '.') }}</span>
+                                <div class="d-flex align-items-center gap-2">
+                                    <h4 class="mb-0">${{ number_format($prod->precio, 0, ',', '.') }}</h4>
+                                    <span class="text-success small fw-bold">30% OFF</span>
+                                </div>
+                                <p class="text-primary small mb-1">6 cuotas <span class="fw-bold">sin interes</span> de ${{ number_format($prod->precio / 6, 0, ',', '.') }}</p>
+                                <p class="text-success fw-bold small mb-0">Envío gratis</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             @empty
                 <p class="text-muted small">Próximamente más productos de Seguridad.</p>
             @endforelse
@@ -163,8 +215,19 @@
                 
                 @forelse($televisores as $prod)
                     <div style="min-width: 240px; max-width: 240px;">
+                        @if(Auth::check() && Auth::user()->rol === 'admin')
+                            <div class="d-flex justify-content-end gap-1 p-2 bg-light border-bottom rounded-top">
+                                <a href="{{ route('admin.productos.edit', $prod->id) }}" class="btn btn-xs btn-outline-primary py-0 px-2 small">Editar</a>
+                                <form action="{{ route('admin.productos.destroy', $prod->id) }}" method="POST" onsubmit="return confirm('¿Seguro querés dar de baja este artículo?');" class="m-0">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-xs btn-outline-danger py-0 px-2 small">Baja</button>
+                                </form>
+                            </div>
+                        @endif
+
                         <a href="{{ route('productos.detalle', $prod->id) }}" class="text-decoration-none text-dark">
-                            <div class="card border-0 shadow h-100">
+                            <div class="card border-0 shadow h-100" style="@if(Auth::check() && Auth::user()->rol === 'admin') border-top-left-radius: 0px !important; border-top-right-radius: 0px !important; @endif">
                                 <img src="{{ asset('images/img-products/' . $prod->imagen) }}" class="card-img-top imagen-producto p-3" alt="{{ $prod->nombre }}">
                                 <div class="card-body border-top">
                                     <p class="text-truncate mb-1 texto-recortado" title="{{ $prod->nombre }}">{{ $prod->nombre }}</p>

@@ -16,18 +16,77 @@ class AdminProductoController extends Controller
     }
 
     public function store(Request $request)
+{
+    $request->validate([
+        'nombre' => 'required|max:150',
+        'descripcion' => 'nullable',
+        'precio' => 'required|numeric|min:0',
+        'stock' => 'required|integer|min:0',
+        'categoria_id' => 'required|exists:categorias,id',
+        'imagen' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048' 
+    ]);
+
+    $datosProducto = $request->except('imagen');
+
+    if ($request->hasFile('imagen')) {
+        $imagenFile = $request->file('imagen');
+        
+        $nombreImagen = time() . '_' . $imagenFile->getClientOriginalName();
+        
+        $imagenFile->move(public_path('images/img-products'), $nombreImagen);
+        
+        $datosProducto['imagen'] = $nombreImagen;
+    }
+
+
+    Producto::create($datosProducto);
+
+    return redirect()->route('inicio')->with('success', '¡Producto e imagen subidos con éxito!');
+}
+
+    public function edit($id)
+{
+    $producto = Producto::findOrFail($id);
+    $categorias = Categoria::all();
+    return view('admin.productos.edit', compact('producto', 'categorias'));
+}
+
+
+public function update(Request $request, $id)
+{
+    $producto = Producto::findOrFail($id);
+
+    $request->validate([
+        'nombre' => 'required|max:150',
+        'descripcion' => 'nullable',
+        'precio' => 'required|numeric|min:0',
+        'stock' => 'required|integer|min:0',
+        'categoria_id' => 'required|exists:categorias,id',
+        'imagen' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:10240' 
+    ]);
+
+    $datosProducto = $request->except('imagen');
+
+    if ($request->hasFile('imagen')) {
+        $imagenFile = $request->file('imagen');
+        $nombreImagen = time() . '_' . $imagenFile->getClientOriginalName();
+        $imagenFile->move(public_path('images/img-products'), $nombreImagen);
+        
+        $datosProducto['imagen'] = $nombreImagen;
+    }
+
+    $producto->update($datosProducto);
+
+    return redirect()->route('inicio')->with('success', '¡Producto actualizado!');
+}
+
+
+    public function destroy($id)
     {
-        $request->validate([
-            'nombre' => 'required|max:150',
-            'descripcion' => 'nullable',
-            'precio' => 'required|numeric|min:0',
-            'stock' => 'required|integer|min:0',
-            'categoria_id' => 'required|exists:categorias,id',
-            'imagen' => 'required' // Nombre del archivo (ej: camara.png)
-        ]);
+    $producto = Producto::findOrFail($id);
 
-        Producto::create($request->all());
+    $producto->delete(); 
 
-        return redirect()->route('inicio')->with('success', '¡Producto subido con éxito!');
+    return redirect()->route('inicio')->with('success', '¡Producto dado de baja con éxito!');
     }
 }

@@ -119,3 +119,9 @@ use App\Http\Controllers\Admin\AdminProductoController;
 Route::get('/admin/productos/crear', [AdminProductoController::class, 'create'])->name('admin.productos.create');
 
 Route::post('/admin/productos', [AdminProductoController::class, 'store'])->name('admin.productos.store');
+
+Route::get('/admin/productos/{id}/editar', [AdminProductoController::class, 'edit'])->name('admin.productos.edit');
+
+Route::put('/admin/productos/{id}', [AdminProductoController::class, 'update'])->name('admin.productos.update');
+
+Route::delete('/admin/productos/{id}', [AdminProductoController::class, 'destroy'])->name('admin.productos.destroy');

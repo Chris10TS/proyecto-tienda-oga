@@ -21,7 +21,7 @@ public function up(): void
         
         // El cable relacional:
         $table->foreignId('categoria_id')->constrained()->onDelete('cascade');
-        
+        $table->softDeletes();
         $table->timestamps();
     });
 }
