@@ -162,7 +162,7 @@
 
     <div class="container my-5">
         <div class="d-flex gap-2 align-items-baseline mb-3">
-            <h3 class="fw-light"><span class="fw-bold">Security</span></h3>
+            <h3 class="fw-light"><span class="fw-bold">Seguridad</span></h3>
             <a href="/catalogo-seguridad" class="text-decoration-none">Ver todas</a>
         </div>
 
