@@ -9,7 +9,7 @@ class ProductoController extends Controller
 {
     public function index()
     {
-        $masVendidos = Producto::take(3)->get();
+        $masVendidos = Producto::take(4)->get();
 
         
         $climatizacion = Producto::where('categoria_id', 3)->get(); 
