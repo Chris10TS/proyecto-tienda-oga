@@ -60,17 +60,41 @@
                 <p class="text-success fw-bold mb-1"><i class="ti ti-truck-delivery"></i> Envío gratis en Corrientes</p>
                 <p class="text-muted small mb-3">Envío gratis a partir de $100.000 al resto del país</p>
 
+                <form action="{{ route('carrito.agregar', $producto->id) }}" method="POST">
+                @csrf
+    
                 <label class="form-label fw-bold">Cantidad</label>
-                <select class="form-select mb-3">
-                    <option>1 unidad</option>
-                    <option>2 unidades</option>
-                    <option>3 unidades</option>
+                <select name="cantidad" class="form-select mb-3">
+                    <option value="1">1 unidad</option>
+                    <option value="2">2 unidades</option>
+                    <option value="3">3 unidades</option>
+                    <option value="4">4 unidades</option>
+                    <option value="5">5 unidades</option>
                 </select>
 
+                @if($producto->stock > 0)
+                    <button type="submit" class="btn btn-warning w-100 mb-3 fw-bold text-dark">
+                        <i class="ti ti-shopping-cart"></i> Agregar al carrito
+                    </button>
+                    <p class="text-muted small">Disponibles: <span class="fw-bold">{{ $producto->stock }} unidades</span></p>
+                @else
+                    <button class="btn btn-secondary w-100 mb-3" disabled>
+                        <i class="ti ti-shopping-cart-off"></i> Sin Stock Disponible
+                    </button>
+                @endif
+            </form>
                 <a href="#" class="btn btn-warning w-100 mb-2 fw-bold">Comprar ahora</a>
-                <a href="#" class="btn btn-outline-dark w-100 mb-3">
+                @if($producto->stock > 0)
+                <a href="{{ route('carrito.agregar', $producto->id) }}" class="btn btn-warning w-100 mb-3 fw-bold text-dark">
                     <i class="ti ti-shopping-cart"></i> Agregar al carrito
                 </a>
+                    <p class="text-muted small">Disponibles: <span class="fw-bold">{{ $producto->stock }} unidades</span></p>
+                @else
+                    <button class="btn btn-secondary w-100 mb-3" disabled>
+                        <i class="ti ti-shopping-cart-off"></i> Sin Stock Disponible
+                    </button>
+                    <p class="text-danger small fw-bold">Próximamente más ingresos de este artículo.</p>
+                @endif
 
                 <div class="border-top pt-3">
                     <p class="small mb-1"> Devoluciones hasta 30 días</p>
