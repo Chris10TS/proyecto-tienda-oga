@@ -83,7 +83,7 @@
                         <span class="fs-4 fw-bold text-success">${{ number_format($total, 0, ',', '.') }}</span>
                     </div>
 
-                    <form action="{{ route('carrito.confirmar') }}" method="POST">
+                    <form action="{{ route('carrito.checkout') }}" method="POST">
                         @csrf
                         <button type="submit" class="btn btn-warning w-100 fw-bold py-2 fs-5 text-dark shadow-sm">
                             Confirmar Compra
@@ -101,6 +101,4 @@
         </div>
     @endif    
 </div>
-
-
 @endsection

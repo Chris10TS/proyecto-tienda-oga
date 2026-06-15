@@ -82,35 +82,43 @@ public function agregar(Request $request, $id)
         return redirect()->route('carrito')->with('success', 'Carrito vaciado con éxito.');
     }
 
-    public function confirmar()
-    {
-        $carrito = session()->get('carrito', []);
-
-        if (empty($carrito)) {
-            return redirect()->route('carrito')->with('error', 'El carrito está vacío.');
-        }
-
-        if (!Auth::check()) {
-            return redirect()->route('login')->with('error', 'Debes iniciar sesión para finalizar tu compra.');
-        }
-
-        foreach ($carrito as $id => $detalles) {
-            $producto = Producto::findOrFail($id);
-            if ($producto->stock < $detalles['cantidad']) {
-                return redirect()->route('carrito')->with('error', "El producto {$producto->nombre} ya no cuenta con el stock solicitado. Carrito actualizado.");
-            }
-        }
-
-        foreach ($carrito as $id => $detalles) {
-            $producto = Producto::findOrFail($id);
-            $producto->stock -= $detalles['cantidad']; 
-            $producto->save(); 
-        }
-
-        session()->forget('carrito');
-
-        return view('compra-exitosa'); 
+    public function confirmar(Request $request)
+{
+    $carrito = session()->get('carrito', []);
+    
+    if (empty($carrito)) {
+        return redirect()->route('carrito')->with('error', 'El carrito está vacío.');
     }
+
+    $total = 0;
+    foreach($carrito as $item) {
+        $total += $item['precio'] * $item['cantidad'];
+    }
+
+    $pedido = new \App\Models\Pedido();
+    $pedido->user_id = auth()->id();
+    $pedido->total = $total;
+    $pedido->metodo_pago = $request->input('metodo_pago', 'tarjeta');
+    $pedido->estado = 'pagado';
+    $pedido->save(); 
+
+    foreach ($carrito as $id => $item) {
+        $pedido->productos()->attach($id, [
+            'cantidad' => $item['cantidad'],
+            'precio_unitario' => $item['precio']
+        ]);
+
+        $producto = Producto::find($id);
+        if ($producto) {
+            $producto->stock -= $item['cantidad'];
+            $producto->save();
+        }
+    }
+
+    session()->forget('carrito');
+
+    return view('compra-exitosa', compact('pedido'));
+}
 
     public function actualizarCantidad(Request $request, $id)
 {
@@ -134,6 +142,21 @@ public function agregar(Request $request, $id)
     }
 
     return redirect()->route('carrito')->with('success', 'Carrito actualizado con éxito.');
+}
+
+public function checkout()
+{
+    $carrito = session()->get('carrito', []);
+
+    if (empty($carrito)) {
+        return redirect()->route('carrito')->with('error', 'El carrito está vacío.');
+    }
+
+    if (!auth()->check()) {
+        return redirect()->route('login')->with('error', 'Debes iniciar sesión para finalizar la compra.');
+    }
+
+    return view('checkout', compact('carrito'));
 }
 
 }

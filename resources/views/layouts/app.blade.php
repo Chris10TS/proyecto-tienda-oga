@@ -62,10 +62,10 @@
 
                 <ul class="dropdown-menu shadow border-0 py-3 menu-movil">
                     <li><h6 class="dropdown-header d-lg-none">CATEGORÍAS</h6></li>
-                    <li><a class="dropdown-item py-2" href="/catalogo-seguridad">Seguridad</a></li>
-                    <li><a class="dropdown-item py-2" href="/catalogo-televisores">Televisores</a></li>
-                    <li><a class="dropdown-item py-2" href="/catalogo-invierno">Calefacción</a></li>
-                    <li><a class="dropdown-item py-2" href="/catalogo-hogar">Hogar</a></li>
+                    <li><a class="dropdown-item py-2" href="/catalogo/categoria/1">Seguridad</a></li>
+                    <li><a class="dropdown-item py-2" href="/catalogo/categoria/4">Televisores</a></li>
+                    <li><a class="dropdown-item py-2" href="/catalogo/categoria/3">Calefacción</a></li>
+                    <li><a class="dropdown-item py-2" href="/catalogo/categoria/2">Hogar</a></li>
                     <li><a class="dropdown-item py-2" href="/catalogo">Todas</a></li>
                     
                     <li><hr class="dropdown-divider d-lg-none"></li>
@@ -83,16 +83,20 @@
     <a href="/contacto-oga" class="text-decoration-none text-black small fw-bold">CONTACTOS</a>
     <a href="/comercializacion" class="text-decoration-none text-black small fw-bold">COMERCIALIZACIÓN</a>
 
-    {{-- Separador visual --}}
     <div class="border-start ps-4 d-flex align-items-center gap-3">
         @auth
-            {{-- Si es ADMIN, mostramos el link a las consultas --}}
             @if(Auth::user()->rol == 'admin')
                 <a href="{{ route('admin.consultas') }}" class="text-decoration-none text-danger small fw-bold">
                     <i class="ti ti-shield-check me-1"></i>PANEL ADMIN
                 </a>
                 <a class="btn btn-sm btn-outline-dark fw-bold ms-2" href="{{ route('admin.productos.create') }}">
                     + Subir Producto
+                </a>
+            @endif
+
+            @if(Auth::check() && Auth::user()->rol === 'admin')
+                <a href="{{ route('admin.pedidos') }}" class="btn btn-outline-success fw-bold me-2">
+                    <i class="ti ti-report-money"></i> Ver Compras
                 </a>
             @endif
 
@@ -109,7 +113,6 @@
             </form>
             
         @else
-            {{-- Si no está logueado --}}
             <a href="{{ route('login') }}" class="text-decoration-none text-black small fw-bold">INGRESAR</a>
             <a href="{{ route('register') }}" class="btn btn-dark btn-sm fw-bold">REGISTRARSE</a>
         @endauth

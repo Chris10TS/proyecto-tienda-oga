@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Producto;
 use App\Models\Categoria;
+use App\Models\Pedido;
 use Illuminate\Http\Request;
 
 class AdminProductoController extends Controller
@@ -88,5 +89,12 @@ public function update(Request $request, $id)
     $producto->delete(); 
 
     return redirect()->route('inicio')->with('success', '¡Producto dado de baja con éxito!');
+    }
+
+    public function listarPedidos()
+    {
+    $pedidos = Pedido::with(['user', 'productos'])->orderBy('created_at', 'desc')->get();
+
+    return view('admin.pedidos', compact('pedidos'));
     }
 }

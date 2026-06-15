@@ -10,7 +10,15 @@ class Producto extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['nombre', 'descripcion', 'precio', 'stock', 'imagen', 'categoria_id'];
+    protected $fillable = [
+    'nombre', 
+    'descripcion', 
+    'precio', 
+    'stock', 
+    'imagen', 
+    'categoria_id', 
+    'porcentaje_descuento' 
+];
 
     protected $casts = [
         'precio' => 'decimal:2',

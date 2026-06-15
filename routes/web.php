@@ -19,24 +19,19 @@ Route::get('/comercializacion', function () { return view('comercializacion'); }
 Route::get('/contacto-oga', function () { return view('contacto-oga'); });
 Route::get('/terminos', function () { return view('terminos'); });
 Route::get('/consultas', function () { return view('consultas'); });
-Route::get('/ofertas', function () { return view('ofertas'); });
-Route::get('/catalogo', function() { return view('catalogo'); });
-
-// Filtros de catálogos fijos
-Route::get('/catalogo-invierno', function () { return view('catalogo-invierno'); });
-Route::get('/catalogo-seguridad', function () { return view('catalogo-seguridad'); });
-Route::get('/catalogo-televisores', function () { return view('catalogo-televisores'); });
-Route::get('/catalogo-hogar', function() { return view('catalogo-hogar'); });
+Route::get('/ofertas', [ProductoController::class, 'ofertas'])->name('productos.ofertas');Route::get('/catalogo', [ProductoController::class, 'catalogo'])->name('productos.catalogo');
+Route::get('/catalogo/categoria/{id}', [ProductoController::class, 'categoria'])->name('productos.categoria');
 
 
 // =======================================================================
 // 2. CIRCUITO DINÁMICO DEL CARRITO DE COMPRAS
 // =======================================================================
 Route::get('/carrito', [CarritoController::class, 'ver'])->name('carrito');
-Route::post('/carrito/agregar/{id}', [CarritoController::class, 'agregar'])->name('carrito.agregar');Route::delete('/carrito/eliminar/{id}', [CarritoController::class, 'eliminar'])->name('carrito.eliminar');
+Route::post('/checkout', [CarritoController::class, 'checkout'])->name('carrito.checkout');
+Route::post('/carrito/agregar/{id}', [CarritoController::class, 'agregar'])->name('carrito.agregar');
+Route::delete('/carrito/eliminar/{id}', [CarritoController::class, 'eliminar'])->name('carrito.eliminar');
 Route::get('/carrito/vaciar', [CarritoController::class, 'vaciar'])->name('carrito.vaciar');
 Route::put('/carrito/actualizar/{id}', [CarritoController::class, 'actualizarCantidad'])->name('carrito.actualizar');
-// Esta es la ruta POST que procesa la compra física y descuenta el stock:
 Route::post('/compra-confirmar', [CarritoController::class, 'confirmar'])->name('carrito.confirmar');
 
 
@@ -52,6 +47,7 @@ Route::post('/enviar-consulta', [ConsultaController::class, 'store_contact'])->n
 // 4. PANEL DE ADMINISTRACIÓN (CRUD PRODUCTOS Y PANEL CONSULTAS)
 // =======================================================================
 Route::get('/admin/consultas', [ConsultaController::class, 'index'])->name('admin.consultas');
+Route::get('/admin/pedidos', [AdminProductoController::class, 'listarPedidos'])->name('admin.pedidos');
 
 // CRUD de productos con carga de imágenes y bajas lógicas
 Route::get('/admin/productos/crear', [AdminProductoController::class, 'create'])->name('admin.productos.create');
