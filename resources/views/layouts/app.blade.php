@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda OGA - Inicio</title>
-    <link rel="icon" type="image/png" href="{{ asset('images/img-products/logo-ventana.png') }}">
-    <link rel="icon" type="image/png" href="{{ asset('images/img-products/logo-ventana.png') }}">    
+    <link class="rounded-pill" rel="icon" type="image/png" href="{{ asset('images/img-products/logo-ventana.png') }}">
     <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
     <link rel="stylesheet" href="/css/estilos.css">
@@ -15,11 +14,11 @@
 <nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top barra-navegacion">    
     <div class="container">
         
-        <a class="navbar-brand me-auto" href="/inicio">
-            <img src="{{ asset('images/img-products/logos.png') }}" alt="Logo Oga" height="40">
+        <a class="navbar-brand me-3" href="/inicio">
+            <img src="{{ asset('images/img-products/logos.png') }}" alt="Logo Oga" height="45">
         </a>
 
-        <button class="navbar-toggler border-0 p-0 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContenido">
+        <button class="navbar-toggler border-0 p-0 me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContenido">
             <i class="ti ti-search text-black fs-1"></i>
         </button>
 
@@ -31,33 +30,45 @@
         <div class="collapse navbar-collapse" id="navbarContenido">
             
             <form class="d-flex flex-grow-1 mx-lg-4 my-3 my-lg-0">
-                <div class="input-group buscador w-100">
-                    <input class="form-control" type="search" placeholder="Buscar productos..." aria-label="Buscar">
-                    <button class="btn btn-white bg-white border-start-0" type="submit" style="border: 1px solid #ced4da;">
-                        <i class="ti ti-search text-muted"></i>
+                <div class="input-group buscador w-100 shadow-sm rounded">
+                    <input class="form-control border-end-0 py-2 ps-3" type="search" placeholder="Buscar productos, marcas y más..." aria-label="Buscar">
+                    <button class="btn btn-white bg-white border-start-0 pe-3" type="submit">
+                        <i class="ti ti-search text-muted fs-4"></i>
                     </button>
                 </div>
             </form>
 
-            <div class="ms-lg-3 d-none d-lg-block">
+            <div class="d-none d-lg-flex align-items-center gap-4 ms-auto">
+                
+                <a href="/favoritos" class="text-decoration-none">
+                    <i class="ti ti-heart text-black" style="font-size: 1.7rem;"></i>
+                </a>
+
+                <a href="{{ Auth::check() ? '/perfil' : route('login') }}" class="text-decoration-none text-black fw-bold d-flex align-items-center gap-2">
+                    <i class="ti ti-user" style="font-size: 1.7rem;"></i>
+                    <span class="small">Ingresar</span>
+                </a>
+
                 <a href="/carrito" class="position-relative">
                     <img src="/images/carrito.png" class="icono-carrito" alt="carrito" style="height: 35px;">
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">2</span>
                 </a>
+                
             </div>
+
         </div>
     </div>
 </nav>
 
-<div class="bg-white border-bottom">
+<div class="barra-navegacion">
     <div class="container">
         <div class="d-flex align-items-center py-2">
             
             <div class="dropdown position-static position-lg-relative">
-                <button class="boton-categoria-menu btn btn-link text-dark text-decoration-none fw-bold d-flex align-items-center gap-2 p-0 dropdown-toggle shadow-none" 
+                <button class="boton-categoria-menu btn btn-link text-white text-decoration-none fw-bold d-flex align-items-center gap-2 p-0 dropdown-toggle shadow-none" 
                         type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="ti ti-menu-2 fs-4"></i>
-                    <span class="small fw-bold text-black">CATEGORÍAS</span>
+                    <i class="ti ti-menu-2 fs-4 text-white"></i>
+                    <span class="small fw-bold text-white">CATEGORÍAS</span>
                 </button>
 
                 <ul class="dropdown-menu shadow border-0 py-3 menu-movil">
@@ -70,54 +81,61 @@
                     
                     <li><hr class="dropdown-divider d-lg-none"></li>
                     <li><h6 class="dropdown-header d-lg-none">MENÚ</h6></li>
-                    <li><a class="dropdown-item py-2 d-lg-none" href="/ofertas">Ofertas</a></li>
-                    <li><a class="dropdown-item py-2 d-lg-none" href="/consultas">Consultas</a></li>
-                    <li><a class="dropdown-item py-2 d-lg-none" href="/contacto-oga">Contactos</a></li>
-                    <li><a class="dropdown-item py-2 d-lg-none" href="/comercializacion">Comercialización</a></li>
+                    <li><a class="dropdown-item py-2" href="/ofertas">Ofertas</a></li>
+                    <li><a class="dropdown-item py-2" href="/consultas">Consultas</a></li>
+                    <li><a class="dropdown-item py-2" href="/contacto-oga">Contactos</a></li>
+                    <li><a class="dropdown-item py-2" href="/comercializacion">Comercialización</a></li>
                 </ul>
             </div>
 
-            <div class="d-none d-lg-flex align-items-center gap-4 ms-4">
-    <a href="/ofertas" class="text-decoration-none text-black small fw-bold">OFERTAS</a>
-    <a href="/consultas" class="text-decoration-none text-black small fw-bold">CONSULTAS</a>
-    <a href="/contacto-oga" class="text-decoration-none text-black small fw-bold">CONTACTOS</a>
-    <a href="/comercializacion" class="text-decoration-none text-black small fw-bold">COMERCIALIZACIÓN</a>
+            <div class="d-none d-lg-flex align-items-center gap-5 ms-4">
+                <a href="/ofertas" class="text-decoration-none text-white small fw-bold">OFERTAS</a>
+                <a href="/consultas" class="text-decoration-none text-white small fw-bold">CONSULTAS</a>
+                <a href="/contacto-oga" class="text-decoration-none text-white small fw-bold">CONTACTOS</a>
+                <a href="/comercializacion" class="text-decoration-none text-white small fw-bold">COMERCIALIZACIÓN</a>
+            </div>
 
-    <div class="border-start ps-4 d-flex align-items-center gap-3">
-        @auth
-            @if(Auth::user()->rol == 'admin')
-                <a href="{{ route('admin.consultas') }}" class="text-decoration-none text-danger small fw-bold">
-                    <i class="ti ti-shield-check me-1"></i>PANEL ADMIN
-                </a>
-                <a class="btn btn-sm btn-outline-dark fw-bold ms-2" href="{{ route('admin.productos.create') }}">
-                    + Subir Producto
-                </a>
-            @endif
+            <div class="ms-auto d-none d-lg-flex align-items-center">
+                @auth
+                    <div class="dropdown">
+                        <button class="btn btn-link text-white text-decoration-none dropdown-toggle p-0 small fw-bold shadow-none d-flex align-items-center gap-1" 
+                                type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span>{{ Str::limit(Auth::user()->name, 10, '...') }}</span>
+                        </button>
+                        
+                        <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2">
+                            <li><h6 class="dropdown-header">¡Hola, {{ Auth::user()->name }}!</h6></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item py-2 small" href="/perfil"><i class="ti ti-user-circle me-2 text-muted"></i> Mi Perfil</a></li>
+                            <li><a class="dropdown-item py-2 small" href="/favoritos"><i class="ti ti-heart me-2 text-muted"></i> Mis Favoritos</a></li>
+                            <li><a class="dropdown-item py-2 small" href="/historial"><i class="ti ti-history me-2 text-muted"></i> Historial</a></li>
+                            
+                            @if(Auth::user()->rol == 'admin')
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <a class="dropdown-item py-2 small text-danger fw-bold" href="{{ route('admin.consultas') }}">
+                                        <i class="ti ti-shield-check me-2"></i> PANEL ADMIN
+                                    </a>
+                                </li>
+                            @endif
+                            
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item py-2 small text-muted" href="{{ route('logout') }}" 
+                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="ti ti-logout me-2"></i> Salir
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
 
-            @if(Auth::check() && Auth::user()->rol === 'admin')
-                <a href="{{ route('admin.pedidos') }}" class="btn btn-outline-success fw-bold me-2">
-                    <i class="ti ti-report-money"></i> Ver Compras
-                </a>
-            @endif
-
-            {{-- Nombre del usuario y Cerrar Sesión --}}
-            <span class="small text-muted">Hola, <strong>{{ Auth::user()->name }}</strong></span>
-            
-            <a href="{{ route('logout') }}" class="text-decoration-none text-muted small" 
-                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                Salir
-            </a>
-
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-            </form>
-            
-        @else
-            <a href="{{ route('login') }}" class="text-decoration-none text-black small fw-bold">INGRESAR</a>
-            <a href="{{ route('register') }}" class="btn btn-dark btn-sm fw-bold">REGISTRARSE</a>
-        @endauth
-    </div>
-</div>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                @else
+                    <a href="{{ route('register') }}" class="text-decoration-none text-white-50 small fw-bold">Creá tu cuenta</a>
+                @endauth
+            </div>
 
         </div>
     </div>

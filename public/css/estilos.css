@@ -24,7 +24,7 @@
 }
 
 .buscador {
-    background-color: #ededed;
+    background-color: #fffdfd;
     border-radius: 4px;
     overflow: hidden;
     height: 40px;
@@ -189,3 +189,11 @@ body{
     object-fit: contain;
     width: 100%;
 }
+
+@media (min-width: 992px) {
+    .buscador {
+        max-width: 600px; 
+        width: 100%;
+    }
+}
+
