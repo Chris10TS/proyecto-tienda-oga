@@ -197,7 +197,6 @@ body{
     }
 }
 
-/* --- CONFIGURACIÓN GENERAL DEL LOGIN --- */
 .login-wrapper {
     min-height: 75vh;
 }
@@ -215,7 +214,6 @@ body{
     color: #212529; 
 }
 
-/* Altura fija para que los inputs arranquen a la misma altura horizontal */
 .title-container {
     height: 80px;
     display: flex;
@@ -223,13 +221,11 @@ body{
     justify-content: center;
 }
 
-/* --- COLUMNA IZQUIERDA --- */
 .btn-custom-width {
     width: 100%;
     max-width: 340px;
 }
 
-/* Botón "Recibir código" / "Entrar con contraseña" */
 .btn-flow-toggle {
     border-color: #F5793A !important;
     color: #F5793A !important;
@@ -240,25 +236,21 @@ body{
     color: #ffffff !important;
 }
 
-/* --- COLUMNA DERECHA --- */
 .form-box {
     max-width: 380px;
 }
 
-/* Campos de entrada (inputs) */
 .login-input {
     font-size: 0.95rem;
     border-color: #a0aab5 !important;
     height: 46px;
 }
 
-/* Icono del ojito para password */
 .btn-toggle-eye {
     cursor: pointer;
     color: #727e8c !important;
 }
 
-/* Enlaces (Olvidé mi contraseña y Regístrese) */
 .link-forgot, 
 .link-register {
     font-size: 0.88rem;

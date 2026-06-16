@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 use App\Models\Categoria;
+use App\Models\Reseña;
+use App\Models\Pedido;
 
 
 class ProductoController extends Controller
@@ -28,30 +30,25 @@ class ProductoController extends Controller
         return view('productos.detalle', compact('producto'));
     }
 
-    public function catalogo(Request $request)
-{
-    $query = Producto::query();
+    public function catalogo()
+    {
+    $productos = Producto::all();
 
-    if ($request->has('filtro') && $request->input('filtro') === 'descuentos') {
-        // Si es así, filtramos para traer solo los que tengan descuento mayor a 0
-        $query->where('porcentaje_descuento', '>', 0);
-        $titulo = "Productos en Oferta";
-    } else {
-        $titulo = "Nuestro Catálogo completo";
+    return view('catalogo', [
+        'productos' => $productos,
+        'titulo' => 'Nuestro Catálogo'
+    ]);
     }
-
-    $productos = $query->get();
-
-    return view('catalogo', compact('productos', 'titulo'));
-}
 
 public function ofertas()
 {
-    $productosEnOferta = Producto::where('porcentaje_descuento', '>', 0)->get();
+    $productos = Producto::where('porcentaje_descuento', '>', 0)->get();
 
-    return view('ofertas', compact('productosEnOferta'));
+    return view('catalogo', [
+        'productos' => $productos,
+        'titulo' => 'Ofertas Especiales'
+    ]);
 }
-
 public function categoria($id)
 {
     $categoria = Categoria::findOrFail($id);
@@ -61,6 +58,32 @@ public function categoria($id)
     $titulo = "Productos de " . $categoria->nombre;
 
     return view('catalogo', compact('productos', 'titulo'));
+}
+
+public function guardarReseña(Request $request, $id)
+{
+    if (auth()->user()->rol === 'admin') {
+        return redirect()->back()->with('error', 'Los administradores no pueden dejar reseñas.');
+    }
+
+    $haComprado = Pedido::where('user_id', auth()->id())
+        ->where('estado', 'pagado')
+        ->whereHas('productos', function($query) use ($id) {
+            $query->where('producto_id', $id);
+        })->exists();
+
+    if (!$haComprado) {
+        return redirect()->back()->with('error', 'Acción denegada: Solo podés opinar sobre artículos que compraste.');
+    }
+
+    Reseña::create([
+        'producto_id' => $id,
+        'user_id' => auth()->id(),
+        'estrellas' => $request->input('estrellas'),
+        'comentario' => $request->input('comentario'),
+    ]);
+
+    return redirect()->back()->with('success', '¡Muchas gracias! Tu opinión fue publicada con éxito.');
 }
 
 }

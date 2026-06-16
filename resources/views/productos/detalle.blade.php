@@ -10,10 +10,16 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/inicio">Inicio</a></li>
             <li class="breadcrumb-item"><a href="/catalogo">Catálogo</a></li>
-            <li class="breadcrumb-item"><a href="/categoria/{{ $producto->categoria->id }}">{{ $producto->categoria->nombre }}</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ $producto->nombre }}</li>
         </ol>
     </nav>
+
+    @if(session('error'))
+        <div class="alert alert-danger alert-dismissible fade show fw-bold mb-4 shadow-sm" role="alert">
+            <i class="ti ti-circle-x-filled"></i> {{ session('error') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
 
     <div class="row mb-5">
 
@@ -56,47 +62,40 @@
         </div>
 
         <div class="col-md-3">
-            <div class="card p-3">
+            <div class="card p-3 contenedor-estatico">
                 <p class="text-success fw-bold mb-1"><i class="ti ti-truck-delivery"></i> Envío gratis en Corrientes</p>
                 <p class="text-muted small mb-3">Envío gratis a partir de $100.000 al resto del país</p>
 
                 <form action="{{ route('carrito.agregar', $producto->id) }}" method="POST">
-                @csrf
-    
-                <label class="form-label fw-bold">Cantidad</label>
-                <select name="cantidad" class="form-select mb-3">
-                    <option value="1">1 unidad</option>
-                    <option value="2">2 unidades</option>
-                    <option value="3">3 unidades</option>
-                    <option value="4">4 unidades</option>
-                    <option value="5">5 unidades</option>
-                </select>
+                    @csrf
 
-                @if($producto->stock > 0)
-                    <button type="submit" class="btn btn-warning w-100 mb-3 fw-bold text-dark">
-                        <i class="ti ti-shopping-cart"></i> Agregar al carrito
-                    </button>
-                    <p class="text-muted small">Disponibles: <span class="fw-bold">{{ $producto->stock }} unidades</span></p>
-                @else
-                    <button class="btn btn-secondary w-100 mb-3" disabled>
-                        <i class="ti ti-shopping-cart-off"></i> Sin Stock Disponible
-                    </button>
-                @endif
-            </form>
-                <a href="#" class="btn btn-warning w-100 mb-2 fw-bold">Comprar ahora</a>
-                @if($producto->stock > 0)
-                <a href="{{ route('carrito.agregar', $producto->id) }}" class="btn btn-warning w-100 mb-3 fw-bold text-dark">
-                    <i class="ti ti-shopping-cart"></i> Agregar al carrito
-                </a>
-                    <p class="text-muted small">Disponibles: <span class="fw-bold">{{ $producto->stock }} unidades</span></p>
-                @else
-                    <button class="btn btn-secondary w-100 mb-3" disabled>
-                        <i class="ti ti-shopping-cart-off"></i> Sin Stock Disponible
-                    </button>
-                    <p class="text-danger small fw-bold">Próximamente más ingresos de este artículo.</p>
-                @endif
+                    <label class="form-label fw-bold">Cantidad</label>
+                    <select name="cantidad" class="form-select mb-3">
+                        <option value="1">1 unidad</option>
+                        <option value="2">2 unidades</option>
+                        <option value="3">3 unidades</option>
+                        <option value="4">4 unidades</option>
+                        <option value="5">5 unidades</option>
+                    </select>
 
-                <div class="border-top pt-3">
+                    @if($producto->stock > 0)
+                        <button type="submit" formaction="{{ route('carrito.comprarAhora', $producto->id) }}" class="btn btn-warning w-100 mb-2 fw-bold text-dark shadow-sm">
+                            Comprar ahora
+                        </button>
+        
+                        <button type="submit" class="btn btn-outline-dark w-100 mb-3 fw-bold">
+                            <i class="ti ti-shopping-cart"></i> Agregar al carrito
+                        </button>
+        
+                        <p class="text-muted small mb-0">Disponibles: <span class="fw-bold">{{ $producto->stock }} unidades</span></p>
+                    @else
+                        <button class="btn btn-secondary w-100 mb-3" disabled>
+                            <i class="ti ti-shopping-cart-off"></i> Sin Stock Disponible
+                        </button>
+                    @endif
+                </form>
+
+                <div class="border-top pt-3 mt-3">
                     <p class="small mb-1"> Devoluciones hasta 30 días</p>
                     <p class="small mb-1"> Garantía 6 meses</p>
                     <p class="small mb-0"> Compra segura</p>
@@ -126,23 +125,64 @@
     </div>
 
     <div class="row mb-5">
-        <div class="col-12">
-            <div class="card4 p-4 bg-white rounded shadow-sm">
-                <h3 class="fw-bold mb-4">Opiniones de clientes</h3>
-                <div class="d-flex align-items-center gap-3 mb-4">
-                    <span class="display-4 fw-bold">4.0</span>
-                    <div>
-                        <span class="text-warning fs-4">★★★★☆</span>
-                        <p class="text-muted mb-0">128 opiniones</p>
-                    </div>
-                </div>
+    <div class="col-12">
+        <div class="card4 p-4 bg-white rounded shadow-sm">
+            <h3 class="fw-bold mb-4">Opiniones de clientes</h3>
+            
+            @forelse($producto->reseñas as $reseña)
                 <div class="border-bottom pb-3 mb-3">
-                    <div class="d-flex justify-content-between"><strong>María G.</strong><span class="text-muted small">Enero 2026</span></div>
-                    <span class="text-warning">★★★★★</span>
-                    <p class="mt-1 mb-0">Excelente producto, cumple con todo lo prometido y la atención de Tienda OGA impecable.</p>
+                    <div class="d-flex justify-content-between">
+                        <strong>{{ $reseña->user->name }}</strong>
+                        <span class="text-muted small">{{ $reseña->created_at->format('d/m/Y') }}</span>
+                    </div>
+                    <span class="text-warning">
+                        {{ str_repeat('★', $reseña->estrellas) }}{{ str_repeat('☆', 5 - $reseña->estrellas) }}
+                    </span>
+                    <p class="mt-1 mb-0">{{ $reseña->comentario }}</p>
                 </div>
-            </div>
+            @empty
+                <p class="text-muted small mb-4">Este producto todavía no tiene opiniones escritas.</p>
+            @endforelse
+
+            {{-- 2. FILTRO ESTRICTO: Solo clientes registrados, que no sean admin y que HAGAN COMPRADO este producto --}}
+            @if(Auth::check() && Auth::user()->rol !== 'admin')
+                @php
+                    // Buscamos si el usuario actual tiene algún pedido finalizado ("pagado") que contenga este producto_id
+                    $haComprado = \App\Models\Pedido::where('user_id', Auth::id())
+                        ->where('estado', 'pagado')
+                        ->whereHas('productos', function($query) use ($producto) {
+                            $query->where('producto_id', $producto->id);
+                        })->exists();
+                @endphp
+
+                @if($haComprado)
+                    <div class="bg-light p-3 rounded border mt-4">
+                        <h5 class="fw-bold text-dark mb-3"><i class="ti ti-message-2"></i> Dejanos tu opinión sobre el producto</h5>
+                        
+                        <form action="{{ route('productos.opinor', $producto->id) }}" method="POST">
+                            @csrf
+                            <div class="mb-3">
+                                <label class="form-label fw-bold small">Calificación (Estrellas)</label>
+                                <select name="estrellas" class="form-select bg-white" style="max-width: 150px;" required>
+                                    <option value="5">★★★★★ (5)</option>
+                                    <option value="4">★★★★☆ (4)</option>
+                                    <option value="3">★★★☆☆ (3)</option>
+                                    <option value="2">★★☆☆☆ (2)</option>
+                                    <option value="1">★☆☆☆☆ (1)</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-bold small">Tu comentario</label>
+                                <textarea name="comentario" class="form-control bg-white" rows="3" placeholder="Contanos qué te pareció el artículo..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary fw-bold btn-sm px-4 shadow-sm">Publicar Reseña</button>
+                        </form>
+                    </div>
+                @endif
+            @endif
+
         </div>
+    </div>
     </div>
 
 </div>

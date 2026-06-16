@@ -159,4 +159,33 @@ public function checkout()
     return view('checkout', compact('carrito'));
 }
 
+public function comprarAhora(Request $request, $id)
+{
+    $producto = \App\Models\Producto::findOrFail($id);
+    $cantidad = $request->input('cantidad', 1);
+
+    if ($cantidad > $producto->stock) {
+        return redirect()->back()->with('error', 'Lo sentimos, no hay suficiente stock disponible. Solo quedan ' . $producto->stock . ' unidades.');
+    }
+
+    session()->forget('carrito');
+
+    $carrito = [
+        $producto->id => [
+            "nombre" => $producto->nombre,
+            "cantidad" => $cantidad,
+            "precio" => $producto->precio,
+            "imagen" => $producto->imagen
+        ]
+    ];
+
+    session()->put('carrito', $carrito);
+
+    if (!auth()->check()) {
+        return redirect()->route('login')->with('error', 'Debes iniciar sesión para finalizar tu compra.');
+    }
+
+    return redirect()->route('carrito.checkout');
+}
+
 }

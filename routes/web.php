@@ -21,18 +21,20 @@ Route::get('/terminos', function () { return view('terminos'); });
 Route::get('/consultas', function () { return view('consultas'); });
 Route::get('/ofertas', [ProductoController::class, 'ofertas'])->name('productos.ofertas');Route::get('/catalogo', [ProductoController::class, 'catalogo'])->name('productos.catalogo');
 Route::get('/catalogo/categoria/{id}', [ProductoController::class, 'categoria'])->name('productos.categoria');
+Route::post('/producto/{id}/opinar', [ProductoController::class, 'guardarReseña'])->name('productos.opinor')->middleware('auth');
 
 
 // =======================================================================
 // 2. CIRCUITO DINÁMICO DEL CARRITO DE COMPRAS
 // =======================================================================
 Route::get('/carrito', [CarritoController::class, 'ver'])->name('carrito');
-Route::post('/checkout', [CarritoController::class, 'checkout'])->name('carrito.checkout');
+Route::any('/checkout', [CarritoController::class, 'checkout'])->name('carrito.checkout');
 Route::post('/carrito/agregar/{id}', [CarritoController::class, 'agregar'])->name('carrito.agregar');
 Route::delete('/carrito/eliminar/{id}', [CarritoController::class, 'eliminar'])->name('carrito.eliminar');
 Route::get('/carrito/vaciar', [CarritoController::class, 'vaciar'])->name('carrito.vaciar');
 Route::put('/carrito/actualizar/{id}', [CarritoController::class, 'actualizarCantidad'])->name('carrito.actualizar');
 Route::post('/compra-confirmar', [CarritoController::class, 'confirmar'])->name('carrito.confirmar');
+Route::post('/carrito/comprar-ya/{id}', [CarritoController::class, 'comprarAhora'])->name('carrito.comprarAhora');
 
 
 // =======================================================================

@@ -30,21 +30,22 @@
                 <h6 class="fw-bold mb-3 text-muted">Datos de la tarjeta</h6>
                 <div class="mb-3">
                     <label class="form-label small fw-bold">Número de Tarjeta</label>
-                    <input type="text" class="form-control" placeholder="0000 0000 0000 0000" id="input_tarjeta" required>
+                    <input type="text" class="form-control" placeholder="0000 0000 0000 0000" id="input_tarjeta" maxlength="16" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                 </div>
                 <div class="row">
                     <div class="col-6 mb-3">
                         <label class="form-label small fw-bold">Vencimiento</label>
-                        <input type="text" class="form-control" placeholder="MM/AA" id="input_vence" required>
+                        <input type="text" class="form-control" placeholder="MM/AA" id="input_vence" maxlength="4" required>
                     </div>
                     <div class="col-6 mb-3">
                         <label class="form-label small fw-bold">CVC (Cod. Seguridad)</label>
-                        <input type="text" class="form-control" placeholder="123" id="input_cvc" required>
+                        <input type="text" class="form-control" placeholder="123" id="input_cvc" maxlength="3" oninput="this.value = this.value.replace(/[^0-3]/g, '')" required>
                     </div>
                 </div>
                 <div class="mb-2">
                     <label class="form-label small fw-bold">Nombre del Titular</label>
-                    <input type="text" class="form-control" placeholder="Como figura en la tarjeta" id="input_titular" required>
+                    {{-- Bloquea números y caracteres especiales, solo deja pasar letras y espacios --}}
+                    <input type="text" class="form-control" placeholder="Como figura en la tarjeta" id="input_titular" oninput="this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ ]/g, '')" required>
                 </div>
             </div>
 
