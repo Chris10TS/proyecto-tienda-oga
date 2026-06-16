@@ -62,70 +62,136 @@
         </div>
 
         <div class="col-md-3">
-            <div class="card p-3 contenedor-estatico">
-                <p class="text-success fw-bold mb-1"><i class="ti ti-truck-delivery"></i> Envío gratis en Corrientes</p>
-                <p class="text-muted small mb-3">Envío gratis a partir de $100.000 al resto del país</p>
+            @auth
+                @if(Auth::user()->rol === 'admin')
 
-                <form action="{{ route('carrito.agregar', $producto->id) }}" method="POST">
-                    @csrf
+                    <div class="card p-3 text-center bg-white rounded shadow-sm border-0">
+                        <p class="fw-bold mb-3 d-flex align-items-center justify-content-center gap-2">
+                             MODO ADMINISTRADOR
+                        </p>
+                        
+                    <a href="{{ route('admin.productos.edit', $producto->id) }}" class="btn btn-sm w-100 mb-2 fw-bold" style="color: #f07143; border: 2px solid #f07143; background-color: transparent; transition: all 0.2s ease;">
+                       <i class="ti ti-edit me-1"></i> Editar Producto
+                    </a>
 
-                    <label class="form-label fw-bold">Cantidad</label>
-                    <select name="cantidad" class="form-select mb-3">
-                        <option value="1">1 unidad</option>
-                        <option value="2">2 unidades</option>
-                        <option value="3">3 unidades</option>
-                        <option value="4">4 unidades</option>
-                        <option value="5">5 unidades</option>
-                    </select>
+                    <form action="{{ route('admin.productos.destroy', $producto->id) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas dar de baja este producto?');">
+                         @csrf
+                         @method('DELETE')
+                      <button type="submit" class="btn btn-sm w-100 fw-bold" style="color: #f07143; border: 2px solid #f07143; background-color: transparent; transition: all 0.2s ease;">
+                       <i class="ti ti-trash me-1"></i> Dar de Baja
+                       </button>
+                     </form>
 
-                    @if($producto->stock > 0)
-                        <button type="submit" formaction="{{ route('carrito.comprarAhora', $producto->id) }}" class="btn btn-warning w-100 mb-2 fw-bold text-dark shadow-sm">
-                            Comprar ahora
-                        </button>
-        
-                        <button type="submit" class="btn btn-outline-dark w-100 mb-3 fw-bold">
-                            <i class="ti ti-shopping-cart"></i> Agregar al carrito
-                        </button>
-        
-                        <p class="text-muted small mb-0">Disponibles: <span class="fw-bold">{{ $producto->stock }} unidades</span></p>
-                    @else
-                        <button class="btn btn-secondary w-100 mb-3" disabled>
-                            <i class="ti ti-shopping-cart-off"></i> Sin Stock Disponible
-                        </button>
-                    @endif
-                </form>
-
-                 
-                @auth
-                    @php
-                        $esFavorito = Auth::user()->favoritos()->where('producto_id', $producto->id)->exists();
-                    @endphp
-                    
-                    <form action="{{ route('productos.favorito', $producto->id) }}" method="POST" class="mt-2">
-                        @csrf
-                        <button type="submit" class="btn w-100 fw-bold btn-sm {{ $esFavorito ? 'btn-danger text-white' : 'btn-outline-danger' }}" style="transition: all 0.2s ease;">
-                            @if($esFavorito)
-                                <i class="ti ti-heart-filled me-1"></i> Quitar de Favoritos
-                            @else
-                                <i class="ti ti-heart me-1"></i> Añadir a Favoritos
-                            @endif
-                        </button>
-                    </form>
+                        <div class="border-top pt-3 mt-3 text-muted" style="font-size: 0.85rem;">
+                            <p class="mb-1">Código OGA: <strong>#00{{ $producto->id }}</strong></p>
+                            <p class="mb-0">Stock disponible: <strong>{{ $producto->stock }} unidades</strong></p>
+                        </div>
+                    </div>
                 @else
+
+                    <div class="card p-3 contenedor-estatico shadow-sm rounded bg-white border-0">
+                        <p class="text-success fw-bold mb-1"><i class="ti ti-truck-delivery"></i> Envío gratis en Corrientes</p>
+                        <p class="text-muted small mb-3">Envío gratis a partir de $100.000 al resto del país</p>
+
+                        <form action="{{ route('carrito.agregar', $producto->id) }}" method="POST">
+                            @csrf
+
+                            <label class="form-label fw-bold small">Cantidad</label>
+                            <select name="cantidad" class="form-select mb-3">
+                                <option value="1">1 unidad</option>
+                                <option value="2">2 unidades</option>
+                                <option value="3">3 unidades</option>
+                                <option value="4">4 unidades</option>
+                                <option value="5">5 unidades</option>
+                            </select>
+
+                            @if($producto->stock > 0)
+                                <button type="submit" formaction="{{ route('carrito.comprarAhora', $producto->id) }}" class="btn btn-warning w-100 mb-2 fw-bold text-dark shadow-sm">
+                                    Comprar ahora
+                                </button>
+                                
+                                <button type="submit" class="btn btn-outline-dark w-100 mb-3 fw-bold">
+                                    <i class="ti ti-shopping-cart"></i> Agregar al carrito
+                                </button>
+                                
+                                <p class="text-muted small mb-0">Disponibles: <span class="fw-bold">{{ $producto->stock }} unidades</span></p>
+                            @else
+                                <button class="btn btn-secondary w-100 mb-3" disabled>
+                                    <i class="ti ti-shopping-cart-off"></i> Sin Stock Disponible
+                                </button>
+                            @endif
+                        </form>
+
+                        @php
+                            $esFavorito = Auth::user()->favoritos()->where('producto_id', $producto->id)->exists();
+                        @endphp
+                        
+                        <form action="{{ route('productos.favorito', $producto->id) }}" method="POST" class="mt-2">
+                         @csrf
+                        <button type="submit" class="btn w-100 btn-oga-naranja shadow-sm">
+                           @if($esFavorito)
+                           <i class="ti ti-heart-filled me-1"></i> Quitar de Favoritos
+                           @else
+                           <i class="ti ti-heart me-1"></i> Añadir a Favoritos
+                           @endif
+                           </button>
+                        </form>
+
+                        <div class="border-top pt-3 mt-3 text-muted">
+                            <p class="small mb-1">Devoluciones hasta 30 días</p>
+                            <p class="small mb-1">Garantía 6 meses</p>
+                            <p class="small mb-0">Compra segura</p>
+                        </div>
+                    </div>
+                @endif
+            @else
+            
+                <div class="card p-3 contenedor-estatico shadow-sm rounded bg-white border-0">
+                    <p class="text-success fw-bold mb-1"><i class="ti ti-truck-delivery"></i> Envío gratis en Corrientes</p>
+                    <p class="text-muted small mb-3">Envío gratis a partir de $100.000 al resto del país</p>
+
+                    <form action="{{ route('carrito.agregar', $producto->id) }}" method="POST">
+                        @csrf
+
+                        <label class="form-label fw-bold small">Cantidad</label>
+                        <select name="cantidad" class="form-select mb-3">
+                            <option value="1">1 unidad</option>
+                            <option value="2">2 unidades</option>
+                            <option value="3">3 unidades</option>
+                            <option value="4">4 unidades</option>
+                            <option value="5">5 unidades</option>
+                        </select>
+
+                        @if($producto->stock > 0)
+                            <button type="submit" formaction="{{ route('carrito.comprarAhora', $producto->id) }}" class="btn btn-warning w-100 mb-2 fw-bold text-dark shadow-sm">
+                                Comprar ahora
+                            </button>
+                            
+                            <button type="submit" class="btn btn-outline-dark w-100 mb-3 fw-bold">
+                                <i class="ti ti-shopping-cart"></i> Agregar al carrito
+                            </button>
+                            
+                            <p class="text-muted small mb-0">Disponibles: <span class="fw-bold">{{ $producto->stock }} unidades</span></p>
+                        @else
+                            <button class="btn btn-secondary w-100 mb-3" disabled>
+                                <i class="ti ti-shopping-cart-off"></i> Sin Stock Disponible
+                            </button>
+                        @endif
+                    </form>
+
                     <div class="text-center mt-3">
                         <a href="{{ route('login') }}" class="text-danger small fw-bold text-decoration-none">
                             <i class="ti ti-heart"></i> Ingresá para guardar en favoritos
                         </a>
                     </div>
-                @endauth
-              
 
-                <div class="border-top pt-3 mt-3">
-                    <p class="small mb-1"> Devoluciones hasta 30 días</p>
-                    <p class="small mb-1"> Garantía 6 meses</p>
-                    <p class="small mb-0"> Compra segura</p>
+                    <div class="border-top pt-3 mt-3 text-muted">
+                        <p class="small mb-1">Devoluciones hasta 30 días</p>
+                        <p class="small mb-1">Garantía 6 meses</p>
+                        <p class="small mb-0">Compra segura</p>
+                    </div>
                 </div>
-            </div>
+            @endauth
         </div>
 
     </div>

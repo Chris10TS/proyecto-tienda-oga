@@ -261,17 +261,15 @@ body{
     font-size: 0.9rem;
 }
 
-/* Botón principal azul (Entrar / Enviar) */
 .btn-submit-login {
     background-color: #F5793A !important;
     border: none !important;
     height: 46px;
 }
 .btn-submit-login:hover {
-    background-color: #F5793A !important; /* Un azul un toque más oscuro al pasar el cursor */
+    background-color: #F5793A !important; 
 }
 
-/* Responsive: En celulares esconde la línea vertical y ajusta espacios */
 @media (max-width: 767.98px) {
     .col-login-left {
         border-right: none !important;
@@ -283,21 +281,18 @@ body{
     }
 }
 
-/* Estilos para las opciones del menú desplegable */
 .dropdown-menu .dropdown-item {
     font-size: 0.85rem;
     letter-spacing: 0.3px;
 }
 
-/* Resaltado sutil para la sección de administración */
 .dropdown-header.text-danger {
     font-size: 0.75rem;
     letter-spacing: 0.8px;
 }
 
-/* --- DISEÑO DE LA SECCIÓN DE PERFIL --- */
 .bg-light-profile {
-    background-color: #f8f9fa; /* Fondo grisáceo claro idéntico a la captura */
+    background-color: #f8f9fa;
     min-height: 85vh;
 }
 
@@ -305,7 +300,6 @@ body{
     max-width: 1140px;
 }
 
-/* Círculo del Avatar */
 .avatar-circle {
     width: 50px;
     height: 50px;
@@ -316,7 +310,6 @@ body{
     justify-content: center;
 }
 
-/* Corrección para el menú lateral */
 .sidebar-profile-menu {
     width: 100%;
 }
@@ -328,7 +321,7 @@ body{
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 500;
-    border-left: 3px solid transparent; /* Reserva el espacio para la línea vertical */
+    border-left: 3px solid transparent; 
     transition: all 0.2s ease;
 }
 
@@ -338,23 +331,35 @@ body{
     border-radius: 4px;
 }
 
-/* Enlace activo corregido (Línea vertical negra perfecta) */
 .sidebar-link.active {
     color: #000000 !important;
     font-weight: 700 !important;
-    border-left: 3px solid #000000 !important; /* Dibuja la barrita de la captura */
+    border-left: 3px solid #000000 !important; 
     background-color: transparent !important;
 }
 
-/* Efecto hover interactivo en el historial */
 .product-history-item {
     transition: background-color 0.2s ease;
 }
 
 .product-history-item:hover {
-    background-color: #f8f9fa; /* Se pone un fondo gris muy clarito al pasar el cursor */
+    background-color: #f8f9fa; 
 }
 
 .product-history-item:hover .product-title-hover {
-    color: #F5793A !important; /* El nombre del producto se tiñe ligeramente del azul de tu marca */
+    color: #F5793A !important; 
+}
+
+.btn-oga-naranja {
+    background-color: #f07143 !important;
+    border-color: #f07143 !important;
+    color: #ffffff !important;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-oga-naranja:hover {
+    background-color: #d6592d !important;
+    border-color: #d6592d !important;
+    color: #ffffff !important;
 }

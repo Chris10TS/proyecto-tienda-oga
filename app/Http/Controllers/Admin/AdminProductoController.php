@@ -107,17 +107,18 @@ class AdminProductoController extends Controller
         if (auth()->user()->rol !== 'admin') {
             return redirect()->route('inicio')->with('error', 'No tienes permisos para acceder a esta sección.');
         }
-}
+    }
 
-public function listarBajas()
+    public function listarBajas()
     {
-        if (auth()->user()->rol !== 'admin') {
-            return redirect()->route('inicio')->with('error', 'No tienes permisos para acceder a esta sección.');
-        }
+    if (auth()->user()->rol !== 'admin') {
+        return redirect()->route('inicio')->with('error', 'No tienes permisos para acceder a esta sección.');
+    }
 
-        $eliminados = \App\Models\Producto::onlyTrashed()->get();
-
-        return view('admin.bajas', compact('eliminados'));
+    $eliminados = Producto::onlyTrashed()->get();
+    
+    // Cambia 'admin.bajas' por 'admin.bajas' si el archivo está suelto en la carpeta admin
+    return view('admin.bajas', compact('eliminados'));
     }
 
     public function reactivar($id)

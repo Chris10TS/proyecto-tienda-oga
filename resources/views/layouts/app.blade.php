@@ -10,22 +10,63 @@
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
-
+    
 <nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top barra-navegacion">    
     <div class="container">
         
-        <a class="navbar-brand me-3" href="/inicio">
+        <a class="navbar-brand me-2" href="/inicio">
             <img src="{{ asset('images/img-products/logos.png') }}" alt="Logo Oga" height="45">
         </a>
 
-        <button class="navbar-toggler border-0 p-0 me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContenido">
-            <i class="ti ti-search text-black fs-1"></i>
-        </button>
+        <div class="d-flex align-items-center gap-3 d-lg-none ms-auto me-2">
+            <button class="navbar-toggler border-0 p-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContenido">
+                <i class="ti ti-search text-black fs-2"></i>
+            </button>
 
-        <a href="/carrito" class="btn btn-link p-0 position-relative text-white d-lg-none">
-            <img src="/images/carrito.png" alt="carrito" style="height: 30px;">
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">2</span>
-        </a>
+            <a href="/favoritos" class="text-decoration-none">
+                <i class="ti ti-heart text-black" style="font-size: 1.6rem;"></i>
+            </a>
+
+            @auth
+                <div class="dropdown">
+                    <button class="btn btn-link text-black text-decoration-none dropdown-toggle p-0 shadow-none d-flex align-items-center" 
+                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="ti ti-user" style="font-size: 1.6rem;"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2">
+                        <li><h6 class="dropdown-header">¡Hola, {{ Auth::user()->name }}!</h6></li>
+                        <li><hr class="dropdown-divider"></li>
+                        @if(Auth::user()->rol == 'admin')
+                            <li><h6 class="dropdown-header text-danger fw-bold pt-0">ADMINISTRACIÓN</h6></li>
+                            <li><a class="dropdown-item py-2 small fw-semibold" href="{{ route('admin.consultas') }}"><i class="ti ti-message-report me-2 text-danger"></i> VER CONSULTAS</a></li>
+                            <li><a class="dropdown-item py-2 small fw-semibold" href="{{ route('admin.productos.create') }}"><i class="ti ti-box me-2 text-muted"></i> GESTIONAR PRODUCTOS</a></li>
+                            <li><a class="dropdown-item py-2 small fw-semibold" href="/admin/usuarios"><i class="ti ti-users me-2 text-muted"></i> VER USUARIOS</a></li>
+                            <li><a class="dropdown-item py-2 small fw-semibold" href="{{ route('admin.pedidos') }}"><i class="ti ti-report-money me-2 text-success"></i> VER VENTAS</a></li>
+                        @else
+                            <li><a class="dropdown-item py-2 small" href="/perfil"><i class="ti ti-user-circle me-2 text-muted"></i> Mi Perfil</a></li>
+                            <li><a class="dropdown-item py-2 small" href="/favoritos"><i class="ti ti-heart me-2 text-muted"></i> Mis Favoritos</a></li>
+                            <li><a class="dropdown-item py-2 small" href="/historial"><i class="ti ti-history me-2 text-muted"></i> Historial</a></li>
+                        @endif
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item py-2 small text-muted" href="{{ route('logout') }}" 
+                               onclick="event.preventDefault(); document.getElementById('logout-form-mobile').submit();">
+                                <i class="ti ti-logout me-2"></i> Salir
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <form id="logout-form-mobile" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form>
+            @else
+                <a href="{{ route('login') }}" class="text-decoration-none text-black">
+                    <i class="ti ti-user" style="font-size: 1.6rem;"></i>
+                </a>
+            @endauth
+
+            <a href="/carrito" class="position-relative text-white">
+                <img src="/images/carrito.png" alt="carrito" style="height: 32px;">
+            </a>
+        </div>
 
         <div class="collapse navbar-collapse" id="navbarContenido">
             
@@ -51,7 +92,6 @@
 
                 <a href="/carrito" class="position-relative">
                     <img src="/images/carrito.png" class="icono-carrito" alt="carrito" style="height: 35px;">
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">2</span>
                 </a>
                 
             </div>
@@ -107,42 +147,42 @@
                             <li><h6 class="dropdown-header">¡Hola, {{ Auth::user()->name }}!</h6></li>
                             <li><hr class="dropdown-divider"></li>
 
-                    @if(Auth::user()->rol == 'admin')
-                    <li><h6 class="dropdown-header text-danger fw-bold pt-0">ADMINISTRACIÓN</h6></li>
-                    <li>
-                    <a class="dropdown-item py-2 small fw-semibold" href="{{ route('admin.consultas') }}">
-                       <i class="ti ti-message-report me-2 text-danger"></i> VER CONSULTAS
-                    </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item py-2 small fw-semibold" href="{{ route('admin.productos.create') }}">
-                          <i class="ti ti-box me-2 text-muted"></i> GESTIONAR PRODUCTOS
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item py-2 small fw-semibold" href="/admin/usuarios">
-                          <i class="ti ti-users me-2 text-muted"></i> VER USUARIOS
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item py-2 small fw-semibold" href="{{ route('admin.pedidos') }}">
-                          <i class="ti ti-report-money me-2 text-success"></i> VER VENTAS
-                        </a>
-                    </li>
-                @else
-                    <li><a class="dropdown-item py-2 small" href="/perfil"><i class="ti ti-user-circle me-2 text-muted"></i> Mi Perfil</a></li>
-                    <li><a class="dropdown-item py-2 small" href="/favoritos"><i class="ti ti-heart me-2 text-muted"></i> Mis Favoritos</a></li>
-                    <li><a class="dropdown-item py-2 small" href="/historial"><i class="ti ti-history me-2 text-muted"></i> Historial</a></li>
-                @endif
+                            @if(Auth::user()->rol == 'admin')
+                                <li><h6 class="dropdown-header text-danger fw-bold pt-0">ADMINISTRACIÓN</h6></li>
+                                <li>
+                                    <a class="dropdown-item py-2 small fw-semibold" href="{{ route('admin.consultas') }}">
+                                       <i class="ti ti-message-report me-2 text-danger"></i> VER CONSULTAS
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item py-2 small fw-semibold" href="{{ route('admin.productos.create') }}">
+                                      <i class="ti ti-box me-2 text-muted"></i> GESTIONAR PRODUCTOS
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item py-2 small fw-semibold" href="/admin/usuarios">
+                                      <i class="ti ti-users me-2 text-muted"></i> VER USUARIOS
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item py-2 small fw-semibold" href="{{ route('admin.pedidos') }}">
+                                      <i class="ti ti-report-money me-2 text-success"></i> VER VENTAS
+                                    </a>
+                                </li>
+                            @else
+                                <li><a class="dropdown-item py-2 small" href="/perfil"><i class="ti ti-user-circle me-2 text-muted"></i> Mi Perfil</a></li>
+                                <li><a class="dropdown-item py-2 small" href="/favoritos"><i class="ti ti-heart me-2 text-muted"></i> Mis Favoritos</a></li>
+                                <li><a class="dropdown-item py-2 small" href="/historial"><i class="ti ti-history me-2 text-muted"></i> Historial</a></li>
+                            @endif
 
-                    <li><hr class="dropdown-divider"></li>
-                    <li>
-                        <a class="dropdown-item py-2 small text-muted" href="{{ route('logout') }}" 
-                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            <i class="ti ti-logout me-2"></i> Salir
-                        </a>
-                    </li>
-                    </ul>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item py-2 small text-muted" href="{{ route('logout') }}" 
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="ti ti-logout me-2"></i> Salir
+                                </a>
+                            </li>
+                        </ul>
                     </div>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
