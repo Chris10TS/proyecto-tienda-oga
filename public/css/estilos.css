@@ -197,3 +197,96 @@ body{
     }
 }
 
+/* --- CONFIGURACIÓN GENERAL DEL LOGIN --- */
+.login-wrapper {
+    min-height: 75vh;
+}
+
+.login-container {
+    max-width: 950px;
+}
+
+/* Títulos principales robustos */
+.custom-title {
+    font-family: 'system-ui', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 800 !important;
+    font-size: 1.6rem;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+}
+
+/* Altura fija para que los inputs arranquen a la misma altura horizontal */
+.title-container {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- COLUMNA IZQUIERDA --- */
+.btn-custom-width {
+    width: 100%;
+    max-width: 340px;
+}
+
+/* Botón "Recibir código" / "Entrar con contraseña" */
+.btn-flow-toggle {
+    border-color: #F5793A !important;
+    color: #F5793A !important;
+    font-size: 0.95rem;
+}
+.btn-flow-toggle:hover {
+    background-color: #F5793A !important;
+    color: #ffffff !important;
+}
+
+/* --- COLUMNA DERECHA --- */
+.form-box {
+    max-width: 380px;
+}
+
+/* Campos de entrada (inputs) */
+.login-input {
+    font-size: 0.95rem;
+    border-color: #a0aab5 !important;
+    height: 46px;
+}
+
+/* Icono del ojito para password */
+.btn-toggle-eye {
+    cursor: pointer;
+    color: #727e8c !important;
+}
+
+/* Enlaces (Olvidé mi contraseña y Regístrese) */
+.link-forgot, 
+.link-register {
+    font-size: 0.88rem;
+    color: #F5793A !important;
+}
+
+.link-register {
+    font-size: 0.9rem;
+}
+
+/* Botón principal azul (Entrar / Enviar) */
+.btn-submit-login {
+    background-color: #F5793A !important;
+    border: none !important;
+    height: 46px;
+}
+.btn-submit-login:hover {
+    background-color: #F5793A !important; /* Un azul un toque más oscuro al pasar el cursor */
+}
+
+/* Responsive: En celulares esconde la línea vertical y ajusta espacios */
+@media (max-width: 767.98px) {
+    .col-login-left {
+        border-right: none !important;
+        border-bottom: 1px solid #ededed !important;
+        padding-bottom: 2rem !important;
+    }
+    .title-container {
+        height: auto;
+    }
+}

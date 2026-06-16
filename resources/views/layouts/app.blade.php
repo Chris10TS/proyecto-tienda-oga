@@ -98,6 +98,14 @@
             <div class="ms-auto d-none d-lg-flex align-items-center">
                 @auth
                     <div class="dropdown">
+                        </div>
+                @else
+                    @endauth
+            </div>
+
+            <div class="ms-auto d-none d-lg-flex align-items-center">
+                @auth
+                    <div class="dropdown">
                         <button class="btn btn-link text-white text-decoration-none dropdown-toggle p-0 small fw-bold shadow-none d-flex align-items-center gap-1" 
                                 type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <span>{{ Str::limit(Auth::user()->name, 10, '...') }}</span>
@@ -132,8 +140,6 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
-                @else
-                    <a href="{{ route('register') }}" class="text-decoration-none text-white-50 small fw-bold">Creá tu cuenta</a>
                 @endauth
             </div>
 
