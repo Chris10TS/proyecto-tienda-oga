@@ -21,7 +21,6 @@
         </div>
     </div>
 
-    {{-- Contenedor principal de la grilla DINÁMICA --}}
     <div class="row">
         
         @forelse($productos as $prod)

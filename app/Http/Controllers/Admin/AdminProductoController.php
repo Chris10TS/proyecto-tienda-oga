@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Producto;
+use App\Models\User;
 use App\Models\Categoria;
 use App\Models\Pedido;
 use Illuminate\Http\Request;
@@ -96,5 +97,16 @@ public function update(Request $request, $id)
     $pedidos = Pedido::with(['user', 'productos'])->orderBy('created_at', 'desc')->get();
 
     return view('admin.pedidos', compact('pedidos'));
+    }
+
+    public function usuariosIndex()
+    {
+    if (auth()->user()->rol !== 'admin') {
+        return redirect()->route('inicio')->with('error', 'No tienes permisos para acceder a esta sección.');
+    }
+
+    $usuarios = User::orderBy('created_at', 'desc')->get();
+
+    return view('admin.usuarios', compact('usuarios'));
     }
 }
