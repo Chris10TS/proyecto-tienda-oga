@@ -30,8 +30,13 @@ class User extends Authenticatable
         ];
     }
 
+    public function favoritos()
+    {
+        return $this->belongsToMany(Producto::class, 'favoritos', 'user_id', 'producto_id')->withTimestamps();
+    }
+
     public function pedidos()
-{
-    return $this->hasMany(Pedido::class);
-}
+    {
+        return $this->hasMany(Pedido::class)->orderBy('created_at', 'desc');
+    }
 }
