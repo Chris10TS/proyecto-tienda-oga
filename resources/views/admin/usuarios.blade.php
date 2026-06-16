@@ -20,6 +20,7 @@
                     <a href="{{ route('admin.productos.create') }}" class="sidebar-link">Gestionar Productos</a>
                     <a href="/admin/usuarios" class="sidebar-link active">Ver Usuarios</a>
                     <a href="{{ route('admin.pedidos') }}" class="sidebar-link">Ver Ventas</a>
+                    <a href="{{ route('admin.productos.bajas') }}" class="sidebar-link">Productos de Baja</a>
                     <hr class="my-2 text-muted">
                     <a href="{{ route('logout') }}" class="sidebar-link text-muted"
                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

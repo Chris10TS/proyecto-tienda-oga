@@ -4,10 +4,6 @@
 
 @section('contenido')
 
-<div class="container-fluid p-0 mb-5">
-    <img src="{{ asset('images/img-descounts/img-descuento-mundial.png') }}" class="img-fluid w-100 d-block img-promo-larga" alt="Ofertas Especiales OGA">
-</div>
-
 <div class="container my-5">
     
     {{-- Bloque de alertas por si acaso --}}
@@ -28,7 +24,6 @@
         </div>
     </div>
 
-    {{-- Grilla de productos en oferta --}}
     <div class="row">
         @forelse($productosEnOferta as $prod)
             <div class="col-lg-3 col-md-4 col-sm-6 mb-4">

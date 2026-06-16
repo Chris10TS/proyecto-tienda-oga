@@ -40,15 +40,12 @@ class ProductoController extends Controller
     ]);
     }
 
-public function ofertas()
-{
-    $productos = Producto::where('porcentaje_descuento', '>', 0)->get();
+    public function ofertas()
+    {
+    $productosEnOferta = Producto::where('porcentaje_descuento', '>', 0)->get(); 
 
-    return view('catalogo', [
-        'productos' => $productos,
-        'titulo' => 'Ofertas Especiales'
-    ]);
-}
+    return view('ofertas', compact('productosEnOferta'));
+    }
 public function categoria($id)
 {
     $categoria = Categoria::findOrFail($id);
@@ -84,6 +81,28 @@ public function guardarReseña(Request $request, $id)
     ]);
 
     return redirect()->back()->with('success', '¡Muchas gracias! Tu opinión fue publicada con éxito.');
+}
+
+public function toggleFavorito($id)
+    {
+        $producto = Producto::findOrFail($id);
+        $user = auth()->user();
+
+        $user->favoritos()->toggle($producto->id);
+
+        $esFavorito = $user->favoritos()->where('producto_id', $id)->exists();
+        $mensaje = $esFavorito ? '¡Agregado a tus favoritos!' : 'Eliminado de tus favoritos.';
+
+        return redirect()->back()->with('success', $mensaje);
+    }
+
+    public function reactivar($id)
+{
+    $producto = Producto::withTrashed()->findOrFail($id);
+    $producto->restore(); 
+
+
+    return redirect()->back()->with('success', 'El producto ha sido reactivado y ya se muestra en el catálogo.');
 }
 
 }

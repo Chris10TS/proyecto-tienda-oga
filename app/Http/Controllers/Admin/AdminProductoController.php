@@ -94,19 +94,38 @@ class AdminProductoController extends Controller
         return view('admin.pedidos', compact('pedidos'));
     }
 
-    public function usuariosIndex()
-    {
-        if (auth()->user()->rol !== 'admin') {
-            return redirect()->route('inicio')->with('error', 'No tienes permisos para acceder a esta sección.');
-        }
-        
-        // Retornamos la vista correspondiente para este método
-        return redirect()->route('admin.usuarios.index');
-    }
-
+    // Tu método original (Filtra solo clientes)
     public function listarUsuarios()
     {
         $usuarios = User::where('rol', '!=', 'admin')->orWhereNull('rol')->orderBy('created_at', 'desc')->get();
         return view('admin.usuarios', compact('usuarios'));
     }
+
+    // El método que trajo Cris (Trae todos y tiene el escudo de protección)
+    public function usuariosIndex()
+    {
+        if (auth()->user()->rol !== 'admin') {
+            return redirect()->route('inicio')->with('error', 'No tienes permisos para acceder a esta sección.');
+        }
+}
+
+public function listarBajas()
+    {
+        if (auth()->user()->rol !== 'admin') {
+            return redirect()->route('inicio')->with('error', 'No tienes permisos para acceder a esta sección.');
+        }
+
+        $eliminados = \App\Models\Producto::onlyTrashed()->get();
+
+        return view('admin.bajas', compact('eliminados'));
+    }
+
+    public function reactivar($id)
+    {
+        $producto = \App\Models\Producto::withTrashed()->findOrFail($id);
+        $producto->restore(); // Lo saca del soft delete
+
+        return redirect()->route('admin.productos.bajas')->with('success', '¡El producto "' . $producto->nombre . '" fue dado de alta nuevamente!');
+    }
+
 }

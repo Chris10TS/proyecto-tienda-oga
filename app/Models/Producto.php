@@ -33,4 +33,10 @@ class Producto extends Model
     public function reseñas() {
     return $this->hasMany(Reseña::class);
 }
+
+public function usuariosFavoritos()
+    {
+        return $this->belongsToMany(User::class, 'favoritos', 'producto_id', 'user_id')->withTimestamps();
+    }
+    
 }

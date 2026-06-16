@@ -22,7 +22,7 @@ Route::get('/consultas', function () { return view('consultas'); });
 Route::get('/ofertas', [ProductoController::class, 'ofertas'])->name('productos.ofertas');Route::get('/catalogo', [ProductoController::class, 'catalogo'])->name('productos.catalogo');
 Route::get('/catalogo/categoria/{id}', [ProductoController::class, 'categoria'])->name('productos.categoria');
 Route::post('/producto/{id}/opinar', [ProductoController::class, 'guardarReseña'])->name('productos.opinor')->middleware('auth');
-
+Route::post('/producto/{id}/favorito', [ProductoController::class, 'toggleFavorito'])->name('productos.favorito')->middleware('auth');
 
 // =======================================================================
 // 2. CIRCUITO DINÁMICO DEL CARRITO DE COMPRAS
@@ -56,9 +56,7 @@ Route::get('/historial', function () {
     return view('historial', compact('pedidos'));
 })->middleware('auth')->name('historial');
 
-// Lista de favoritos real
 Route::get('/favoritos', function () {
-    // Trae los productos que el usuario marcó como favoritos
     $productosFavoritos = Auth::user()->favoritos;
     return view('favoritos', compact('productosFavoritos'));
 })->middleware('auth')->name('favoritos');
@@ -76,3 +74,5 @@ Route::post('/admin/productos', [AdminProductoController::class, 'store'])->name
 Route::get('/admin/productos/{id}/editar', [AdminProductoController::class, 'edit'])->name('admin.productos.edit');
 Route::put('/admin/productos/{id}', [AdminProductoController::class, 'update'])->name('admin.productos.update');
 Route::delete('/admin/productos/{id}', [AdminProductoController::class, 'destroy'])->name('admin.productos.destroy');
+Route::get('/admin/productos/bajas', [AdminProductoController::class, 'listarBajas'])->name('admin.productos.bajas')->middleware('auth');
+Route::patch('/admin/productos/{id}/reactivar', [AdminProductoController::class, 'reactivar'])->name('admin.productos.reactivar')->middleware('auth');

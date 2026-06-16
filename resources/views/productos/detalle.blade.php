@@ -95,6 +95,31 @@
                     @endif
                 </form>
 
+                 
+                @auth
+                    @php
+                        $esFavorito = Auth::user()->favoritos()->where('producto_id', $producto->id)->exists();
+                    @endphp
+                    
+                    <form action="{{ route('productos.favorito', $producto->id) }}" method="POST" class="mt-2">
+                        @csrf
+                        <button type="submit" class="btn w-100 fw-bold btn-sm {{ $esFavorito ? 'btn-danger text-white' : 'btn-outline-danger' }}" style="transition: all 0.2s ease;">
+                            @if($esFavorito)
+                                <i class="ti ti-heart-filled me-1"></i> Quitar de Favoritos
+                            @else
+                                <i class="ti ti-heart me-1"></i> Añadir a Favoritos
+                            @endif
+                        </button>
+                    </form>
+                @else
+                    <div class="text-center mt-3">
+                        <a href="{{ route('login') }}" class="text-danger small fw-bold text-decoration-none">
+                            <i class="ti ti-heart"></i> Ingresá para guardar en favoritos
+                        </a>
+                    </div>
+                @endauth
+              
+
                 <div class="border-top pt-3 mt-3">
                     <p class="small mb-1"> Devoluciones hasta 30 días</p>
                     <p class="small mb-1"> Garantía 6 meses</p>
@@ -125,64 +150,63 @@
     </div>
 
     <div class="row mb-5">
-    <div class="col-12">
-        <div class="card4 p-4 bg-white rounded shadow-sm">
-            <h3 class="fw-bold mb-4">Opiniones de clientes</h3>
-            
-            @forelse($producto->reseñas as $reseña)
-                <div class="border-bottom pb-3 mb-3">
-                    <div class="d-flex justify-content-between">
-                        <strong>{{ $reseña->user->name }}</strong>
-                        <span class="text-muted small">{{ $reseña->created_at->format('d/m/Y') }}</span>
+        <div class="col-12">
+            <div class="card4 p-4 bg-white rounded shadow-sm">
+                <h3 class="fw-bold mb-4">Opiniones de clientes</h3>
+                
+                @forelse($producto->reseñas as $reseña)
+                    <div class="border-bottom pb-3 mb-3">
+                        <div class="d-flex justify-content-between">
+                            <strong>{{ $reseña->user->name }}</strong>
+                            <span class="text-muted small">{{ $reseña->created_at->format('d/m/Y') }}</span>
+                        </div>
+                        <span class="text-warning">
+                            {{ str_repeat('★', $reseña->estrellas) }}{{ str_repeat('☆', 5 - $reseña->estrellas) }}
+                        </span>
+                        <p class="mt-1 mb-0">{{ $reseña->comentario }}</p>
                     </div>
-                    <span class="text-warning">
-                        {{ str_repeat('★', $reseña->estrellas) }}{{ str_repeat('☆', 5 - $reseña->estrellas) }}
-                    </span>
-                    <p class="mt-1 mb-0">{{ $reseña->comentario }}</p>
-                </div>
-            @empty
-                <p class="text-muted small mb-4">Este producto todavía no tiene opiniones escritas.</p>
-            @endforelse
+                @empty
+                    <p class="text-muted small mb-4">Este producto todavía no tiene opiniones escritas.</p>
+                @endforelse
 
-            {{-- 2. FILTRO ESTRICTO: Solo clientes registrados, que no sean admin y que HAGAN COMPRADO este producto --}}
-            @if(Auth::check() && Auth::user()->rol !== 'admin')
-                @php
-                    // Buscamos si el usuario actual tiene algún pedido finalizado ("pagado") que contenga este producto_id
-                    $haComprado = \App\Models\Pedido::where('user_id', Auth::id())
-                        ->where('estado', 'pagado')
-                        ->whereHas('productos', function($query) use ($producto) {
-                            $query->where('producto_id', $producto->id);
-                        })->exists();
-                @endphp
+                {{-- FILTRO ESTRICTO: Solo clientes registrados, que no sean admin y que HAGAN COMPRADO este producto --}}
+                @if(Auth::check() && Auth::user()->rol !== 'admin')
+                    @php
+                        $haComprado = \App\Models\Pedido::where('user_id', Auth::id())
+                            ->where('estado', 'pagado')
+                            ->whereHas('productos', function($query) use ($producto) {
+                                $query->where('producto_id', $producto->id);
+                            })->exists();
+                    @endphp
 
-                @if($haComprado)
-                    <div class="bg-light p-3 rounded border mt-4">
-                        <h5 class="fw-bold text-dark mb-3"><i class="ti ti-message-2"></i> Dejanos tu opinión sobre el producto</h5>
-                        
-                        <form action="{{ route('productos.opinor', $producto->id) }}" method="POST">
-                            @csrf
-                            <div class="mb-3">
-                                <label class="form-label fw-bold small">Calificación (Estrellas)</label>
-                                <select name="estrellas" class="form-select bg-white" style="max-width: 150px;" required>
-                                    <option value="5">★★★★★ (5)</option>
-                                    <option value="4">★★★★☆ (4)</option>
-                                    <option value="3">★★★☆☆ (3)</option>
-                                    <option value="2">★★☆☆☆ (2)</option>
-                                    <option value="1">★☆☆☆☆ (1)</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label fw-bold small">Tu comentario</label>
-                                <textarea name="comentario" class="form-control bg-white" rows="3" placeholder="Contanos qué te pareció el artículo..." required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary fw-bold btn-sm px-4 shadow-sm">Publicar Reseña</button>
-                        </form>
-                    </div>
+                    @if($haComprado)
+                        <div class="bg-light p-3 rounded border mt-4">
+                            <h5 class="fw-bold text-dark mb-3"><i class="ti ti-message-2"></i> Dejanos tu opinión sobre el producto</h5>
+                            
+                            <form action="{{ route('productos.opinor', $producto->id) }}" method="POST">
+                                @csrf
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold small">Calificación (Estrellas)</label>
+                                    <select name="estrellas" class="form-select bg-white" style="max-width: 150px;" required>
+                                        <option value="5">★★★★★ (5)</option>
+                                        <option value="4">★★★★☆ (4)</option>
+                                        <option value="3">★★★☆☆ (3)</option>
+                                        <option value="2">★★☆☆• (2)</option>
+                                        <option value="1">★☆☆☆☆ (1)</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold small">Tu comentario</label>
+                                    <textarea name="comentario" class="form-control bg-white" rows="3" placeholder="Contanos qué te pareció el artículo..." required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary fw-bold btn-sm px-4 shadow-sm">Publicar Reseña</button>
+                            </form>
+                        </div>
+                    @endif
                 @endif
-            @endif
 
+            </div>
         </div>
-    </div>
     </div>
 
 </div>

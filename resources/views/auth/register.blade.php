@@ -1,4 +1,4 @@
-@extends('layouts.auth')
+@extends('layouts.app')
 
 @section('titulo', 'Crear Cuenta')
 
@@ -18,11 +18,15 @@
                         @csrf
 
                         <div class="mb-3">
-                            <label class="form-label text-muted small">Nombre completo</label>
+                            <label class="form-label text-muted small">Nombre de Usuario (Solo números)</label>
                             <input type="text" name="name" 
                                 class="form-control form-control-lg @error('name') is-invalid @enderror" 
                                 value="{{ old('name') }}" 
-                                placeholder="Tu nombre y apellido"
+                                placeholder="Ej: 458923"
+                                pattern="[0-9]+"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                                oninvalid="this.setCustomValidity('El campo nombre debe estar compuesto exclusivamente por números.')"
+                                onchange="this.setCustomValidity('')"
                                 required autofocus>
                             @error('name')
                                 <span class="invalid-feedback"><strong>{{ $message }}</strong></span>
@@ -47,9 +51,14 @@
                                 <span class="input-group-text text-muted">+54</span>
                                 <input type="text" name="telefono" 
                                     class="form-control" 
-                                    placeholder="Código de área + número">
+                                    placeholder="Código de área + número"
+                                    pattern="[0-9]+"
+                                    oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                                    oninvalid="this.setCustomValidity('El campo teléfono debe contener únicamente números.')"
+                                    onchange="this.setCustomValidity('')"
+                                    required>
                             </div>
-                            <small class="text-muted">Código de área + número.</small>
+                            <small class="text-muted">Código de área + número sin espacios ni guiones.</small>
                         </div>
 
                         <div class="mb-3">

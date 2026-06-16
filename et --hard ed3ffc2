@@ -1,0 +1,30 @@
+[33m3080899[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{0}: pull origin main --rebase (finish): returning to refs/heads/main
+[33m3080899[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{1}: pull origin main --rebase (start): checkout 308089919009a78b244c4a00f8927c2282f4d8ed
+[33med3ffc2[m HEAD@{2}: commit: Cambios en el navbar
+[33mc7ec6ff[m HEAD@{3}: commit: Registrar
+[33m094a247[m HEAD@{4}: commit: Menu
+[33mdea6da7[m HEAD@{5}: pull origin main: Fast-forward
+[33ma4fae01[m HEAD@{6}: commit: Cambios
+[33m3278d3f[m HEAD@{7}: commit: Nada jaja
+[33mdcd84aa[m HEAD@{8}: pull origin main: Fast-forward
+[33m7c9cdfa[m HEAD@{9}: commit: Base de datos aplicada a la compu de agus
+[33mfce877b[m HEAD@{10}: pull origin main: Fast-forward
+[33m49cf1a8[m HEAD@{11}: commit: Base de datos conectada
+[33m76d0b26[m HEAD@{12}: pull origin main: Fast-forward
+[33m0618067[m HEAD@{13}: commit: Edicion de imagenes
+[33me3833c4[m HEAD@{14}: pull origin main: Fast-forward
+[33mb361ed2[m HEAD@{15}: commit: Menú
+[33m04e0c55[m HEAD@{16}: pull origin main: Fast-forward
+[33ma625936[m HEAD@{17}: commit: Edicion de catalogos
+[33mfe04a44[m HEAD@{18}: pull origin main: Fast-forward
+[33m9864f89[m HEAD@{19}: commit (merge): Finalizando la unión de cambios con el repositorio
+[33m3cb3716[m HEAD@{20}: commit: Edicion de categoria
+[33mb19020d[m HEAD@{21}: commit: Edicion inicio
+[33m205c589[m HEAD@{22}: commit: edicion del inicio.blade
+[33m605bfe2[m HEAD@{23}: pull origin main: Fast-forward
+[33m863d3d9[m HEAD@{24}: commit (merge): Finalizando merge y actualizando logo
+[33m0283190[m HEAD@{25}: commit: Carrusel
+[33m5ecffc1[m HEAD@{26}: commit: modificar logo
+[33mf08a71a[m HEAD@{27}: pull origin main: Fast-forward
+[33m2261caf[m HEAD@{28}: commit: Explico lo que hice
+[33mee66692[m HEAD@{29}: clone: from https://github.com/Chris10TS/primer_proyecto_laravel.git

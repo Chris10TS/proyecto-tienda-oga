@@ -35,7 +35,7 @@
                 <div class="row">
                     <div class="col-6 mb-3">
                         <label class="form-label small fw-bold">Vencimiento</label>
-                        <input type="text" class="form-control" placeholder="MM/AA" id="input_vence" maxlength="4" required>
+                        <input type="text" class="form-control" placeholder="MM/AA" id="input_vence" maxlength="5" required>
                     </div>
                     <div class="col-6 mb-3">
                         <label class="form-label small fw-bold">CVC (Cod. Seguridad)</label>
