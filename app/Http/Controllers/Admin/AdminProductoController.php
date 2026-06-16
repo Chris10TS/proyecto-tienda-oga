@@ -7,6 +7,7 @@ use App\Models\Producto;
 use App\Models\Categoria;
 use App\Models\Pedido;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class AdminProductoController extends Controller
 {
@@ -96,5 +97,12 @@ public function update(Request $request, $id)
     $pedidos = Pedido::with(['user', 'productos'])->orderBy('created_at', 'desc')->get();
 
     return view('admin.pedidos', compact('pedidos'));
+    }
+
+    public function listarUsuarios()
+    {
+    $usuarios = User::where('rol', '!=', 'admin')->orWhereNull('rol')->orderBy('created_at', 'desc')->get();
+
+    return view('admin.usuarios', compact('usuarios'));
     }
 }

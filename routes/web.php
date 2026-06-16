@@ -41,13 +41,32 @@ Route::post('/compra-confirmar', [CarritoController::class, 'confirmar'])->name(
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/enviar-consulta', [ConsultaController::class, 'store_contact'])->name('consultas.guardar');
+Route::get('/perfil', function () {
+    return view('perfil');
+})->middleware('auth')->name('perfil');
 
+use App\Models\Pedido;
+
+// Historial de compras real
+Route::get('/historial', function () {
+    // Trae los pedidos del usuario logueado junto con sus productos asociados
+    $pedidos = Auth::user()->pedidos()->with('productos')->get();
+    return view('historial', compact('pedidos'));
+})->middleware('auth')->name('historial');
+
+// Lista de favoritos real
+Route::get('/favoritos', function () {
+    // Trae los productos que el usuario marcó como favoritos
+    $productosFavoritos = Auth::user()->favoritos;
+    return view('favoritos', compact('productosFavoritos'));
+})->middleware('auth')->name('favoritos');
 
 // =======================================================================
 // 4. PANEL DE ADMINISTRACIÓN (CRUD PRODUCTOS Y PANEL CONSULTAS)
 // =======================================================================
 Route::get('/admin/consultas', [ConsultaController::class, 'index'])->name('admin.consultas');
 Route::get('/admin/pedidos', [AdminProductoController::class, 'listarPedidos'])->name('admin.pedidos');
+Route::get('/admin/usuarios', [AdminProductoController::class, 'listarUsuarios'])->name('admin.usuarios');
 
 // CRUD de productos con carga de imágenes y bajas lógicas
 Route::get('/admin/productos/crear', [AdminProductoController::class, 'create'])->name('admin.productos.create');

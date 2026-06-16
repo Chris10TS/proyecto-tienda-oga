@@ -30,8 +30,15 @@ class User extends Authenticatable
         ];
     }
 
+    // Un usuario tiene muchos productos favoritos (Lista de deseos)
+    public function favoritos()
+    {
+        return $this->belongsToMany(Producto::class, 'favoritos', 'user_id', 'producto_id')->withTimestamps();
+    }
+
+    // Un usuario tiene muchos pedidos en su historial (Ordenados desde el más nuevo)
     public function pedidos()
-{
-    return $this->hasMany(Pedido::class);
-}
+    {
+        return $this->hasMany(Pedido::class)->orderBy('created_at', 'desc');
+    }
 }

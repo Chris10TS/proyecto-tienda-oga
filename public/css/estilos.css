@@ -206,13 +206,13 @@ body{
     max-width: 950px;
 }
 
-/* Títulos principales robustos */
 .custom-title {
-    font-family: 'system-ui', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-weight: 800 !important;
-    font-size: 1.6rem;
-    letter-spacing: -0.3px;
-    line-height: 1.2;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    font-weight: 700 !important; 
+    font-size: 1.5rem; 
+    letter-spacing: -0.5px;
+    line-height: 1.15; 
+    color: #212529; 
 }
 
 /* Altura fija para que los inputs arranquen a la misma altura horizontal */
@@ -289,4 +289,80 @@ body{
     .title-container {
         height: auto;
     }
+}
+
+/* Estilos para las opciones del menú desplegable */
+.dropdown-menu .dropdown-item {
+    font-size: 0.85rem;
+    letter-spacing: 0.3px;
+}
+
+/* Resaltado sutil para la sección de administración */
+.dropdown-header.text-danger {
+    font-size: 0.75rem;
+    letter-spacing: 0.8px;
+}
+
+/* --- DISEÑO DE LA SECCIÓN DE PERFIL --- */
+.bg-light-profile {
+    background-color: #f8f9fa; /* Fondo grisáceo claro idéntico a la captura */
+    min-height: 85vh;
+}
+
+.container-profile {
+    max-width: 1140px;
+}
+
+/* Círculo del Avatar */
+.avatar-circle {
+    width: 50px;
+    height: 50px;
+    background-color: #e2e5e9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Corrección para el menú lateral */
+.sidebar-profile-menu {
+    width: 100%;
+}
+
+.sidebar-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #495057;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-left: 3px solid transparent; /* Reserva el espacio para la línea vertical */
+    transition: all 0.2s ease;
+}
+
+.sidebar-link:hover {
+    color: #212529;
+    background-color: #ededed;
+    border-radius: 4px;
+}
+
+/* Enlace activo corregido (Línea vertical negra perfecta) */
+.sidebar-link.active {
+    color: #000000 !important;
+    font-weight: 700 !important;
+    border-left: 3px solid #000000 !important; /* Dibuja la barrita de la captura */
+    background-color: transparent !important;
+}
+
+/* Efecto hover interactivo en el historial */
+.product-history-item {
+    transition: background-color 0.2s ease;
+}
+
+.product-history-item:hover {
+    background-color: #f8f9fa; /* Se pone un fondo gris muy clarito al pasar el cursor */
+}
+
+.product-history-item:hover .product-title-hover {
+    color: #F5793A !important; /* El nombre del producto se tiñe ligeramente del azul de tu marca */
 }

@@ -98,14 +98,6 @@
             <div class="ms-auto d-none d-lg-flex align-items-center">
                 @auth
                     <div class="dropdown">
-                        </div>
-                @else
-                    @endauth
-            </div>
-
-            <div class="ms-auto d-none d-lg-flex align-items-center">
-                @auth
-                    <div class="dropdown">
                         <button class="btn btn-link text-white text-decoration-none dropdown-toggle p-0 small fw-bold shadow-none d-flex align-items-center gap-1" 
                                 type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <span>{{ Str::limit(Auth::user()->name, 10, '...') }}</span>
@@ -114,27 +106,43 @@
                         <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2">
                             <li><h6 class="dropdown-header">¡Hola, {{ Auth::user()->name }}!</h6></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item py-2 small" href="/perfil"><i class="ti ti-user-circle me-2 text-muted"></i> Mi Perfil</a></li>
-                            <li><a class="dropdown-item py-2 small" href="/favoritos"><i class="ti ti-heart me-2 text-muted"></i> Mis Favoritos</a></li>
-                            <li><a class="dropdown-item py-2 small" href="/historial"><i class="ti ti-history me-2 text-muted"></i> Historial</a></li>
-                            
-                            @if(Auth::user()->rol == 'admin')
-                                <li><hr class="dropdown-divider"></li>
-                                <li>
-                                    <a class="dropdown-item py-2 small text-danger fw-bold" href="{{ route('admin.consultas') }}">
-                                        <i class="ti ti-shield-check me-2"></i> PANEL ADMIN
-                                    </a>
-                                </li>
-                            @endif
-                            
-                            <li><hr class="dropdown-divider"></li>
-                            <li>
-                                <a class="dropdown-item py-2 small text-muted" href="{{ route('logout') }}" 
-                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    <i class="ti ti-logout me-2"></i> Salir
-                                </a>
-                            </li>
-                        </ul>
+
+                    @if(Auth::user()->rol == 'admin')
+                    <li><h6 class="dropdown-header text-danger fw-bold pt-0">ADMINISTRACIÓN</h6></li>
+                    <li>
+                    <a class="dropdown-item py-2 small fw-semibold" href="{{ route('admin.consultas') }}">
+                       <i class="ti ti-message-report me-2 text-danger"></i> VER CONSULTAS
+                    </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item py-2 small fw-semibold" href="{{ route('admin.productos.create') }}">
+                          <i class="ti ti-box me-2 text-muted"></i> GESTIONAR PRODUCTOS
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item py-2 small fw-semibold" href="/admin/usuarios">
+                          <i class="ti ti-users me-2 text-muted"></i> VER USUARIOS
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item py-2 small fw-semibold" href="{{ route('admin.pedidos') }}">
+                          <i class="ti ti-report-money me-2 text-success"></i> VER VENTAS
+                        </a>
+                    </li>
+                @else
+                    <li><a class="dropdown-item py-2 small" href="/perfil"><i class="ti ti-user-circle me-2 text-muted"></i> Mi Perfil</a></li>
+                    <li><a class="dropdown-item py-2 small" href="/favoritos"><i class="ti ti-heart me-2 text-muted"></i> Mis Favoritos</a></li>
+                    <li><a class="dropdown-item py-2 small" href="/historial"><i class="ti ti-history me-2 text-muted"></i> Historial</a></li>
+                @endif
+
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                        <a class="dropdown-item py-2 small text-muted" href="{{ route('logout') }}" 
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <i class="ti ti-logout me-2"></i> Salir
+                        </a>
+                    </li>
+                    </ul>
                     </div>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
