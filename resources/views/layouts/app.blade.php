@@ -92,7 +92,8 @@
                     @endif
                 @endauth
 
-                <a href="{{ Auth::check() ? '/perfil' : route('login') }}" class="text-decoration-none text-black fw-bold d-flex align-items-center gap-2">
+                <a href="{{ Auth::check() ? (Auth::user()->rol == 'admin' ? route('admin.productos.create') : '/perfil') : route('login') }}" 
+                 class="text-decoration-none text-black fw-bold d-flex align-items-center gap-2">
                     <i class="ti ti-user" style="font-size: 1.7rem;"></i>
                     <span class="small">Ingresar</span>
                 </a>
