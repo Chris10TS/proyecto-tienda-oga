@@ -26,12 +26,10 @@ class CarritoController extends Controller
         return view('carrito', compact('carrito'));
     }
 
-    // Cambiamos a Request para capturar la cantidad seleccionada
 public function agregar(Request $request, $id) 
 {
     $producto = Producto::findOrFail($id);
     
-    // Capturamos la cantidad que viene del select (si no viene nada, por defecto es 1)
     $cantidadA_Agregar = $request->input('cantidad', 1);
 
     if ($producto->stock <= 0) {
@@ -41,13 +39,11 @@ public function agregar(Request $request, $id)
     $carrito = session()->get('carrito', []);
 
     if (isset($carrito[$id])) {
-        // Validamos que la cantidad actual en el carrito + la nueva no supere el stock
         if ($carrito[$id]['cantidad'] + $cantidadA_Agregar > $producto->stock) {
             return redirect()->route('carrito')->with('error', 'No podés agregar esa cantidad. Supera el límite de stock disponible.');
         }
         $carrito[$id]['cantidad'] += $cantidadA_Agregar;
     } else {
-        // Validamos que la cantidad inicial no supere el stock
         if ($cantidadA_Agregar > $producto->stock) {
             return redirect()->route('carrito')->with('error', 'No podés agregar esa cantidad. Supera el límite de stock disponible.');
         }

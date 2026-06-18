@@ -23,9 +23,14 @@
                 <i class="ti ti-search text-black fs-2"></i>
             </button>
 
-            <a href="/favoritos" class="text-decoration-none">
-                <i class="ti ti-heart text-black" style="font-size: 1.6rem;"></i>
-            </a>
+            {{-- Favoritos Móvil: Solo visible para usuarios logueados que NO sean admin --}}
+            @auth
+                @if(Auth::user()->rol != 'admin')
+                    <a href="/favoritos" class="text-decoration-none">
+                        <i class="ti ti-heart text-black" style="font-size: 1.6rem;"></i>
+                    </a>
+                @endif
+            @endauth
 
             @auth
                 <div class="dropdown">
@@ -81,9 +86,14 @@
 
             <div class="d-none d-lg-flex align-items-center gap-4 ms-auto">
                 
-                <a href="/favoritos" class="text-decoration-none">
-                    <i class="ti ti-heart text-black" style="font-size: 1.7rem;"></i>
-                </a>
+                {{-- Favoritos Escritorio: Solo visible para usuarios logueados que NO sean admin --}}
+                @auth
+                    @if(Auth::user()->rol != 'admin')
+                        <a href="/favoritos" class="text-decoration-none">
+                            <i class="ti ti-heart text-black" style="font-size: 1.7rem;"></i>
+                        </a>
+                    @endif
+                @endauth
 
                 <a href="{{ Auth::check() ? '/perfil' : route('login') }}" class="text-decoration-none text-black fw-bold d-flex align-items-center gap-2">
                     <i class="ti ti-user" style="font-size: 1.7rem;"></i>
@@ -139,7 +149,7 @@
                 @auth
                     <div class="dropdown">
                         <button class="btn btn-link text-white text-decoration-none dropdown-toggle p-0 small fw-bold shadow-none d-flex align-items-center gap-1" 
-                                type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                 type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <span>{{ Str::limit(Auth::user()->name, 10, '...') }}</span>
                         </button>
                         

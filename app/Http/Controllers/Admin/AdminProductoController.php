@@ -20,23 +20,37 @@ class AdminProductoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre' => 'required|max:150',
-            'descripcion' => 'nullable',
-            'precio' => 'required|numeric|min:0',
+            'nombre' => 'required|string|max:150',
+            'descripcion' => 'required|string|min:10',
+            'precio' => 'required|numeric|min:0.01',
             'stock' => 'required|integer|min:0',
             'categoria_id' => 'required|exists:categorias,id',
             'imagen' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048' 
+        ], [
+            'nombre.required' => 'El nombre del artículo es obligatorio y no puede contener solo espacios vacíos.',
+            'nombre.max' => 'El nombre no puede superar los 150 caracteres.',
+            'descripcion.required' => 'La descripción técnica del producto es obligatoria.',
+            'descripcion.min' => 'La descripción técnica debe tener al menos 10 caracteres.',
+            'precio.required' => 'El precio de venta es obligatorio.',
+            'precio.numeric' => 'El precio debe ser un número válido (utilice puntos para los decimales).',
+            'precio.min' => 'El precio de venta debe ser mayor a 0.',
+            'stock.required' => 'El stock disponible es obligatorio.',
+            'stock.integer' => 'El stock debe ser un número entero.',
+            'stock.min' => 'El stock disponible no puede ser un número negativo.',
+            'categoria_id.required' => 'Debe seleccionar una categoría correspondiente.',
+            'categoria_id.exists' => 'La categoría seleccionada no es válida.',
+            'imagen.required' => 'Es obligatorio subir una imagen para el producto.',
+            'imagen.image' => 'El archivo subido debe ser una imagen.',
+            'imagen.mimes' => 'La imagen debe tener un formato válido: jpeg, png, jpg o webp.',
+            'imagen.max' => 'La imagen es demasiado pesada. El tamaño máximo permitido es de 2 MB.'
         ]);
 
         $datosProducto = $request->except('imagen');
 
         if ($request->hasFile('imagen')) {
             $imagenFile = $request->file('imagen');
-            
             $nombreImagen = time() . '_' . $imagenFile->getClientOriginalName();
-            
             $imagenFile->move(public_path('images/img-products'), $nombreImagen);
-            
             $datosProducto['imagen'] = $nombreImagen;
         }
 
@@ -57,12 +71,27 @@ class AdminProductoController extends Controller
         $producto = Producto::findOrFail($id);
 
         $request->validate([
-            'nombre' => 'required|max:150',
-            'descripcion' => 'nullable',
-            'precio' => 'required|numeric|min:0',
+            'nombre' => 'required|string|max:150',
+            'descripcion' => 'required|string',
+            'precio' => 'required|numeric|min:0.01',
             'stock' => 'required|integer|min:0',
             'categoria_id' => 'required|exists:categorias,id',
             'imagen' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:10240' 
+        ], [
+            'nombre.required' => 'El nombre del artículo es obligatorio.',
+            'nombre.max' => 'El nombre no puede superar los 150 caracteres.',
+            'descripcion.required' => 'La descripción es obligatoria.',
+            'precio.required' => 'El precio de venta es obligatorio.',
+            'precio.numeric' => 'El precio debe ser un número válido.',
+            'precio.min' => 'El precio de venta debe ser mayor a 0.',
+            'stock.required' => 'El stock disponible es obligatorio.',
+            'stock.integer' => 'El stock debe ser un número entero.',
+            'stock.min' => 'El stock disponible no puede ser negativo.',
+            'categoria_id.required' => 'Debe seleccionar una categoría.',
+            'categoria_id.exists' => 'La categoría seleccionada no es válida.',
+            'imagen.image' => 'El archivo debe ser una imagen.',
+            'imagen.mimes' => 'Formatos permitidos para la imagen: jpeg, png, jpg, webp.',
+            'imagen.max' => 'La imagen de actualización no puede superar los 10 MB.'
         ]);
 
         $datosProducto = $request->except('imagen');
@@ -71,7 +100,6 @@ class AdminProductoController extends Controller
             $imagenFile = $request->file('imagen');
             $nombreImagen = time() . '_' . $imagenFile->getClientOriginalName();
             $imagenFile->move(public_path('images/img-products'), $nombreImagen);
-            
             $datosProducto['imagen'] = $nombreImagen;
         }
 
@@ -94,14 +122,12 @@ class AdminProductoController extends Controller
         return view('admin.pedidos', compact('pedidos'));
     }
 
-    // Tu método original (Filtra solo clientes)
     public function listarUsuarios()
     {
         $usuarios = User::where('rol', '!=', 'admin')->orWhereNull('rol')->orderBy('created_at', 'desc')->get();
         return view('admin.usuarios', compact('usuarios'));
     }
 
-    // El método que trajo Cris (Trae todos y tiene el escudo de protección)
     public function usuariosIndex()
     {
         if (auth()->user()->rol !== 'admin') {
@@ -111,22 +137,19 @@ class AdminProductoController extends Controller
 
     public function listarBajas()
     {
-    if (auth()->user()->rol !== 'admin') {
-        return redirect()->route('inicio')->with('error', 'No tienes permisos para acceder a esta sección.');
-    }
+        if (auth()->user()->rol !== 'admin') {
+            return redirect()->route('inicio')->with('error', 'No tienes permisos para acceder a esta sección.');
+        }
 
-    $eliminados = Producto::onlyTrashed()->get();
-    
-    // Cambia 'admin.bajas' por 'admin.bajas' si el archivo está suelto en la carpeta admin
-    return view('admin.bajas', compact('eliminados'));
+        $eliminados = Producto::onlyTrashed()->get();
+        return view('admin.bajas', compact('eliminados'));
     }
 
     public function reactivar($id)
     {
         $producto = \App\Models\Producto::withTrashed()->findOrFail($id);
-        $producto->restore(); // Lo saca del soft delete
+        $producto->restore();
 
         return redirect()->route('admin.productos.bajas')->with('success', '¡El producto "' . $producto->nombre . '" fue dado de alta nuevamente!');
     }
-
 }

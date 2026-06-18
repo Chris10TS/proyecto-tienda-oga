@@ -93,6 +93,7 @@ public function toggleFavorito($id)
         $esFavorito = $user->favoritos()->where('producto_id', $id)->exists();
         $mensaje = $esFavorito ? '¡Agregado a tus favoritos!' : 'Eliminado de tus favoritos.';
 
+        
         return redirect()->back()->with('success', $mensaje);
     }
 

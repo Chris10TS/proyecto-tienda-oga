@@ -7,7 +7,6 @@
     <div class="container container-profile">
         <div class="row g-4">
             
-            <!-- COLUMNA IZQUIERDA: Menú Lateral del Administrador -->
             <div class="col-md-4 col-lg-3">
                 <div class="d-flex align-items-center gap-3 mb-4 ps-2">
                     <div class="avatar-circle bg-danger-subtle">
@@ -30,9 +29,20 @@
                 </div>
             </div>
 
-            <!-- COLUMNA DERECHA: Formulario de Carga -->
             <div class="col-md-8 col-lg-9">
                 <h2 class="fw-bold text-dark mb-4 profile-main-title">Cargar Nuevo Producto</h2>
+
+                {{-- Bloque de alertas de errores posicionado arriba del formulario --}}
+                @if ($errors->any())
+                    <div class="alert alert-danger border-0 shadow-sm rounded-4 text-start mb-4">
+                        <span class="fw-bold d-block mb-2 text-danger">Por favor, corrija los siguientes errores:</span>
+                        <ul class="mb-0 small">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
                 <div class="card border-0 shadow-sm rounded-4 bg-white p-4">
                     <form action="{{ route('admin.productos.store') }}" method="POST" enctype="multipart/form-data">
@@ -40,39 +50,39 @@
 
                         <div class="mb-3">
                             <label class="form-label fw-bold small text-secondary">Nombre del Artículo</label>
-                            <input type="text" name="nombre" class="form-control border-dark-subtle" placeholder="Ej: Cámara Seguridad WAER" required>
+                            <input type="text" name="nombre" class="form-control border-dark-subtle @error('nombre') is-invalid @enderror" placeholder="Ej: Cámara Seguridad WAER" value="{{ old('nombre') }}">
                         </div>
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label class="form-label fw-bold small text-secondary">Precio de Venta ($)</label>
-                                <input type="number" step="0.01" name="precio" class="form-control border-dark-subtle" placeholder="0.00" required>
+                                <input type="number" step="0.01" min="0.01" name="precio" class="form-control border-dark-subtle @error('precio') is-invalid @enderror" placeholder="0.00" value="{{ old('precio') }}">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label fw-bold small text-secondary">Stock Disponible</label>
-                                <input type="number" name="stock" class="form-control border-dark-subtle" placeholder="Ej: 15" required>
+                                <input type="number" min="0" name="stock" class="form-control border-dark-subtle @error('stock') is-invalid @enderror" placeholder="Ej: 15" value="{{ old('stock') }}">
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label class="form-label fw-bold small text-secondary">Categoría correspondiente</label>
-                                <select name="categoria_id" class="form-select border-dark-subtle" required>
+                                <select name="categoria_id" class="form-select border-dark-subtle @error('categoria_id') is-invalid @enderror">
                                     <option value="">Seleccione una opción...</option>
                                     @foreach($categorias as $cat)
-                                        <option value="{{ $cat->id }}">{{ $cat->nombre }}</option>
+                                        <option value="{{ $cat->id }}" {{ old('categoria_id') == $cat->id ? 'selected' : '' }}>{{ $cat->nombre }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label fw-bold small text-secondary">Imagen del Producto</label>
-                                <input type="file" name="imagen" class="form-control border-dark-subtle" accept="image/*" required>
+                                <input type="file" name="imagen" class="form-control border-dark-subtle @error('imagen') is-invalid @enderror" accept="image/*">
                             </div>
                         </div>
 
                         <div class="mb-4">
                             <label class="form-label fw-bold small text-secondary">Descripción del Producto</label>
-                            <textarea name="descripcion" class="form-control border-dark-subtle" rows="4" placeholder="Especificaciones técnicas, cuotas, garantías..." required></textarea>
+                            <textarea name="descripcion" class="form-control border-dark-subtle @error('descripcion') is-invalid @enderror" rows="4" placeholder="Especificaciones técnicas, cuotas, garantías...">{{ old('descripcion') }}</textarea>
                         </div>
 
                         <div class="text-end">
