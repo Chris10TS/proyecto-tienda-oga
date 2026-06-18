@@ -23,6 +23,7 @@ Route::get('/ofertas', [ProductoController::class, 'ofertas'])->name('productos.
 Route::get('/catalogo/categoria/{id}', [ProductoController::class, 'categoria'])->name('productos.categoria');
 Route::post('/producto/{id}/opinar', [ProductoController::class, 'guardarReseña'])->name('productos.opinor')->middleware('auth');
 Route::post('/producto/{id}/favorito', [ProductoController::class, 'toggleFavorito'])->name('productos.favorito')->middleware('auth');
+Route::get('/buscar', [App\Http\Controllers\ProductoController::class, 'buscar'])->name('productos.buscar');
 
 // =======================================================================
 // 2. CIRCUITO DINÁMICO DEL CARRITO DE COMPRAS

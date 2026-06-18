@@ -24,23 +24,23 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label class="form-label fw-bold small">Nombre Completo</label>
-                            <input type="text" name="nombre" class="form-control bg-light" value="{{ old('nombre') }}" placeholder="Ej: Lionel Messi" required>
+                            <input type="text" name="nombre" class="form-control bg-light" value="{{ old('nombre') }}" placeholder="Ej: Lionel Messi" >
                         </div>
 
                         <div class="col-md-6 mb-3">
                             <label class="form-label fw-bold small">Correo Electrónico</label>
-                            <input type="email" name="email" class="form-control bg-light" value="{{ old('email') }}" placeholder="nombre@ejemplo.com" required>
+                            <input type="email" name="email" class="form-control bg-light" value="{{ old('email') }}" placeholder="nombre@ejemplo.com" >
                         </div>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label fw-bold small">Teléfono / WhatsApp</label>
-                        <input type="text" name="telefono" class="form-control bg-light" value="{{ old('telefono') }}" placeholder="Ej: 3794123456" required>
+                        <input type="text" name="telefono" class="form-control bg-light" value="{{ old('telefono') }}" placeholder="Ej: 3794123456" >
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label fw-bold small">¿En qué podemos ayudarte?</label>
-                        <textarea name="mensaje" class="form-control bg-light" rows="4" placeholder="Escribí tu consulta aquí..." required>{{ old('mensaje') }}</textarea>
+                        <textarea name="mensaje" class="form-control bg-light" rows="4" placeholder="Escribí tu consulta aquí..." >{{ old('mensaje') }}</textarea>
                     </div>
 
                     <div class="text-center">

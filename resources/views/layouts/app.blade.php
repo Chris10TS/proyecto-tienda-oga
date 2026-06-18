@@ -23,7 +23,6 @@
                 <i class="ti ti-search text-black fs-2"></i>
             </button>
 
-            {{-- Favoritos Móvil: Solo visible para usuarios logueados que NO sean admin --}}
             @auth
                 @if(Auth::user()->rol != 'admin')
                     <a href="/favoritos" class="text-decoration-none">
@@ -55,13 +54,12 @@
                         <li><hr class="dropdown-divider"></li>
                         <li>
                             <a class="dropdown-item py-2 small text-muted" href="{{ route('logout') }}" 
-                               onclick="event.preventDefault(); document.getElementById('logout-form-mobile').submit();">
+                               onclick="event.preventDefault(); document.getElementById('logout-form-global').submit();">
                                 <i class="ti ti-logout me-2"></i> Salir
                             </a>
                         </li>
                     </ul>
                 </div>
-                <form id="logout-form-mobile" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form>
             @else
                 <a href="{{ route('login') }}" class="text-decoration-none text-black">
                     <i class="ti ti-user" style="font-size: 1.6rem;"></i>
@@ -75,9 +73,9 @@
 
         <div class="collapse navbar-collapse" id="navbarContenido">
             
-            <form class="d-flex flex-grow-1 mx-lg-4 my-3 my-lg-0">
+            <form action="{{ route('productos.buscar') }}" method="GET" class="d-flex flex-grow-1 mx-lg-4 my-3 my-lg-0">
                 <div class="input-group buscador w-100 shadow-sm rounded">
-                    <input class="form-control border-end-0 py-2 ps-3" type="search" placeholder="Buscar productos, marcas y más..." aria-label="Buscar">
+                    <input class="form-control border-end-0 py-2 ps-3" type="search" name="buscar" value="{{ request('buscar') }}" placeholder="Buscar productos, marcas y más..." aria-label="Buscar">
                     <button class="btn btn-white bg-white border-start-0 pe-3" type="submit">
                         <i class="ti ti-search text-muted fs-4"></i>
                     </button>
@@ -86,7 +84,6 @@
 
             <div class="d-none d-lg-flex align-items-center gap-4 ms-auto">
                 
-                {{-- Favoritos Escritorio: Solo visible para usuarios logueados que NO sean admin --}}
                 @auth
                     @if(Auth::user()->rol != 'admin')
                         <a href="/favoritos" class="text-decoration-none">
@@ -159,26 +156,10 @@
 
                             @if(Auth::user()->rol == 'admin')
                                 <li><h6 class="dropdown-header text-danger fw-bold pt-0">ADMINISTRACIÓN</h6></li>
-                                <li>
-                                    <a class="dropdown-item py-2 small fw-semibold" href="{{ route('admin.consultas') }}">
-                                       <i class="ti ti-message-report me-2 text-danger"></i> VER CONSULTAS
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item py-2 small fw-semibold" href="{{ route('admin.productos.create') }}">
-                                      <i class="ti ti-box me-2 text-muted"></i> GESTIONAR PRODUCTOS
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item py-2 small fw-semibold" href="/admin/usuarios">
-                                      <i class="ti ti-users me-2 text-muted"></i> VER USUARIOS
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item py-2 small fw-semibold" href="{{ route('admin.pedidos') }}">
-                                      <i class="ti ti-report-money me-2 text-success"></i> VER VENTAS
-                                    </a>
-                                </li>
+                                <li><a class="dropdown-item py-2 small fw-semibold" href="{{ route('admin.consultas') }}"><i class="ti ti-message-report me-2 text-danger"></i> VER CONSULTAS</a></li>
+                                <li><a class="dropdown-item py-2 small fw-semibold" href="{{ route('admin.productos.create') }}"><i class="ti ti-box me-2 text-muted"></i> GESTIONAR PRODUCTOS</a></li>
+                                <li><a class="dropdown-item py-2 small fw-semibold" href="/admin/usuarios"><i class="ti ti-users me-2 text-muted"></i> VER USUARIOS</a></li>
+                                <li><a class="dropdown-item py-2 small fw-semibold" href="{{ route('admin.pedidos') }}"><i class="ti ti-report-money me-2 text-success"></i> VER VENTAS</a></li>
                             @else
                                 <li><a class="dropdown-item py-2 small" href="/perfil"><i class="ti ti-user-circle me-2 text-muted"></i> Mi Perfil</a></li>
                                 <li><a class="dropdown-item py-2 small" href="/favoritos"><i class="ti ti-heart me-2 text-muted"></i> Mis Favoritos</a></li>
@@ -188,16 +169,12 @@
                             <li><hr class="dropdown-divider"></li>
                             <li>
                                 <a class="dropdown-item py-2 small text-muted" href="{{ route('logout') }}" 
-                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                   onclick="event.preventDefault(); document.getElementById('logout-form-global').submit();">
                                     <i class="ti ti-logout me-2"></i> Salir
                                 </a>
                             </li>
                         </ul>
                     </div>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
                 @endauth
             </div>
 
@@ -291,6 +268,12 @@
     </ul>
   </div>
 </div>
+
+@auth
+    <form id="logout-form-global" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+    </form>
+@endauth
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>

@@ -85,7 +85,7 @@
     <div class="container my-5">
         <div class="d-flex gap-2 align-items-baseline mb-3">
             <h3 class="fw-light text-dark"><span class="fw-bold">Climatización</span></h3>
-            <a href="/catalogo-invierno" class="text-decoration-none">Ver todas</a>
+            <a href="/catalogo/categoria/3" class="text-decoration-none">Ver todas</a>
         </div>
 
         <div class="d-flex overflow-auto pb-3 gap-3" style="scrollbar-width: thin;">
@@ -124,7 +124,7 @@
     <div class="container my-5">
         <div class="d-flex gap-2 align-items-baseline mb-3">
             <h3 class="fw-light text-dark"><span class="fw-bold">Hogar</span></h3>
-            <a href="/catalogo-hogar" class="text-decoration-none">Ver todas</a>
+            <a href="/catalogo/categoria/2" class="text-decoration-none">Ver todas</a>
         </div>
 
         <div class="d-flex overflow-auto pb-3 gap-3" style="scrollbar-width: thin;">
@@ -163,7 +163,7 @@
     <div class="container my-5">
         <div class="d-flex gap-2 align-items-baseline mb-3">
             <h3 class="fw-light"><span class="fw-bold">Seguridad</span></h3>
-            <a href="/catalogo-seguridad" class="text-decoration-none">Ver todas</a>
+            <a href="/catalogo/categoria/1" class="text-decoration-none">Ver todas</a>
         </div>
 
         <div class="d-flex overflow-auto pb-3 gap-3" style="scrollbar-width: thin;">
@@ -208,7 +208,7 @@
         <div class="container">
             <div class="d-flex gap-2 align-items-baseline mb-3">
                 <h3 class="fw-light text-white"><span class="fw-bold">Especial Mundial: Televisores y Sonido</span></h3>
-                <a href="/catalogo-televisores" class="text-white text-decoration-none fw-bold">Ver todas las ofertas</a>
+                <a href="/catalogo/categoria/4" class="text-white text-decoration-none fw-bold">Ver todas las ofertas</a>
             </div>
 
             <div class="d-flex justify-content-center pb-3 gap-3 flex-wrap">

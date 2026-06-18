@@ -15,8 +15,13 @@
 
     <div class="row mb-4">
         <div class="col-12">
-            <h1 class="fw-bold">{{ $titulo }}</h1>
-            <p class="text-muted">Explorá nuestros artículos seleccionados con la mejor tecnología y calidad de Tienda OGA.</p>
+            @if(isset($termino) && $termino != '')
+                <h1 class="fw-bold">Resultados para: <span class="text-muted">"{{ $termino }}"</span></h1>
+                <p class="text-muted">Se encontraron {{ $productos->count() }} artículos que coinciden con tu búsqueda en Tienda OGA.</p>
+            @else
+                <h1 class="fw-bold">{{ $titulo }}</h1>
+                <p class="text-muted">Explorá nuestros artículos seleccionados con la mejor tecnología y calidad de Tienda OGA.</p>
+            @endif
             <hr>
         </div>
     </div>
@@ -59,8 +64,13 @@
             </div>
         @empty
             <div class="col-12 text-center py-5">
-                <i class="ti ti-box-off display-3 text-muted mb-3"></i>
-                <h4 class="text-muted">No se encontraron artículos en esta sección por el momento.</h4>
+                @if(isset($termino))
+                    <i class="ti ti-search-off display-3 text-muted mb-3"></i>
+                    <h4 class="text-muted">No encontramos ningún artículo que coincida con "{{ $termino }}".</h4>
+                @else
+                    <i class="ti ti-box-off display-3 text-muted mb-3"></i>
+                    <h4 class="text-muted">No se encontraron artículos en esta sección por el momento.</h4>
+                @endif
                 <a href="{{ route('inicio') }}" class="btn btn-outline-primary mt-3 fw-bold">Volver a la Portada</a>
             </div>
         @endforelse

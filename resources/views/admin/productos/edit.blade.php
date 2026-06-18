@@ -12,32 +12,41 @@
                 </div>
                 <div class="card-body p-4 bg-white">
                     
-                    <form action="{{ route('admin.productos.update', $producto->id) }}" method="POST">
+                    @if ($errors->any())
+                        <div class="alert alert-danger alert-dismissible fade show fw-bold mb-4 shadow-sm" role="alert">
+                            <ul class="mb-0 ps-3">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+                    
+                    <form action="{{ route('admin.productos.update', $producto->id) }}" method="POST" enctype="multipart/form-data" novalidate>
                         @csrf
-                        @method('PUT') <!-- OBLIGATORIO PARA ACTUALIZAR -->
-
-                        <div class="mb-3">
+                        @method('PUT') <div class="mb-3">
                             <label class="form-label fw-bold small">Nombre del Artículo</label>
-                            <input type="text" name="nombre" class="form-control" value="{{ $producto->nombre }}" required>
+                            <input type="text" name="nombre" class="form-control" value="{{ old('nombre', $producto->nombre) }}">
                         </div>
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label class="form-label fw-bold small">Precio de Venta ($)</label>
-                                <input type="number" step="0.01" name="precio" class="form-control" value="{{ $producto->precio }}" required>
+                                <input type="number" step="0.01" name="precio" class="form-control" value="{{ old('precio', $producto->precio) }}">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label fw-bold small">Stock</label>
-                                <input type="number" name="stock" class="form-control" value="{{ $producto->stock }}" required>
+                                <input type="number" name="stock" class="form-control" value="{{ old('stock', $producto->stock) }}">
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label class="form-label fw-bold small">Categoría</label>
-                                <select name="categoria_id" class="form-select" required>
+                                <select name="categoria_id" class="form-select">
                                     @foreach($categorias as $cat)
-                                        <option value="{{ $cat->id }}" {{ $producto->categoria_id == $cat->id ? 'selected' : '' }}>
+                                        <option value="{{ $cat->id }}" {{ old('categoria_id', $producto->categoria_id) == $cat->id ? 'selected' : '' }}>
                                             {{ $cat->nombre }}
                                         </option>
                                     @endforeach
@@ -52,7 +61,7 @@
 
                         <div class="mb-4">
                             <label class="form-label fw-bold small">Descripción</label>
-                            <textarea name="descripcion" class="form-control" rows="4" required>{{ $producto->descripcion }}</textarea>
+                            <textarea name="descripcion" class="form-control" rows="4">{{ old('descripcion', $producto->descripcion) }}</textarea>
                         </div>
 
                         <div class="text-end">

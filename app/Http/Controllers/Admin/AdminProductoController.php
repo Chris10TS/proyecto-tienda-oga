@@ -71,16 +71,18 @@ class AdminProductoController extends Controller
         $producto = Producto::findOrFail($id);
 
         $request->validate([
-            'nombre' => 'required|string|max:150',
-            'descripcion' => 'required|string',
+            'nombre' => ['required', 'string', 'max:150', 'regex:/^(?!\s*$).+/'],
+            'descripcion' => ['required', 'string', 'regex:/^(?!\s*$).+/'],
             'precio' => 'required|numeric|min:0.01',
             'stock' => 'required|integer|min:0',
             'categoria_id' => 'required|exists:categorias,id',
             'imagen' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:10240' 
         ], [
             'nombre.required' => 'El nombre del artículo es obligatorio.',
+            'nombre.regex' => 'El nombre no puede estar compuesto únicamente por espacios vacíos.',
             'nombre.max' => 'El nombre no puede superar los 150 caracteres.',
             'descripcion.required' => 'La descripción es obligatoria.',
+            'descripcion.regex' => 'La descripción técnica no puede contener solo espacios vacíos.',
             'precio.required' => 'El precio de venta es obligatorio.',
             'precio.numeric' => 'El precio debe ser un número válido.',
             'precio.min' => 'El precio de venta debe ser mayor a 0.',
@@ -105,7 +107,7 @@ class AdminProductoController extends Controller
 
         $producto->update($datosProducto);
 
-        return redirect()->route('inicio')->with('success', '¡Producto actualizado!');
+        return redirect()->route('inicio')->with('success', '¡Producto actualizado con éxito!');
     }
 
     public function destroy($id)

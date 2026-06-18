@@ -32,7 +32,6 @@
             <div class="col-md-8 col-lg-9">
                 <h2 class="fw-bold text-dark mb-4 profile-main-title">Cargar Nuevo Producto</h2>
 
-                {{-- Bloque de alertas de errores posicionado arriba del formulario --}}
                 @if ($errors->any())
                     <div class="alert alert-danger border-0 shadow-sm rounded-4 text-start mb-4">
                         <span class="fw-bold d-block mb-2 text-danger">Por favor, corrija los siguientes errores:</span>

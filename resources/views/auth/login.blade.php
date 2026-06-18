@@ -38,16 +38,23 @@
                         @csrf
                         <div class="mb-3">
                             <input type="email" name="email" class="form-control form-control-lg bg-white rounded-pill px-4 login-input @error('email') is-invalid @enderror" 
-                                   placeholder="Ej.: ejemplo@mail.com" value="{{ old('email') }}" required autofocus>
+                                   placeholder="Ej.: ejemplo@mail.com" value="{{ old('email') }}">
                             @error('email')
                                 <span class="invalid-feedback text-start ps-3"><strong>{{ $message }}</strong></span>
                             @enderror
                         </div>
 
                         <div class="mb-2 position-relative">
-                            <input type="password" name="password" class="form-control form-control-lg bg-white rounded-pill px-4 login-input @error('password') is-invalid @enderror" 
-                                   placeholder="Ingrese su contraseña" required>
-                            <i class="ti ti-eye text-secondary position-absolute top-50 end-0 translate-middle-y pe-4 fs-5 btn-toggle-eye"></i>
+                           <input type="password" name="password" 
+                              class="form-control form-control-lg bg-white rounded-pill px-4 login-input @error('password') is-invalid @enderror" 
+                              placeholder="Ingrese su contraseña">
+                             <i class="ti ti-eye text-secondary position-absolute top-50 end-0 translate-middle-y pe-4 fs-5 btn-toggle-eye"></i>
+    
+                            @error('password')
+                                <span class="invalid-feedback text-start ps-3">
+                                    <strong>{{ $message }}</strong>
+                                 </span>
+                             @enderror
                         </div>
 
                         @if (Route::has('password.request'))
@@ -77,7 +84,7 @@
                         @csrf
                         <div class="mb-4">
                             <input type="email" name="email_codigo" class="form-control form-control-lg bg-white rounded-pill px-4 login-input" 
-                                   placeholder="Ej.: ejemplo@mail.com" required>
+                                   placeholder="Ej.: ejemplo@mail.com">
                         </div>
 
                         <div class="d-grid mb-4">
